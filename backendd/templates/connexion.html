@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="template de base">
+    <meta name="author" content="Ouzéïrou">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="{% static 'bootstrap/dist/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/inscription.css' %}" rel="stylesheet">
+    <title>Inscription-Wassangari</title>
+</head>
+<body>
+    <div class="iscr">
+        <div class="iscr-images">
+            <img id="sv" src="{% static 'img/sv.jpg' %}" alt="">
+            <img id="sv1" src="{% static 'img/sv1.jpg' %}" alt="">
+            <img id="sv2" src="{% static 'img/sv2.jpg' %}" alt="">
+        </div>
+        <div class="inscripform">
+            <p class="wass">WASSANGARI</p>
+            <form action="" method="post">
+                {%csrf_token%}
+                <input type="email" placeholder="EMAIL" required> <br>
+                <input type="password" placeholder="MOT DE PASSE" required> <br>
+                <button type="submit">SE CONNECTER</button>
+            </form>
+            <p class="rappel">Mot de passe oublié ?</p>
+            <p class="rappel">Vous avez déjà un compte ? <span>Connectez-vous</span></p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-div1 footer-div">
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://plus.google.com" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-google-plus-g"></i>
+            </a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.whatsapp.com" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+        <div class="links footer-div">
+            <div>
+                <a href="">HOME</a>
+                <a href="">ABOUT</a>
+                <a href="">CONTACT</a>
+                <a href="">COMPANY</a>
+            </div>
+            <p>&copy; 2024 Wassangari. Tous droits réservés.</p>
+        </div>
+    </div>
+</body>
+</html>

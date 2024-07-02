@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+{% load static%}
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.google.com/share?selection.family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900">
+    <title>Wassangari</title>
+</head>
+<body>
+    <div class="slider">
+        <div class="list">
+            <div class="item" style="background-image: url('{% static 'img/back.jpeg' %}');">
+                <div class="overlay">
+                    <div class="text" id="contenue">
+                        Bienvenue sur Wassangari !
+                        <p>Explorez les merveilles culturelles et artistiques du Bénin. Apprenez, découvrez et visitez virtuellement les trésors culturels et artistiques du Bénin.</p>
+                        <a id="start" href="{% url "apprendre" %}">Commencer maintenant</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item" style="background-image: url('{% static 'img/collage1.jpg' %}');">
+                <div class="overlay">
+                    <div class="text him">
+                        Apprendre
+                        <p>Dans cette partie de la plateforme nous encourageons l'apprentissage actif en proposant des activités interactives, des jeux, des quiz et des défis liés à la culture béninoise. Les utilisateurs pourront tester leurs connaissances, développer de nouvelles compétences et participer à des expériences d'apprentissage engageantes.</p>
+                        <a id="start" href="{% url "apprendre" %}">Commencer maintenant</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item" style="background-image: url('{% static 'img/collage3.jpg' %}');">
+                <div class="overlay">
+                    <div class="text him">
+                        Decouvrir
+                        <p>Retrouvez ici des contenus audiovisuels sur les richesses culturelles du Bénin, sous forme de mini-documentaires, de capsules vidéo ou de podcasts, classés par thématiques et par régions. Vous pouvez les consulter en ligne ou les télécharger gratuitement ou moyennant un paiement selon le format choisi</p>
+                        <a id="start" href="{% url "apprendre" %}">Commencer maintenant</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item" style="background-image: url('{% static 'img/collage4.jpg' %}');">
+                <div class="overlay">
+                    <div class="text him">
+                        Visiter
+                        <p>Vistez virtuellement le patrimoine culturel du Bénin (Site historique, Monument, Musée, Reserve, Parc National)</p>
+                        <a id="start" href="{% url "apprendre" %}">Commencer maintenant</a>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="item" style="background-image: url('{% static 'img/collage4.jpg' %}');">
+                <div class="overlay">
+                    <div class="text him">
+                        Explorer
+                        <p>Visitez notre banque d’images sur le patrimoine culturel et touristique du Bénin, avec des photos de qualité prises par notre équipe ou par des photographes professionnels, amateurs ou touristes associés. Classées par thématiques, par régions, et accompagnées de légendes explicatives</p>
+                        <a id="start" href="{% url "apprendre" %}">Commencer maintenant</a>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="item" style="background-image: url('{% static 'img/collage4.jpg' %}');">
+                <div class="overlay">
+                    <div class="text him">
+                        Acheter
+                        <p>Explorer et acheter des produits culturel et Artistique du Bénin</p>
+                        <a id="start" href="{% url "apprendre" %}">Commencer maintenant</a>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="item" style="background-image: url('{% static 'img/collage4.jpg' %}');">
+                <div class="overlay">
+                    <div class="text him">
+                        Evenements
+                        <p>Retrouvez ici les événements culturels à venir au Bénin, tels que des festivals, des concerts, des expositions, des conférences, etc</p>
+                        <a id="start" href="{% url "apprendre" %}">Commencer maintenant</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button id="prev"><i class="fas fa-chevron-left"></i></button>
+            <button id="next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <script src="{% static 'js/app.js'%}"></script>
+</body>
+</html>

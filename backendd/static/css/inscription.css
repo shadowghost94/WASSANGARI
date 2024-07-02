@@ -1,0 +1,160 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgba(247, 99, 0, 0.3);
+    overflow: hidden; /* Assure qu'il n'y a pas de scrollbar */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.iscr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(247, 99, 0, 0.3);
+    flex: 1;
+    overflow: hidden; /* Assure qu'il n'y a pas de scrollbar interne */
+}
+#sv{
+    width: 30%;
+    height: 260px;
+    margin-top: 6%;
+}
+
+#sv1{
+    width: 30%;
+    height: 320px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+#sv1:hover{
+    width: 32%;
+    height: 330px;
+    box-sizing: border-box;
+}
+
+#sv2{
+    width: 30%;
+    height: 260px;
+    margin-top: 6%;
+}
+
+.iscr .iscr-images {
+    display: flex;
+    width: 50%;
+}
+
+.inscripform {
+    max-width: 400px;
+    width: 100%;
+    margin: 20px 0;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+}
+
+.inscripform .wass {
+    font-size: 24px;
+    font-weight: bold;
+    /* margin-bottom: 20px; */
+}
+
+.inscripform form input,
+.inscripform form select {
+    width: 100%;
+    padding: 5px;
+    margin: 2px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    appearance: none; /* Supprime le style par défaut du navigateur */
+    -webkit-appearance: none; /* Supprime le style par défaut du navigateur pour Safari */
+    -moz-appearance: none;
+}
+
+.inscripform form button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    overflow-y: auto;
+}
+
+.inscripform form button:hover {
+    background-color: #218838;
+}
+
+.rappel {
+    margin-top: 5px;
+}
+
+.rappel span {
+    color: #007bff;
+    cursor: pointer;
+}
+
+.footer {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    padding: 10px;
+    background-color: #4F1904;
+    color: #fff;
+    /* text-align: center; */
+    width: 100%;
+}
+.footer .footer-div, ul.footer-div2 li{
+    text-align: center;
+} 
+.footer a {
+    color: #fff;
+    margin: 0 5px;
+    /* font-size: 20px; */
+    text-decoration: none;
+}
+
+
+.footer .links p {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+/* Media Queries for Responsiveness */
+@media (min-width: 600px) {
+    .iscr {
+        flex-direction: row;
+    }
+    
+    .footer {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .footer .links ul {
+        flex-direction: row;
+    }
+
+    .footer .links ul li {
+        margin: 0 10px;
+    }
+}

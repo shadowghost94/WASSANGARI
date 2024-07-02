@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: monospace;
+}
+
+.slider {
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    width: max-content;
+    transition: left 0.5s ease-in-out;
+}
+
+.item {
+    width: 100vw;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    /* filter: blur(2px); */
+    z-index: 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.text {
+    color: white;
+    font-size: 4.5em;
+    font-weight: bold;
+    text-align: center;
+    z-index: 3; /* Assurez-vous que le texte est bien au-dessus de l'élément flou */
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
+    width: 70%;
+}
+
+div.item div.overlay div.him{
+    background-color: #AE4C0B;
+    border-radius: 10px;
+    padding-bottom: 5%;
+    padding-top: 3%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+.text p{
+    font-size: 20px;
+    font-weight: normal;
+    font-family: "Poppins", sans-serif;
+}
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 45%;
+    left: 5%;
+    width: 90%;
+    z-index: 3; /* Assurez-vous que les boutons*/
+}
+
+.buttons button {
+    background-color: rgb(255, 255, 255, 0);
+    border: none;
+    cursor: pointer;
+    color: #f8b044; /* Corrige la couleur de texte */
+    font-size: 30px; /* Ajuste la taille de la police selon vos besoins */
+    padding: 10px 20px; /* Ajoute du padding pour rendre les boutons plus visibles */
+}
+
+.buttons button:focus {
+    outline: none; /* Supprime la bordure de focus si nécessaire */
+}
+.buttons {
+    position: absolute;
+    top: 45%;
+    left: 5%;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: none;
+    border: none;
+    font-family: monospace;
+    font-weight: bold;
+}
+.buttons button i{
+    height: 100px;
+}
+
+a#start{
+    margin-top: 15%;
+    background-color: #FFCF87;
+    color: #AE4C0B;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 25px;
+    text-decoration: none;
+    border: 1px solid #AE4C0B;
+}
