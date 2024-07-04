@@ -14,6 +14,10 @@
     <title>Inscription-Wassangari</title>
 </head>
 <body>
+    {% if comment is not None%}
+        <div class="lert alert-success">{{comment}}<div>
+    {% endif %}
+    
     <div class="iscr">
         <div class="iscr-images">
             <img id="sv" src="{% static 'img/sv.jpg' %}" alt="">
@@ -22,22 +26,35 @@
         </div>
         <div class="inscripform">
             <p class="wass">WASSANGARI</p>
-            <form action="" method="post">
+            <form action="/inscription/" method="post">
                 {%csrf_token%}
                 <input type="text" name="nom" id="nom" placeholder="NOM" required> <br>
+
                 <input type="text" name="prenom" id="prenom" placeholder="PRENOM" required> <br>
+                
                 <input type="email" name="email" id="email" placeholder="EMAIL" required> <br>
-                <select name="sexe" id="sexe" required>
+                
+                <select name="sexe" id="sexe" class="selectt" required>
                     <option value="" disabled selected>SEXE</option>
                     <option value="homme">Homme</option>
                     <option value="femme">Femme</option>
                 </select> <br>
-                <input type="text" name="ethnie" id="ethnie" placeholder="Ethnie" required> <br>
+                
+                <select name="ethnie" id="ethnie" class="selectt">
+                    <option value="" disabled selected>ETHNIE</option>
+                    <option value="0">AUCUNE</option>
+                    {% for ethnie in ethnies %}
+                        <option value="{{ ethnie.id }}">{{ ethnie.nom }}</option>
+                    {% endfor %}
+                </select>
+                
                 <input type="password" name="password" id="password" placeholder="MOT DE PASSE" required> <br>
+                
                 <input type="password" name="password-confirm" id="password-confirm" placeholder="CONFIRMEZ MOT DE PASSE" required> <br>
+                <span id="passwordError" class="error"></span><br>
                 <button type="submit">S'INSCRIRE</button>
             </form>
-            <p class="rappel">Vous avez déjà un compte ? <span>Connectez-vous</span></p>
+            <p class="rappel">Vous avez déjà un compte ? <a href="{% url 'connexion'%}">Connectez-vous</a></p>
         </div>
     </div>
 
@@ -69,5 +86,33 @@
             <p>&copy; 2024 Wassangari. Tous droits réservés.</p>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('inscriptionForm');
+            const password = document.getElementById('password');
+            const password1 = document.getElementById('password1');
+            const passwordError = document.getElementById('passwordError');
+
+            function validatePasswords() {
+                if (password.value !== password1.value) {
+                    passwordError.textContent = 'Les mots de passe ne correspondent pas.';
+                    return false;
+                } else {
+                    passwordError.textContent = '';
+                    return true;
+                }
+            }
+
+            password.addEventListener('input', validatePasswords);
+            password1.addEventListener('input', validatePasswords);
+
+            form.addEventListener('submit', function(event) {
+                if (!validatePasswords()) {
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
 </body>
 </html>

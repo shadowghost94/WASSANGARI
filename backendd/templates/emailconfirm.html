@@ -1,0 +1,5 @@
+{% autoescape off %}
+    {{name}} Bienvenue sur le systeme de connexion de la plateforme wassangari
+    Confirmer votre adresse e-mail en clickant sur le lien suivant:
+    lien: https://{{domain}}{% url 'activate' uidb64=uid token=token%}
+{% endautoescape %}

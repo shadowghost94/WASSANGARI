@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
 html, body {
     height: 100%;
     margin: 0;
@@ -33,6 +35,10 @@ body {
     height: 260px;
     margin-top: 6%;
 }
+#sv:hover{
+    width: 30%;
+    height: 320px;
+}
 
 #sv1{
     width: 30%;
@@ -51,7 +57,10 @@ body {
     height: 260px;
     margin-top: 6%;
 }
-
+#sv2:hover{
+    width: 30%;
+    height: 320px;
+}
 .iscr .iscr-images {
     display: flex;
     width: 50%;
@@ -65,16 +74,18 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     text-align: center;
+    font-family: "Poppins", sans-serif;
 }
 
 .inscripform .wass {
     font-size: 24px;
     font-weight: bold;
+    font-family: "Poppins", sans-serif;
     /* margin-bottom: 20px; */
 }
 
 .inscripform form input,
-.inscripform form select {
+.inscripform form select.selectt {
     width: 100%;
     padding: 5px;
     margin: 2px;
@@ -102,8 +113,13 @@ body {
     background-color: #218838;
 }
 
+.error {
+    color: red;
+    font-size: 12px;
+}
 .rappel {
     margin-top: 5px;
+    font-family: "Poppins", sans-serif;
 }
 
 .rappel span {
@@ -122,6 +138,10 @@ body {
     /* text-align: center; */
     width: 100%;
 }
+
+div.links div a{
+    font-family: "Poppins", sans-serif;
+}
 .footer .footer-div, ul.footer-div2 li{
     text-align: center;
 } 
@@ -136,6 +156,7 @@ body {
 .footer .links p {
     margin-top: 10px;
     font-size: 12px;
+    font-family: "Poppins", sans-serif;
 }
 
 /* Media Queries for Responsiveness */

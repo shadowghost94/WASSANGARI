@@ -11,5 +11,6 @@ urlpatterns = [
      path('acheter/', views.acheter, name ='acheter'),
      path('evenements/', views.evenement, name ='evenements'),
      path('connexion/', views.connexion, name ='connexion'),
-     path('inscription/', views.inscription, name ='inscription')
+     path('inscription/', views.inscription, name ='inscription'),
+     path('activate/<uidb64>/<token>', views.activate, name="activate")
 ]

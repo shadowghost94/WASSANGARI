@@ -138,3 +138,7 @@ a#start{
     text-decoration: none;
     border: 1px solid #AE4C0B;
 }
+
+#contenue img{
+    width: 250px;
+}

@@ -14,6 +14,9 @@
     <title>Inscription-Wassangari</title>
 </head>
 <body>
+    {% if comment is not None%}
+        <div class="lert alert-success">{{comment}}<div>
+    {% endif %}
     <div class="iscr">
         <div class="iscr-images">
             <img id="sv" src="{% static 'img/sv.jpg' %}" alt="">
@@ -22,14 +25,14 @@
         </div>
         <div class="inscripform">
             <p class="wass">WASSANGARI</p>
-            <form action="" method="post">
+            <form action="/connexion/" method="post">
                 {%csrf_token%}
-                <input type="email" placeholder="EMAIL" required> <br>
-                <input type="password" placeholder="MOT DE PASSE" required> <br>
+                <input type="email" name="email" placeholder="EMAIL" required> <br>
+                <input type="password" name="password" placeholder="MOT DE PASSE" required> <br>
                 <button type="submit">SE CONNECTER</button>
             </form>
             <p class="rappel">Mot de passe oublié ?</p>
-            <p class="rappel">Vous avez déjà un compte ? <span>Connectez-vous</span></p>
+            <p class="rappel">Vous n'avez de compte ? <a href="{% url 'inscription'%}">Inscrivez-vous ici</a></p>
         </div>
     </div>
 
