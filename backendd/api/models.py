@@ -1,5 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+
 
 class Ethnie(models.Model):
     nom = models.CharField(max_length=255)
@@ -79,22 +80,19 @@ class Musee(models.Model):
     def __str__(self):
         return self.nom
 
-class Chant(models.Model):
+class Chant_Danse(models.Model):
+    TYPE_CHOICES = [
+        ('chant', 'Chants'),
+        ('danse', 'Danses'),
+    ]
     titre = models.CharField(max_length=55)
     auteur = models.CharField(max_length=55)
+    type = models.CharField(max_length=10, choices=TYPE_CHOICES)
     description = models.CharField(max_length=255)
     ethnie = models.ForeignKey(Ethnie, on_delete=models.DO_NOTHING)
 
     def __str__(self):
         return self.titre
-
-class Danse(models.Model):
-    nom = models.CharField(max_length=55)
-    description = models.CharField(max_length=255)
-    ethnie = models.ForeignKey(Ethnie, on_delete=models.DO_NOTHING)
-
-    def __str__(self):
-        return self.nom
     
 class ContenuMultimedia(models.Model):
     TYPE_CHOICES = [
@@ -110,10 +108,24 @@ class ContenuMultimedia(models.Model):
     parc_national = models.ForeignKey(ParcNational, on_delete=models.DO_NOTHING, null=True, blank=True)
     reserve = models.ForeignKey(Reserve, on_delete=models.DO_NOTHING, null=True, blank=True)
     musee = models.ForeignKey(Musee, on_delete=models.DO_NOTHING, null=True, blank=True)
-    chant = models.ForeignKey(Chant, on_delete=models.DO_NOTHING, null=True, blank=True)
-    danse = models.ForeignKey(Danse, on_delete=models.DO_NOTHING, null=True, blank=True)
+    chant_danse = models.ForeignKey(Chant_Danse, on_delete=models.DO_NOTHING, null=True, blank=True)
 
-class Utilisateur(models.Model):
+class UtilisateurManager(BaseUserManager):
+    def create_user(self, email, password=None, **extra_fields):
+        if not email:
+            raise ValueError('L\'email est requis.')
+        email = self.normalize_email(email)
+        user = self.model(email=email, **extra_fields)
+        user.set_password(password)  # Utilisation de make_password n'est pas nécessaire ici
+        user.save(using=self._db)
+        return user
+    
+    def create_superuser(self, email, password=None, **extra_fields):
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
+        return self.create_user(email, password, **extra_fields)
+
+class Utilisateur(AbstractBaseUser, PermissionsMixin):
     nom = models.CharField(max_length=255)
     prenom = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
@@ -122,7 +134,7 @@ class Utilisateur(models.Model):
     premium = models.BooleanField(default=False)
     numero_momo = models.CharField(max_length=255, null=True, blank=True)
     num_carte_paiement = models.CharField(max_length=255, null=True, blank=True)
-    media_profil_url = models.CharField(max_length=255, null=True, blank=True)
+    media_profil_url = models.ImageField(upload_to='photos_profil/', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     password = models.CharField(max_length=255)
@@ -133,6 +145,11 @@ class Utilisateur(models.Model):
     musees_visites = models.ManyToManyField(Musee)
     verified = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
+
+    objects = UtilisateurManager()
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['nom', 'prenom']
 
     def __str__(self):
         return f"{self.nom} {self.prenom}"

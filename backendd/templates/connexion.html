@@ -11,17 +11,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="{% static 'bootstrap/dist/css/bootstrap.css' %}" rel="stylesheet">
     <link href="{% static 'css/inscription.css' %}" rel="stylesheet">
-    <title>Inscription-Wassangari</title>
+    <title>Connexion-Wassangari</title>
+    <style>
+
+    </style>
 </head>
 <body>
-    {% if comment is not None%}
-        <div class="lert alert-success">{{comment}}<div>
-    {% endif %}
+    
     <div class="iscr">
         <div class="iscr-images">
-            <img id="sv" src="{% static 'img/sv.jpg' %}" alt="">
-            <img id="sv1" src="{% static 'img/sv1.jpg' %}" alt="">
-            <img id="sv2" src="{% static 'img/sv2.jpg' %}" alt="">
+            
         </div>
         <div class="inscripform">
             <p class="wass">WASSANGARI</p>
@@ -63,6 +62,10 @@
             </div>
             <p>&copy; 2024 Wassangari. Tous droits réservés.</p>
         </div>
+        
     </div>
+    {% if comment%}
+        <div id="alerte" class="alert alerte-error">{{comment}}</div>
+    {%endif%}
 </body>
 </html>

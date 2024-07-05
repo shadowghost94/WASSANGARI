@@ -43,7 +43,7 @@ body, html {
     width: 100%;
     height: 100%;
     background: inherit;
-    /* filter: blur(2px); */
+    background-color: rgba(155, 248, 243, 0.822);
     z-index: 1;
 }
 

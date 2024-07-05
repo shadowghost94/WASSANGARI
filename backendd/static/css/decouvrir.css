@@ -1,9 +1,0 @@
-.card--wrapper{
-    display: flex;
-    justify-content: space-between;
-}
-
-.payment--card{
-    width: 30%;
-    height: 20%;
-}

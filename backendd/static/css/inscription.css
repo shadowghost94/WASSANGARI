@@ -21,15 +21,25 @@ body {
 .iscr {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 20px;
+    padding-right: 5%;
+    padding-left: 5%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: rgba(247, 99, 0, 0.3);
     flex: 1;
     overflow: hidden; /* Assure qu'il n'y a pas de scrollbar interne */
 }
+.iscr .iscr-images{
+    width: 55%;
+    height: 100%;
+    background-image: url('../img/foolish.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
 #sv{
     width: 30%;
     height: 260px;
@@ -61,10 +71,7 @@ body {
     width: 30%;
     height: 320px;
 }
-.iscr .iscr-images {
-    display: flex;
-    width: 50%;
-}
+
 
 .inscripform {
     max-width: 400px;
@@ -158,7 +165,16 @@ div.links div a{
     font-size: 12px;
     font-family: "Poppins", sans-serif;
 }
-
+#alerte{
+    position: absolute;
+    top: 20px;
+    right: 5px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
 /* Media Queries for Responsiveness */
 @media (min-width: 600px) {
     .iscr {

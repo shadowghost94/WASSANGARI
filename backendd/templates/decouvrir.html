@@ -2,64 +2,51 @@
 {% load static %}
 {% block class2 %}active{% endblock %}
 {% block menu %}Decouvrir{% endblock %}
-{% block statique %}
-    <link rel="stylesheet" href="{% static 'css/decouvrir.css' %}">
-{% endblock %}
+
 {% block card %}
-    <div class="card--wrapper">
-            <div class="payment--card" style="background-color:green;">
-                <div class="card--header">
-                    Bénin
-                </div>
-            </div>
+    <table class="custom-table">
 
-            <div class="payment--card" style="background-color:green;">
-                <div class="card--header">
-                    Ethnies
-                </div>
-            </div>
+        <tr style="height: 25%;">
+            <td>
+                Bénin
+            </td>
 
-            <div class="payment--card" style="background-color:green;">
-                <div class="card--header">
-                    Chants & Danses
-                </div>
-            </div>
+            <td>
+                Traditions & Coutumes
+            </td>
 
-            <div class="payment--card" style="background-color:green;">
-                <div class="card--header">
-                    Ethnies
-                </div>
-            </div>
+            <td>
+                Chants & Danses
+            </td>
+        </tr>
 
-            <div class="payment--card" style="background-color:green;">
-                <div class="card--header">
-                    Langues
-                </div>
-            </div>
+        <tr>
+            <td>
+                Ethnies
+            </td>
 
-            <div class="payment--card" style="background-color:green;">
-                <div class="card--header">
-                    Divinites
-                </div>
-            </div>
+            <td>
+                Langues
+            </td>
 
-            <div class="payment--card" style="background-color:green;">
-                <div class="card--header">
-                    Royautés
-                </div>
-            </div>
+            <td>
+                Gastronomie
+            </td>
+        </tr>
 
-            <div class="payment--card" style="background-color:green;">
-                <div class="card--header">
-                    Gastronomie
-                </div>
-            </div>
+        <tr>
+            <td>
+                Divinités
+            </td>
 
-            <div class="payment--card" style="background-color:green;">
-                <div class="card--header">
-                    Patrimoine
-                </div>
-            </div>
-        
-    </div>
+            <td>
+                Royauté
+            </td>
+
+            <td>
+                Patrimoine
+            </td>
+        </tr>
+
+    </table>
 {% endblock %}

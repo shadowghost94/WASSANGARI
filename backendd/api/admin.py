@@ -3,7 +3,7 @@ from api.models import (
     SiteHistorique, Monument, ParcNational, Reserve, Musee,
     ContenuMultimedia, Utilisateur, Ethnie, ObjetExpose,
     EspeceArbre, EspeceAnimal, Evenement, Ticket, Royaume,
-    Tradition, Divinite, Chant, Danse
+    Tradition, Divinite, Chant_Danse
 )
 
 class SiteHistoriqueAdmin(admin.ModelAdmin):
@@ -38,5 +38,4 @@ admin.site.register(Ticket)
 admin.site.register(Royaume)
 admin.site.register(Tradition)
 admin.site.register(Divinite)
-admin.site.register(Chant)
-admin.site.register(Danse)
+admin.site.register(Chant_Danse)

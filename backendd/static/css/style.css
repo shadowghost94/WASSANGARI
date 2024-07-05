@@ -142,3 +142,16 @@ body{
 h2#h2-partager{
     margin-left: 13%;
 }
+
+.car--container{
+    flex: 1; 
+    overflow-y: auto;
+}
+
+/* Proporiétés css de la page decouvrir */
+table.custom-table{
+    height: 450px;
+    width: 100%;
+    border: 1px solid black; 
+    text-align: center;
+}

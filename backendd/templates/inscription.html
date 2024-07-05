@@ -6,27 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="template de base">
-    <meta name="author" content="Ouzéïrou">
+    <meta name="author" content="">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="{% static 'bootstrap/dist/css/bootstrap.css' %}" rel="stylesheet">
     <link href="{% static 'css/inscription.css' %}" rel="stylesheet">
     <title>Inscription-Wassangari</title>
+    
 </head>
 <body>
-    {% if comment is not None%}
-        <div class="lert alert-success">{{comment}}<div>
-    {% endif %}
     
     <div class="iscr">
         <div class="iscr-images">
-            <img id="sv" src="{% static 'img/sv.jpg' %}" alt="">
-            <img id="sv1" src="{% static 'img/sv1.jpg' %}" alt="">
-            <img id="sv2" src="{% static 'img/sv2.jpg' %}" alt="">
+            
         </div>
         <div class="inscripform">
             <p class="wass">WASSANGARI</p>
-            <form action="/inscription/" method="post">
+            <form action="/inscription/" method="post" enctype="multipart/form-data">
                 {%csrf_token%}
                 <input type="text" name="nom" id="nom" placeholder="NOM" required> <br>
 
@@ -47,6 +43,8 @@
                         <option value="{{ ethnie.id }}">{{ ethnie.nom }}</option>
                     {% endfor %}
                 </select>
+
+                <input type="file" name="photo_profil" accept="image/*">
                 
                 <input type="password" name="password" id="password" placeholder="MOT DE PASSE" required> <br>
                 
@@ -86,33 +84,8 @@
             <p>&copy; 2024 Wassangari. Tous droits réservés.</p>
         </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('inscriptionForm');
-            const password = document.getElementById('password');
-            const password1 = document.getElementById('password1');
-            const passwordError = document.getElementById('passwordError');
-
-            function validatePasswords() {
-                if (password.value !== password1.value) {
-                    passwordError.textContent = 'Les mots de passe ne correspondent pas.';
-                    return false;
-                } else {
-                    passwordError.textContent = '';
-                    return true;
-                }
-            }
-
-            password.addEventListener('input', validatePasswords);
-            password1.addEventListener('input', validatePasswords);
-
-            form.addEventListener('submit', function(event) {
-                if (!validatePasswords()) {
-                    event.preventDefault();
-                }
-            });
-        });
-    </script>
+    {% if comment%}
+        <div id="alerte" class="alerte">{{comment}}</div>
+    {%endif%}
 </body>
 </html>

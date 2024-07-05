@@ -8,7 +8,8 @@ from api.models import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from backendd import settings
+from backendd.settings import *
+from django.contrib.auth.hashers import make_password
 
 from django.core.mail import send_mail, EmailMessage
 from .token import generatorToken
@@ -18,32 +19,32 @@ def index(request):
     return render(request, 'index.html')
 
 @login_required
-def apprendre(request):
-    return render(request, 'apprendre.html')
+def apprendre(request, user):
+    return render(request, 'apprendre.html', {'user':user})
 
 @login_required
-def decouvrir(request):
-    return render(request, 'decouvrir.html')
+def decouvrir(request, user):
+    return render(request, 'decouvrir.html', {'user':user})
 
 @login_required
-def visiter(request):
-    return render(request, 'visiter.html')
+def visiter(request, user):
+    return render(request, 'visiter.html', {'user':user})
 
 @login_required
-def explorer(request):
-    return render(request, 'explorer.html')
+def explorer(request, user):
+    return render(request, 'explorer.html', {'user':user})
 
 @login_required
-def informer(request):
-    return render(request, 'informer.html')
+def informer(request, user):
+    return render(request, 'informer.html', {'user':user})
 
 @login_required
-def acheter(request):
-    return render(request, 'acheter.html')
+def acheter(request, user):
+    return render(request, 'acheter.html', {'user':user})
 
 @login_required
-def evenement(request):
-    return render(request, 'evenements.html')
+def evenement(request, user):
+    return render(request, 'evenements.html', {'user':user})
 
 #Vue de connexion
 def connexion(request, comment=None):
@@ -51,8 +52,9 @@ def connexion(request, comment=None):
         email = request.POST['email']
         password = request.POST['password']
 
-        user = authenticate(request, email=email, password=password)
-
+        
+        user = authenticate(email=email, password=password)
+       
         try:
             my_user = Utilisateur.objects.get(email=email)
         except Utilisateur.DoesNotExist:
@@ -60,7 +62,7 @@ def connexion(request, comment=None):
 
         if user is not None:
             login(request, user)
-            return redirect('apprendre')
+            return apprendre(request, user)
         
         elif my_user is not None and not my_user.is_active:
             comment ="Vous n'avez pas confirmé votre adresse e-mail. Veuillez confirmer votre adresse e-mail avant de réessayer à nouveau !"
@@ -68,6 +70,7 @@ def connexion(request, comment=None):
 
         else:
             comment = "E-mail ou mot de passe incorrect. Veuillez réessayer !"
+            return render(request, 'connexion.html', {'comment': comment})
     
     return render(request, 'connexion.html', {'comment': comment})
 
@@ -81,6 +84,7 @@ def inscription(request, comment=None):
         ethnie_id = request.POST['ethnie']
         password = request.POST['password']
         password1 = request.POST['password-confirm']
+        media_profil = request.FILES['photo_profil']
 
         if Utilisateur.objects.filter(email=email):
             messages.error(request, "Veuillez utiliser une autre adresse e-mail")
@@ -89,13 +93,8 @@ def inscription(request, comment=None):
         if password != password1:
             messages.error(request, "Vous avez entré deux mots de passes différents")
 
-        mon_utilisateur = Utilisateur(nom=nom, prenom=prenom, email=email, sexe=sexe, ethnie=ethnie_id, password=password)
-        mon_utilisateur.nom = nom
-        mon_utilisateur.prenom = prenom
-        mon_utilisateur.email = email
-        mon_utilisateur.sexe = sexe
-        mon_utilisateur.ethnie = ethnie_id
-        mon_utilisateur.password = password
+        mon_utilisateur = Utilisateur(nom=nom, prenom=prenom, email=email, media_profil_url=media_profil, sexe=sexe, ethnie=ethnie_id, password=make_password(password))
+
         try:
             mon_utilisateur.save()
         except:
@@ -128,7 +127,7 @@ def inscription(request, comment=None):
                 Cordialement,
                 L'équipe Wassangari
             """
-        from_email = settings.EMAIL_HOST_USER
+        from_email = EMAIL_HOST_USER
 
         to_list = [mon_utilisateur.email]
         send_mail(subject, message, from_email, to_list, fail_silently=False)
@@ -145,7 +144,7 @@ def inscription(request, comment=None):
         email = EmailMessage(
             email_subject,
             messageConfirm,
-            settings.EMAIL_HOST_USER,
+            EMAIL_HOST_USER,
             [mon_utilisateur.email]
         )
 
@@ -173,3 +172,8 @@ def activate(request, uidb64, token):
     else:
         messages.error(request, "La confirmation a échoué")
         return redirect('index')
+    
+def deconnexion(request):
+    logout(request)
+    messages.success(request, 'Vous avez bien été déconecté')
+    return redirect('home')
