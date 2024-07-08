@@ -138,9 +138,9 @@ STATIC_URL = "static/"
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/'),)
 
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
@@ -150,3 +150,13 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CORS_ALLOW_ALL_ORIGINS = True
 
 #ThereIsAWay
+SESSION_COOKIE_NAME = 'sessionid'  # Nom du cookie de session
+SESSION_COOKIE_AGE = 1209600  # Durée de vie du cookie de session en secondes (2 semaines par défaut)
+SESSION_SAVE_EVERY_REQUEST = False  # Si True, la session sera sauvegardée à chaque requête
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Si True, la session expire lorsque le navigateur est fermé
+
+CSRF_COOKIE_NAME = 'csrftoken'
+CSRF_COOKIE_AGE = 31449600  # Durée de vie du cookie en secondes (par défaut 1 an)
+CSRF_COOKIE_DOMAIN = None
+CSRF_COOKIE_SECURE = False  # Si True, le cookie CSRF sera transmis uniquement sur des connexions HTTPS
+CSRF_COOKIE_HTTPONLY = False  # Si True, le cookie CSRF sera inaccessible par JavaScript

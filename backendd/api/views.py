@@ -14,37 +14,70 @@ from django.contrib.auth.hashers import make_password
 from django.core.mail import send_mail, EmailMessage
 from .token import generatorToken
 
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+
 
 def index(request):
     return render(request, 'index.html')
 
 @login_required
-def apprendre(request, user):
+def dashboard(request):
+    user = request.user
+    return render(request, 'dashboard.html', {'user':user})
+
+@login_required
+def apprendre(request):
+    user = request.user
     return render(request, 'apprendre.html', {'user':user})
 
 @login_required
-def decouvrir(request, user):
+def decouvrir(request):
+    user = request.user
     return render(request, 'decouvrir.html', {'user':user})
 
 @login_required
-def visiter(request, user):
+def visiter(request):
+    user = request.user
     return render(request, 'visiter.html', {'user':user})
 
 @login_required
-def explorer(request, user):
+def explorer(request):
+    user = request.user
     return render(request, 'explorer.html', {'user':user})
 
 @login_required
-def informer(request, user):
+def informer(request):
+    user = request.user
     return render(request, 'informer.html', {'user':user})
 
 @login_required
-def acheter(request, user):
+def acheter(request):
+    user = request.user
     return render(request, 'acheter.html', {'user':user})
 
 @login_required
-def evenement(request, user):
+def evenement(request):
+    user = request.user
     return render(request, 'evenements.html', {'user':user})
+
+@csrf_exempt
+@login_required
+def modifierProfil(request):
+    if request.method=="POST":
+        user = request.user
+        user.nom = request.POST['nom']
+        user.prenom = request.POST['prenom']
+        user.email = request.POST['email']
+        if user.password == make_password(request.POST['password']):
+            user.password = make_password(request.POST['password-confirm'])
+            user.save()
+            return JsonResponse({'success': True})
+        else:
+            return JsonResponse({'success': False})
+    else:
+        return JsonResponse({'success': False})
+        
 
 #Vue de connexion
 def connexion(request, comment=None):
@@ -62,7 +95,7 @@ def connexion(request, comment=None):
 
         if user is not None:
             login(request, user)
-            return apprendre(request, user)
+            return apprendre(request)
         
         elif my_user is not None and not my_user.is_active:
             comment ="Vous n'avez pas confirmé votre adresse e-mail. Veuillez confirmer votre adresse e-mail avant de réessayer à nouveau !"
@@ -176,4 +209,4 @@ def activate(request, uidb64, token):
 def deconnexion(request):
     logout(request)
     messages.success(request, 'Vous avez bien été déconecté')
-    return redirect('home')
+    return redirect('index')

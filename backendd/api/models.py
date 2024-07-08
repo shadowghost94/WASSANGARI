@@ -145,6 +145,8 @@ class Utilisateur(AbstractBaseUser, PermissionsMixin):
     musees_visites = models.ManyToManyField(Musee)
     verified = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=False)  # Ajout du champ is_staff
+    is_superuser = models.BooleanField(default=False)  # Ajout du champ is_superuser
 
     objects = UtilisateurManager()
 
@@ -153,7 +155,7 @@ class Utilisateur(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return f"{self.nom} {self.prenom}"
-
+    
 class ObjetExpose(models.Model):
     nom = models.CharField(max_length=255)
     description = models.TextField()
@@ -221,3 +223,6 @@ class Divinite(models.Model):
 
     def __str__(self):
         return self.nom
+    
+#jared@gmail.com
+#jareddenver

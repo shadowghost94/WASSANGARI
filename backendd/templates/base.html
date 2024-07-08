@@ -17,7 +17,6 @@
     {% block statique %}{% endblock %}
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <script src="{% static 'bootstrap/docs/assets/js/html5shiv.js' %}"></script>
     <script src="{% static 'bootstrap/docs/assets/js/respond.min.js' %}"></script>
@@ -34,16 +33,16 @@
         </button>
     </div>
     <div class="wassangari">
-        <a href="#">
+        <a href="{% url 'index'%}">
             <img src="{% static 'img/logo-removebg.png'%}" alt="" width="140px" height="80px"> 
         </a>
     </div>
     <div class="logo navbar-collapse">
         <ul class="menu">
-            <li class="{% block class1 %}{%endblock%}">
-                <a href="{% url 'apprendre' %}">
-                    <i class="fas fa-graduation-cap"></i>
-                    <span>Apprendre</span>
+            <li class="{% block class9 %}{%endblock%}">
+                <a href="{% url 'dashboard' %}">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
                 </a>
             </li>
 
@@ -51,6 +50,13 @@
                 <a href="{% url 'decouvrir' %}">
                     <i class="fas fa-binoculars"></i>
                     <span>Découvrir</span>
+                </a>
+            </li>
+
+            <li class="{% block class1 %}{%endblock%}">
+                <a href="{% url 'apprendre'%}">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Apprendre</span>
                 </a>
             </li>
 
@@ -90,9 +96,9 @@
             </li>
 
             <li class="{% block class8 %}{%endblock%}">
-                <a href="#">
+                <a href="{% url 'deconnexion'%}">
                     <i class="fas fa-sign-out-alt"></i>
-                    <span><a href="{% url 'deconnexion'%}">Logout</a></span>
+                    <span>Logout</span>
                 </a>
             </li>
         </ul>
@@ -106,14 +112,12 @@
         </div>
         <div class="user--info">
             <div class="search--box">
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Search">
+                <span>{{user.nom}} {{user.prenom}}</span>
             </div>
-            <img src="" alt="">
+            <a href="{% url 'dashboard'%}"><img src="/media/{{user.media_profil_url}}" alt="profil de {{user.prenom}}"></a>
         </div>
     </div>
-
-    <div class="card--container">
+    <div style="margin-top:7%;">
         {% block card %}{% endblock %}
     </div>
 </div>

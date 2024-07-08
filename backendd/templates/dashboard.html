@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{%load static%}
+{% block class9 %}active{%endblock%}
+{% block menu %}Dashboard{%endblock%}
+
+{% block card %}
+<div class="div-dashboard-principale" id="div-dashboard-principale">
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="/media/{{user.media_profil_url}}" alt="Photo de profil" class="profile-pic">
+            <div class="profile-info">
+                <h2>{{user.nom}} {{user.prenom}}</h2>
+                <p>Email: {{user.email}}</p>
+                <p>Ethnie: {{user.ethnie}}</p>
+                <p>Statut: <span id="account-status">Classique</span></p>
+            </div>
+        </div>
+        <div class="profile-body">
+            <p><strong>La durée limite d'utilisation d'un compte classique est de 5 jours. Passé cette durée, vous ne pourrez plus vous connecter à votre compte sans abonnement. <span style="color:red;">Cliquer sur changer de statut pour acheter un abonnement.</span></strong></p>
+        </div>
+        <div class="profile-actions">
+            <button class="btn btn-secondary btn-dashboard" id="dash-modif-profil1">Modifier le profil</button>
+            <button class="btn btn-danger" id="btn-dashboard1" onclick="">Changer de statut</button>
+        </div>
+    </div>
+
+    <div id="div-dashboard-prime" class=" ">
+        <div id="div-dashboard-prime1 row">
+            <button class="btn btn-danger button-prime col-lg-12 col-md-12" style="font-size: 15px;">Ajouter un événement</button>
+            <button class="btn btn-danger button-prime col-lg-12 col-md-12" style="font-size: 15px;margin-top: 2%;">Supprimer un événement</button>
+
+            <button class="btn btn-danger button-prime2 col-lg-12 col-md-12" style="font-size: 15px;margin-bottom: 2%;">Ajouter un article à vendre</button>
+            <button class="btn btn-danger button-prime2 col-lg-12 col-md-12" style="font-size: 15px;margin-bottom: 2%;">Supprimer un article mis en vente</button>
+        </div>
+    </div>
+</div>
+<!-- Formulaire de modification de profil à afficher -->
+<div style="display: none;" id="modif-afficher">
+    <div class="form-container-das">
+        <span id="responseMessage"></span>
+        <div class="form-header-das">
+            <img src="/media/{{user.media_profil_url}}" alt="Photo de profil" class="profile-pic-das" id="profile-pic-das">
+            <div>
+                <label for="profile-pic-upload" class="btn btn-secondary">Changer Photo</label>
+                <input type="file" id="profile-pic-upload" style="display: none;" onchange="previewProfilePic(event)">
+            </div>
+        </div>
+        <div class="form-body-das">
+            <form id="profile-form-das">
+                <div class="form-group-das">
+                    <input type="text" id="nom" name="nom" placeholder="{{user.nom}}">
+                </div>
+                <div class="form-group-das">
+                    <input type="text" id="prenom" name="prenom" placeholder="{{user.prenom}}">
+                </div>
+                <div class="form-group-das">
+                    <input type="email" id="email" name="email" placeholder="{{user.email}}">
+                </div>
+                <div class="form-group-das">
+                    <input type="password" name="password" id="password" placeholder="MOT DE PASSE ACTUEL" required>
+                </div>
+                <div class="form-group-das">
+                    <input type="password" name="password-confirm" id="password-confirm" placeholder="NOUVEAU MOT DE PASSE" required>
+                </div>
+                <div class="form-actions-das">
+                    <button type="button" class="btn btn-das btn-secondary" id="back-to-main1" onclick="cancelEdit()">Annuler</button>
+                    <button type="submit" class="btn btn-das">Sauvegarder</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/dashboard.js' %}"></script>
+{% endblock %}

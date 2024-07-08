@@ -1,52 +1,66 @@
 {% extends "base.html" %}
 {% load static %}
 {% block class2 %}active{% endblock %}
-{% block menu %}Decouvrir{% endblock %}
+{% block menu %}Découvrir{% endblock %}
 
 {% block card %}
-    <table class="custom-table">
+<div class="content-decouvrir" id="content-decouvrir">
+    <div class="grid-decouvrir">
+        <div class="item-decouvrir" id="decouvr-benin" data-id="1">Bénin</div>
+        <div class="item-decouvrir" id="decouvr-cd" data-id="2">Chants & danses</div>
+        <div class="item-decouvrir" id="decouvr-eth" data-id="3">Ethnies</div>
+        <div class="item-decouvrir" id="decouvr-lang" data-id="4">Langues</div>
+        <div class="item-decouvrir" id="decouvr-gastr" data-id="5">Gastronomie</div>
+        <div class="item-decouvrir" id="decouvr-div" data-id="6">Divinites</div>
+        <div class="item-decouvrir" id="decouvr-rym" data-id="7">Royaumes</div>
+        <div class="item-decouvrir" id="decouvr-ptr" data-id="8">Patrimoines</div>
+        <div class="item-decouvrir" id="decouvr-hist" data-id="9">Histoire</div>
+    </div>
+</div>
+<!--Bénin option-->
+<div class="decouvrir-benin" id="decouvrir-benin" style="display: none;">
+    <button id="back-to-main1"><i class="fas fa-arrow-left"></i>Retour</button>
+    <div class="grid-decouvrir-benin">
+        <div class="item-decouvrir-benin">Histoire</div>
+        <div class="item-decouvrir-benin">Géographie</div>
+        <div class="item-decouvrir-benin">Politique</div>
+        <div class="item-decouvrir-benin">Economie</div>
+    </div>
 
-        <tr style="height: 25%;">
-            <td>
-                Bénin
-            </td>
+    <div class="decouvrir-benin-histoire" id="decouvrir-benin-histoire" style="display: none;">
+        <nav>
+            <ul>
+                <li class="menu-item active" data-content="texte">Texte</li>
+                <li class="menu-item" data-content="podcast">Podcast</li>
+                <li class="menu-item" data-content="image">Image</li>
+                <li class="menu-item" data-content="videos">Vidéos</li>
+            </ul>
+        </nav>
+        <main>
+            <div id="texte" class="content active">
+                <h2>Texte Content</h2>
+                <p>This is the content for Texte.</p>
+            </div>
+            <div id="podcast" class="content">
+                <h2>Podcast Content</h2>
+                <p>This is the content for Podcast.</p>
+            </div>
+            <div id="image" class="content">
+                <h2>Image Content</h2>
+                <p>This is the content for Image.</p>
+            </div>
+            <div id="videos" class="content">
+                <h2>Vidéos Content</h2>
+                <p>This is the content for Vidéos.</p>
+            </div>
+        </main>
+    </div>
 
-            <td>
-                Traditions & Coutumes
-            </td>
+    <div class="decouvrir-benin-geographie" id="decouvrir-benin-geographie" style="display: none;"></div>
 
-            <td>
-                Chants & Danses
-            </td>
-        </tr>
+    <div class="decouvrir-benin-politique" id="decouvrir-benin-politique" style="display: none;"></div>
 
-        <tr>
-            <td>
-                Ethnies
-            </td>
-
-            <td>
-                Langues
-            </td>
-
-            <td>
-                Gastronomie
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                Divinités
-            </td>
-
-            <td>
-                Royauté
-            </td>
-
-            <td>
-                Patrimoine
-            </td>
-        </tr>
-
-    </table>
+    <div class="decouvrir-benin-economie" id="decouvrir-benin-economie" style="display: none;"></div>
+</div>
+<script src="{% static 'js/decouvrir.js' %}"></script>
 {% endblock %}

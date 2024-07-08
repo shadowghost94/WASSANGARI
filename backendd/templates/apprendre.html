@@ -1,3 +1,32 @@
 {% extends "base.html" %}
+{%load static%}
 {% block class1 %}active{%endblock%}
 {% block menu %}Apprendre{%endblock%}
+
+{% block card %}
+    <div class="div-apprendre">
+        <div class="div2-apprendre">
+            <img class="img-apprendre" src="{% static 'img/back.jpeg' %}" />
+        </div>
+        <div class="div3-apprendre">
+            <span>Fâ - COURS</span>
+            <h2>Initiez-vous au Fâ</h2>
+            <div>
+                <span>
+                    <span>
+                        <i class="fas fa-signal"></i>
+                        <span>Facile</span>
+                    </span>
+                </span>
+
+                <span>
+                    <span>
+                        <i class="fas fa-clock"></i>
+                        <span>6 heures</span>
+                    </span>
+                </span>
+            </div>
+        </div>
+    <div>
+
+{% endblock %}
