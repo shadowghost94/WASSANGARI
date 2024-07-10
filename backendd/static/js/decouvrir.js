@@ -58,14 +58,50 @@ document.getElementById('back-to-main2').addEventListener('click', function() {
 
         // 2
         document.addEventListener('DOMContentLoaded', function() {
-            const menuItems = document.querySelectorAll('.uniqq');
-            const contents = document.querySelectorAll('.content-uniqq');
+            const menuItemss = document.querySelectorAll('.uniqq');
+            const contentss = document.querySelectorAll('.content-uniqq');
 
-            menuItems.forEach(item => {
+            menuItemss.forEach(item => {
                 item.addEventListener('click', function() {
                     // Remove active class from all menu items and contents
-                    menuItems.forEach(i => i.classList.remove('active'));
-                    contents.forEach(c => c.classList.remove('active'));
+                    menuItemss.forEach(i => i.classList.remove('active'));
+                    contentss.forEach(c => c.classList.remove('active'));
+
+                    // Add active class to the clicked menu item and corresponding content
+                    item.classList.add('active');
+                    document.getElementById(item.getAttribute('data-content')).classList.add('active');
+                });
+            });
+        });
+
+        //3
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuItemss = document.querySelectorAll('.uniqqq');
+            const contentss = document.querySelectorAll('.content-uniqqq');
+
+            menuItemss.forEach(item => {
+                item.addEventListener('click', function() {
+                    // Remove active class from all menu items and contents
+                    menuItemss.forEach(i => i.classList.remove('active'));
+                    contentss.forEach(c => c.classList.remove('active'));
+
+                    // Add active class to the clicked menu item and corresponding content
+                    item.classList.add('active');
+                    document.getElementById(item.getAttribute('data-content')).classList.add('active');
+                });
+            });
+        });
+
+        //4
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuItemss = document.querySelectorAll('.uniqqqq');
+            const contentss = document.querySelectorAll('.content-uniqqqq');
+
+            menuItemss.forEach(item => {
+                item.addEventListener('click', function() {
+                    // Remove active class from all menu items and contents
+                    menuItemss.forEach(i => i.classList.remove('active'));
+                    contentss.forEach(c => c.classList.remove('active'));
 
                     // Add active class to the clicked menu item and corresponding content
                     item.classList.add('active');
@@ -78,6 +114,24 @@ document.getElementById('back-to-main2').addEventListener('click', function() {
         function toggleText() {
             const content = document.getElementById('content-detail');
             const icon = document.getElementById('toggle-icon');
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate');
+        }
+        function togggleText() {
+            const content = document.getElementById('content-detaill');
+            const icon = document.getElementById('toggle-iconn');
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate');
+        }
+        function toggggleText() {
+            const content = document.getElementById('content-detailll');
+            const icon = document.getElementById('toggle-iconnn');
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate');
+        }
+        function togggggleText() {
+            const content = document.getElementById('content-detaillll');
+            const icon = document.getElementById('toggle-iconnnn');
             content.classList.toggle('hidden');
             icon.classList.toggle('rotate');
         }
@@ -101,4 +155,46 @@ document.getElementById('back-to-main3').addEventListener('click', function() {
     });
     document.getElementById('back-to-main1').style.display = 'block';
     document.getElementById('decouvrir-benin-geographie').style.display = 'none';
+});
+
+/* Sections découvrir bénin politique */
+document.getElementById('item-decouvrir-benin-politique').addEventListener('click', function() {
+    // Masquer toutes les sections grid-item
+    document.querySelectorAll('.grid-decouvrir-benin').forEach(function(item) {
+        item.style.display = 'none';
+    });
+    document.getElementById('back-to-main1').style.display = 'none';
+    document.getElementById('decouvrir-benin-politique').style.display = 'block';
+});
+
+document.getElementById('back-to-main4').addEventListener('click', function() {
+    // Afficher toutes les sections grid-item
+    document.querySelectorAll('.grid-decouvrir-benin').forEach(function(item) {
+        item.style.display = 'grid';
+        item.style.alignItems = 'center';      // Alignement vertical au centre
+        item.style.justifyContent = 'center';  // Alignement horizontal au centre
+    });
+    document.getElementById('back-to-main1').style.display = 'block';
+    document.getElementById('decouvrir-benin-politique').style.display = 'none';
+});
+
+/* Sections découvrir bénin économie */
+document.getElementById('item-decouvrir-benin-economie').addEventListener('click', function() {
+    // Masquer toutes les sections grid-item
+    document.querySelectorAll('.grid-decouvrir-benin').forEach(function(item) {
+        item.style.display = 'none';
+    });
+    document.getElementById('back-to-main1').style.display = 'none';
+    document.getElementById('decouvrir-benin-economie').style.display = 'block';
+});
+
+document.getElementById('back-to-main5').addEventListener('click', function() {
+    // Afficher toutes les sections grid-item
+    document.querySelectorAll('.grid-decouvrir-benin').forEach(function(item) {
+        item.style.display = 'grid';
+        item.style.alignItems = 'center';      // Alignement vertical au centre
+        item.style.justifyContent = 'center';  // Alignement horizontal au centre
+    });
+    document.getElementById('back-to-main1').style.display = 'block';
+    document.getElementById('decouvrir-benin-economie').style.display = 'none';
 });

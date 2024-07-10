@@ -347,7 +347,7 @@ h2#h2-partager{
 .item-decouvrir-benin:hover{
     background-color: hsl(25, 55%, 54%);;
 }
-#back-to-main1, #back-to-main2, #back-to-main3 {
+#back-to-main1, #back-to-main2, #back-to-main3, #back-to-main4, #back-to-main5 {
     padding: 10px 20px; /* Espacement à l'intérieur du bouton */
     background-color: #f7b98c; /* Couleur de fond */
     color: white; /* Couleur du texte */
@@ -358,11 +358,11 @@ h2#h2-partager{
     /* position: fixed; */
 }
 
-#back-to-main1 i, #back-to-main2 i, #back-to-main3 i {
+#back-to-main1 i, #back-to-main2 i, #back-to-main3 i, #back-to-main4 i, #back-to-main5 i {
     margin-right: 5px;
 }
 
-#back-to-main1:hover, #back-to-main2:hover, #back-to-main3:hover {
+#back-to-main1:hover, #back-to-main2:hover, #back-to-main3:hover, #back-to-main4:hover, #back-to-main5:hover {
     background-color: hsl(25, 55%, 54%); /* Changement de couleur de fond au survol */
 }
 
@@ -434,6 +434,25 @@ div.div-apprendre{
     display: none; /* Cacher tous les contenus par défaut */
 }
 .content-uniq.active {
+    display: block; /* Afficher le contenu actif */
+}
+
+.content-uniqq{
+    display: none; /* Cacher tous les contenus par défaut */
+}
+.content-uniqq.active{
+    display: block; /* Afficher le contenu actif */
+}
+.content-uniqqq{
+    display: none; /* Cacher tous les contenus par défaut */
+}
+.content-uniqqq.active{
+    display: block; /* Afficher le contenu actif */
+}
+.content-uniqqqq{
+    display: none; /* Cacher tous les contenus par défaut */
+}
+.content-uniqqqq.active{
     display: block; /* Afficher le contenu actif */
 }
 
