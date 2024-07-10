@@ -38,3 +38,10 @@ window.onresize = function(event) {
     reloadSlider();
 };
 
+function showTab(tabId) {
+    const contents = document.querySelectorAll('.tab-content');
+    contents.forEach(content => {
+        content.classList.remove('active');
+    });
+    document.getElementById(tabId).classList.add('active');
+};

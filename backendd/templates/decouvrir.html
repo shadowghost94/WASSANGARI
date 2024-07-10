@@ -21,42 +21,85 @@
 <div class="decouvrir-benin" id="decouvrir-benin" style="display: none;">
     <button id="back-to-main1"><i class="fas fa-arrow-left"></i>Retour</button>
     <div class="grid-decouvrir-benin">
-        <div class="item-decouvrir-benin">Histoire</div>
-        <div class="item-decouvrir-benin">Géographie</div>
-        <div class="item-decouvrir-benin">Politique</div>
-        <div class="item-decouvrir-benin">Economie</div>
+        <div class="item-decouvrir-benin" id="item-decouvrir-benin-histoire">Histoire</div>
+        <div class="item-decouvrir-benin" id="item-decouvrir-benin-geographie">Géographie</div>
+        <div class="item-decouvrir-benin" id="item-decouvrir-benin-politique">Politique</div>
+        <div class="item-decouvrir-benin" id="item-decouvrir-benin-economie">Economie</div>
     </div>
 
     <div class="decouvrir-benin-histoire" id="decouvrir-benin-histoire" style="display: none;">
-        <nav>
+        <button id="back-to-main2"><i class="fas fa-arrow-left"></i>Retour</button>
+        <nav id="menu-decouvr">
             <ul>
-                <li class="menu-item active" data-content="texte">Texte</li>
-                <li class="menu-item" data-content="podcast">Podcast</li>
-                <li class="menu-item" data-content="image">Image</li>
-                <li class="menu-item" data-content="videos">Vidéos</li>
+                <li class="menu-item uniq active" id="menu-item-decouvr" data-content="texte">Texte</li>
+                <li class="menu-item uniq " data-content="podcast">Podcast</li>
+                <li class="menu-item uniq " data-content="image">Image</li>
+                <li class="menu-item uniq " data-content="videos">Vidéos</li>
             </ul>
         </nav>
-        <main>
-            <div id="texte" class="content active">
-                <h2>Texte Content</h2>
-                <p>This is the content for Texte.</p>
+        <main id="main-detail">
+            <div id="texte" class="content content-uniq active" id="content-decouvr">
+                <div class="header-detail" onclick="toggleText()">
+                    Comment le Bénin a t-elle obtenu son indépendance ?
+                    <i class="fas fa-chevron-down" id="toggle-icon"></i>
+                </div>
+                <div class="content-detail" id="content-detail">
+                    <p>
+                        Le 1er août 1960 , lors de sa tournée africaine, le président français Charles de Gaulle proclame l'indépendance du Dahomey. Le 22 septembre , le pays obtient son siège à l'Organisation des Nations unies. Le 25 novembre 1960 , la première constitution du pays est approuvée par l'Assemblée constituante.
+                    </p>
+                </div>
             </div>
-            <div id="podcast" class="content">
+            <div id="podcast" class="content content-uniq">
                 <h2>Podcast Content</h2>
                 <p>This is the content for Podcast.</p>
             </div>
-            <div id="image" class="content">
+            <div id="image" class="content content-uniq">
                 <h2>Image Content</h2>
                 <p>This is the content for Image.</p>
             </div>
-            <div id="videos" class="content">
+            <div id="videos" class="content content-uniq">
                 <h2>Vidéos Content</h2>
                 <p>This is the content for Vidéos.</p>
             </div>
         </main>
     </div>
 
-    <div class="decouvrir-benin-geographie" id="decouvrir-benin-geographie" style="display: none;"></div>
+    <div class="decouvrir-benin-geographie" id="decouvrir-benin-geographie" style="display: none;">
+        <button id="back-to-main3"><i class="fas fa-arrow-left"></i>Retour</button>
+        <nav id="menu-decouvr">
+            <ul>
+                <li class="menu-item uniqq active" id="menu-item-decouvr" data-content="textee">Texte</li>
+                <li class="menu-item uniqq " data-content="podcastt">Podcast</li>
+                <li class="menu-item uniqq " data-content="imagee">Image</li>
+                <li class="menu-item uniqq " data-content="videoss">Vidéos</li>
+            </ul>
+        </nav>
+        <main id="main-detail">
+            <div id="texte" class="content content-uniqq active" id="content-decouvr">
+                <div class="header-detail" onclick="toggleText()">
+                    Comment le Bénin a t-elle obtenu son indépendance ?
+                    <i class="fas fa-chevron-down" id="toggle-icon"></i>
+                </div>
+                <div class="content-detail" id="content-detail">
+                    <p>
+                        Le 1er août 1960 , lors de sa tournée africaine, le président français Charles de Gaulle proclame l'indépendance du Dahomey. Le 22 septembre , le pays obtient son siège à l'Organisation des Nations unies. Le 25 novembre 1960 , la première constitution du pays est approuvée par l'Assemblée constituante.
+                    </p>
+                </div>
+            </div>
+            <div id="podcast" class="content content-uniqq">
+                <h2>Podcast Content</h2>
+                <p>This is the content for Podcast.</p>
+            </div>
+            <div id="image" class="content content-uniqq">
+                <h2>Image Content</h2>
+                <p>This is the content for Image.</p>
+            </div>
+            <div id="videos" class="content content-uniqq">
+                <h2>Vidéos Content</h2>
+                <p>This is the content for Vidéos.</p>
+            </div>
+        </main>
+    </div>
 
     <div class="decouvrir-benin-politique" id="decouvrir-benin-politique" style="display: none;"></div>
 

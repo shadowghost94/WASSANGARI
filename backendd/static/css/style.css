@@ -317,7 +317,7 @@ h2#h2-partager{
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 15%;
+    top: -5%;
 }
 
 .grid-decouvrir-benin{
@@ -347,7 +347,7 @@ h2#h2-partager{
 .item-decouvrir-benin:hover{
     background-color: hsl(25, 55%, 54%);;
 }
-#back-to-main1 {
+#back-to-main1, #back-to-main2, #back-to-main3 {
     padding: 10px 20px; /* Espacement à l'intérieur du bouton */
     background-color: #f7b98c; /* Couleur de fond */
     color: white; /* Couleur du texte */
@@ -355,14 +355,49 @@ h2#h2-partager{
     border-radius: 5px; /* Arrondi des coins */
     cursor: pointer; /* Curseur pointeur */
     font-size: 16px; /* Taille de la police */
+    /* position: fixed; */
 }
 
-#back-to-main1 i {
+#back-to-main1 i, #back-to-main2 i, #back-to-main3 i {
     margin-right: 5px;
 }
 
-#back-to-main1:hover {
+#back-to-main1:hover, #back-to-main2:hover, #back-to-main3:hover {
     background-color: hsl(25, 55%, 54%); /* Changement de couleur de fond au survol */
+}
+
+/* Scrollbar decouvrir text-poscast-video-image */
+nav#menu-decouvr{
+    background-color: #f7b98c;
+    padding: 10px;
+    border-radius: 5px;
+    width: 96%;
+    margin-top: 2%;
+}
+nav#menu-decouvr ul{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+}
+nav#menu-decouvr li{
+    cursor: pointer;
+    padding: 10px 20px;
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
+nav#menu-decouvr li:hover, nav#menu-decouvr li.active{
+    background-color: hsl(25, 55%, 54%);
+    border-radius: 5px;
+}
+div#content-decouvr{
+    display: none;
+    flex-grow: 1;
+    padding: 20px;
+}
+div#content-decouvr.active{
+    display: block;
 }
 /*Propriétés de la page Apprendre*/
 
@@ -393,4 +428,304 @@ div.div-apprendre{
     width: 100%;
     height: 100%;
     position: relative;
+}
+
+.content-uniq {
+    display: none; /* Cacher tous les contenus par défaut */
+}
+.content-uniq.active {
+    display: block; /* Afficher le contenu actif */
+}
+
+.header-detail {
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-top: 2%;
+    text-decoration: underline;
+}
+
+.header-detail i {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.content-detail {
+    margin-top: 10px;
+    transition: max-height 0.3s ease-out;
+}
+.content-detail p{
+    font-size: 20px;
+    text-align: justify;
+}
+.hidden {
+    max-height: 0;
+    overflow: hidden;
+}
+
+.hidden ~ .header-detail i {
+    transform: rotate(-180deg);
+}
+
+#main-detail{
+    width: 96%;
+}
+
+
+
+
+
+/* Style Events menu */
+#card {
+    width: calc(33.33% - 20px);
+    margin-right: 20px;
+    margin-bottom: 20px;
+    float: left;
+    box-sizing: border-box;
+    background-color: #D9D9D9;
+    border-radius: 20px;
+}
+
+#card:nth-child(3n) {
+    margin-right: 0;
+}
+
+#card img {
+    width: 100%; 
+    display: block;
+}
+
+#card .desc {
+    padding: 10px;
+}
+#card .desc h2 {
+    font-size: 2rem;
+    /* margin-bottom: 10px; */
+}
+
+#card .desc p {
+    font-size: 1.5rem;
+    color: #555; 
+    line-height: 1.5;
+}
+
+.date{display: flex;
+    margin-top: 3%;
+    
+    align-items: center;
+    text-align: center;
+  
+
+   
+   
+
+}
+.date p{
+    color: #000000;
+   
+    text-align: center;
+    margin-top: 2%;
+    
+}
+.date button{
+    height: 40px;
+    width: 150px;
+    color: #fff;
+    background-color: #00A65A;
+    border: 0;
+    border-radius: 10px;
+    margin-left: 3%;
+    transition-duration: 0.2s;
+}
+.date button:hover{
+    background-color: #01750b;
+}
+.date button:active{
+    background-color: #00A65A;
+}
+
+
+/* details events  */
+
+.back{
+    height: 200px;
+    background: url('../image/ffrfr1.png');
+    background-size: 100vw;
+    position: relative;
+    background-repeat: no-repeat;
+  
+}
+.back div p{
+    position: absolute;
+    bottom: 0;
+    color: white;
+}
+.back img{
+    width: 100%;
+}
+.back p{
+    position: absolute;
+    margin-left: 12%;
+    font-weight: bold;
+}
+
+.return {
+    display: flex;
+    margin-inline: 2%;
+    flex-direction: row;
+    align-items: center;
+    transition-duration: 0.3s;
+}
+.Bret :hover{
+    margin-left: -2%;
+}
+.return p{
+    transition-duration: 0.3s;
+}
+.return p:hover{
+    color: #F76300;
+    cursor: pointer;
+}
+.return img{
+    height: 30px;
+    width: 30px;
+    margin-right: 2%;
+}
+
+.Bret {
+    display: flex;
+margin-inline: 10%;
+    flex-direction: row;
+    
+    justify-content: space-between;
+    font-size: 1.2em;
+    font-weight: bold;   
+}
+.big{
+    display: flex;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.big img{
+    margin-inline: 5%;
+    height: 500px;
+    width: 500px;
+    transition-duration: 0.3s;
+}
+
+.big img:first-child:hover {
+    height: 520px;
+    width: 520px;
+    box-shadow: 2px 8px 5px 4px rgb(159, 159, 159);
+
+}
+
+.big .describe{
+    max-width: 600px;
+    text-align: justify;
+}
+h4{
+    margin-bottom: 2%;
+    font-size: 2em;
+}
+.Orga{
+    margin-bottom: 2%;
+}
+.Orga .descr p{
+    font-size: 1em;
+    margin-top: 2%;
+}
+.describe h2{
+    margin-bottom: 2%;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.describe div:first-of-type {
+    padding-left: 2%;
+    border-left: 1px solid black;
+}
+.descritext{
+    margin-top: 2%;
+    margin-bottom: 5%;
+    font-size: 1.3em;
+}
+
+.icon div:first-of-type{
+    border: 0;
+    display: flex;
+    padding: 0;
+    align-items: center;
+}
+.icon button {
+    border-radius: 10px;
+    border: 0px;
+    margin-left: 2%;
+    background-color: #F76300;
+    color:  #fff;
+    height: 35px;
+    width: 100px;
+    transition-duration: 0.2s;
+}
+.icon button:hover{
+    background-color: #ffb700;
+}
+.icon button:active{
+    background-color: #F76300;
+
+}
+.icon div{
+    display: flex;
+    padding: 0;
+    margin-top: 1.5%;
+    align-items: center;
+}
+.icon p{
+    margin-top: 2%;
+}
+#iconn{
+    height: 55px;
+}
+.icon img{
+    height: 45px;
+    width: auto;
+    pointer-events: none; 
+   
+    
+}
+.icon img:hover{
+     height: 35px;
+    width: 40px;
+   
+}
+.organisateur{
+    margin-inline: 5%;
+
+}
+.invitees{
+    margin-inline: 5%;
+}
+.invitees div{
+    display: flex;
+   flex-direction: row;
+}
+.vert{
+    color: #00A65A;
+}
+
+.inv4 div{
+    display: flex;
+    flex-direction: column;
+    margin-right: 10%;   
+}
+
+*{
+    position: relative;
+}
+
+#detailsev{
+display: none;
+  
 }

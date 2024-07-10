@@ -2,70 +2,127 @@
 {% load static%}
 
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css'%}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.google.com/share?selection.family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css'%}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.google.com/share?selection.family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900"
+    />
     <title>Wassangari</title>
 
     <style>
-        #item-1{
-            background-image: url("{% static 'img/back.jpeg' %}");
-        }
-        #item-2{
-            background-image: url("{% static 'img/collage1.jpg' %}");
-        }
-        #item-3{
-            background-image: url("{% static 'img/collage3.jpg' %}");
-        }
-        #item-4{
-            background-image: url("{% static 'img/collage4.jpg' %}");
-        }
-        #item-5{
-            background-image: url("{% static 'img/collage4.jpg' %}");
-        }
-        #item-6{
-            background-image: url("{% static 'img/collage4.jpg' %}");
-        }
-        #item-7{
-            background-image: url("{% static 'img/collage4.jpg' %}");
-        }
+      #item-1 {
+        background-image: url("{% static 'img/back.jpeg' %}");
+      }
+      #item-2{
+        background-image: url("{%static 'img/collage4.jpg'%}")
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="slider">
-        <div class="list">
-            <div class="item" id="item-1">
-                <div class="overlay">
-                    <div class="text" id="contenue">
-                        <div><img src="{% static 'img/logo-removebg.png' %}" alt=""></div>
-                        Bienvenue sur Wassangari !
-                        <p>Explorez les merveilles culturelles et artistiques du Bénin. Apprenez, découvrez et visitez virtuellement les trésors culturels et artistiques du Bénin.</p>
-                        <a id="start" href="{% url 'dashboard' %}">Commencer maintenant</a>
-                    </div>
-                </div>
+      <div class="list">
+        
+        <div class="item" id="item-1">
+          <div class="overlay">
+            <div class="text" id="contenue">
+              <div id="image-index">
+                <img src="{% static 'img/logo-removebg.png' %}" alt="" />
+              </div>
+              Bienvenue sur Wassangari !
+              <p>
+                Explorez les merveilles culturelles et artistiques du Bénin.
+                Apprenez, découvrez et visitez virtuellement les trésors
+                culturels et artistiques du Bénin.
+              </p>
+              <a id="start" href="{% url 'dashboard' %}">Commencer maintenant</a>
             </div>
-
-            <div class="item" id="item-2">
-                <div class="overlay">
-                    <div class="text him">
-                        Apprendre
-                        <p>Dans cette partie de la plateforme nous encourageons l'apprentissage actif en proposant des activités interactives, des jeux, des quiz et des défis liés à la culture béninoise. Les utilisateurs pourront tester leurs connaissances, développer de nouvelles compétences et participer à des expériences d'apprentissage engageantes.</p>
-                        <a id="start" href="{% url 'apprendre' %}">Commencer maintenant</a>
-                    </div>
-                </div>
-            </div>
-
+          </div>
         </div>
 
-        <div class="buttons">
-            <button id="prev"><i class="fas fa-chevron-left"></i></button>
-            <button id="next"><i class="fas fa-chevron-right"></i></button>
+        <div class="item" id="item-2">
+          <div id="bodyyy" class="overlay">
+            <p class="pp">Comment <span>Wassangari</span> peut vous aider ?</p>
+            <div class="tab-buttons">
+              <button onclick="showTab('idea-plan')">Apprendre</button>
+              <button onclick="showTab('whiteboard')">Decouvrir</button>
+              <button onclick="showTab('business-guide')">Visiter</button>
+              <button onclick="showTab('financial-plan')">Explorer</button>
+              <button onclick="showTab('validation')">Acheter</button>
+              <button onclick="showTab('business-plan')">Evenements</button>
+            </div>
+
+            <div id="content">
+              <div id="idea-plan" class="tab-content active">
+                <div id="descr">
+                  <h2>Apprendre</h2>
+                  <p>Dans cette partie de la plateforme nous encourageons l'apprentissage actif en proposant des activités interactives, des jeux, des quiz et des défis liés à la culture béninoise. Les utilisateurs pourront tester leurs connaissances, développer de nouvelles compétences et participer à des expériences d'apprentissage engageantes.</p>
+                  <a id="boutton" href="{% url 'apprendre'%}">Commencer</a>
+                </div>
+                <img src="{% static 'img/11.jpg'%}" alt="" style="height: 330px; width: 300px; border-radius: 5px;" />
+              </div>
+
+              <div id="whiteboard" class="tab-content">
+                <div id="descr">
+                  <h2>Decouvrir</h2>
+                  <p>Retrouvez ici des contenus audiovisuels sur les richesses culturelles du Bénin, sous forme de mini-documentaires, de capsules vidéo ou de podcasts, classés par thématiques et par régions. Vous pouvez les consulter en ligne ou les télécharger gratuitement ou moyennant un paiement selon le format choisi</p>
+                  <a id="boutton" href="{% url 'decouvrir'%}">Commencer</a>
+                </div>
+                <img src="{% static 'img/11.jpg'%}" alt="" style="height: 330px; width: 300px; border-radius: 5px;" />
+              </div>
+              <div id="business-guide" class="tab-content">
+                <div id="descr">
+                  <h2>Visiter</h2>
+                  <p>Vistez virtuellement le patrimoine culturel du Bénin (Site historique, Monument, Musée, Reserve, Parc National)</p>
+                  <a id="boutton" href="{% url 'visiter'%}">Commencer</a>
+                </div>
+                <img src="{% static 'img/11.jpg'%}" alt="" style="height: 330px; width: 300px; border-radius: 5px;" />
+              </div>
+
+              <div id="financial-plan" class="tab-content">
+                <div id="descr">
+                  <h2>Explorer</h2>
+                  <p>Visitez notre banque d’images sur le patrimoine culturel et touristique du Bénin, avec des photos de qualité prises par notre équipe ou par des photographes professionnels, amateurs ou touristes associés. Classées par thématiques, par régions, et accompagnées de légendes explicatives</p>
+                  <a id="boutton" href="{% url 'explorer'%}">Commencer</a>
+                </div>
+                <img src="{% static 'img/11.jpg'%}" alt="" style="height: 330px; width: 300px; border-radius: 5px;" />
+              </div>
+
+              <div id="validation" class="tab-content">
+                <div id="descr">
+                  <h2>Acheter</h2>
+                  <p>Explorer et acheter des produits culturel et Artistique du Bénin</p>
+                  <a id="boutton" href="{% url 'acheter'%}">Commencer</a>
+                </div>
+                <img src="{% static 'img/11.jpg'%}" alt="" style="height: 330px; width: 300px; border-radius: 5px;" />
+              </div>
+
+              <div id="business-plan" class="tab-content">
+                <div id="descr">
+                  <h2>Evenements</h2>
+                  <p>Retrouvez ici les événements culturels à venir au Bénin, tels que des festivals, des concerts, des expositions, des conférences, etc</p>
+                  <a id="boutton" href="{% url 'evenements'%}">Commencer</a>
+                </div>
+                <img src="{% static 'img/11.jpg'%}" alt="" style="height: 330px; width: 300px; border-radius: 5px;" />
+              </div>
+
+            </div>
+          </div>
         </div>
+      </div>
+
+      <div class="buttons">
+        <button id="prev"><i class="fas fa-chevron-left"></i></button>
+        <button id="next"><i class="fas fa-chevron-right"></i></button>
+      </div>
     </div>
 
     <script src="{% static 'js/app.js'%}"></script>
-</body>
+  </body>
 </html>

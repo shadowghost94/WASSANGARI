@@ -29,7 +29,7 @@ document.getElementById('profile-form-das').addEventListener('submit', function(
     event.preventDefault();
 
     const formData = new FormData(this);
-
+    console.log(formData);
     $.ajax({
         url: '{% url "modifierProfil" %}',
         type: 'POST',

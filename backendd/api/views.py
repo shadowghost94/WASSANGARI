@@ -9,7 +9,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from backendd.settings import *
-from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import check_password, make_password
 
 from django.core.mail import send_mail, EmailMessage
 from .token import generatorToken
@@ -64,20 +64,23 @@ def evenement(request):
 @csrf_exempt
 @login_required
 def modifierProfil(request):
-    if request.method=="POST":
+    if request.method == "POST":
         user = request.user
-        user.nom = request.POST['nom']
-        user.prenom = request.POST['prenom']
-        user.email = request.POST['email']
-        if user.password == make_password(request.POST['password']):
-            user.password = make_password(request.POST['password-confirm'])
+        user.nom = request.POST.get('nom', user.nom)
+        user.prenom = request.POST.get('prenom', user.prenom)
+        user.email = request.POST.get('email', user.email)
+        
+        current_password = request.POST.get('password', '')
+        new_password = request.POST.get('password-confirm', '')
+
+        if check_password(current_password, user.password):
+            user.set_password(new_password)
             user.save()
             return JsonResponse({'success': True})
         else:
-            return JsonResponse({'success': False})
+            return JsonResponse({'success': False, 'error': 'Mot de passe actuel incorrect'})
     else:
-        return JsonResponse({'success': False})
-        
+        return JsonResponse({'success': False, 'error': 'Méthode non autorisée'})
 
 #Vue de connexion
 def connexion(request, comment=None):
@@ -95,7 +98,7 @@ def connexion(request, comment=None):
 
         if user is not None:
             login(request, user)
-            return apprendre(request)
+            return dashboard(request)
         
         elif my_user is not None and not my_user.is_active:
             comment ="Vous n'avez pas confirmé votre adresse e-mail. Veuillez confirmer votre adresse e-mail avant de réessayer à nouveau !"

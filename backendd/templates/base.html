@@ -42,7 +42,7 @@
             <li class="{% block class9 %}{%endblock%}">
                 <a href="{% url 'dashboard' %}">
                     <i class="fas fa-tachometer-alt"></i>
-                    <span>Dashboard</span>
+                    <span>Profil</span>
                 </a>
             </li>
 
@@ -117,7 +117,7 @@
             <a href="{% url 'dashboard'%}"><img src="/media/{{user.media_profil_url}}" alt="profil de {{user.prenom}}"></a>
         </div>
     </div>
-    <div style="margin-top:7%;">
+    <div style="margin-top:9%; width:100%;">
         {% block card %}{% endblock %}
     </div>
 </div>
