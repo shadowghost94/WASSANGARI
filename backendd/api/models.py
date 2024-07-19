@@ -1,12 +1,20 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 
+class Royaume(models.Model):
+    nom = models.CharField(max_length=255)
+    description = models.TextField()
+    histoire = models.TextField(null=True)
 
-class Ethnie(models.Model):
+    def __str__(self):
+        return self.nom
+
+class Ethnies(models.Model):
     nom = models.CharField(max_length=255)
     langue = models.CharField(max_length=255)
     description = models.TextField()
     histoire = models.TextField()
+    royaume = models.ForeignKey(Royaume, on_delete=models.DO_NOTHING)
 
     def __str__(self):
         return self.nom
@@ -89,7 +97,7 @@ class Chant_Danse(models.Model):
     auteur = models.CharField(max_length=55)
     type = models.CharField(max_length=10, choices=TYPE_CHOICES)
     description = models.CharField(max_length=255)
-    ethnie = models.ForeignKey(Ethnie, on_delete=models.DO_NOTHING)
+    ethnie = models.ForeignKey(Ethnies, on_delete=models.DO_NOTHING, null=True)
 
     def __str__(self):
         return self.titre
@@ -130,7 +138,7 @@ class Utilisateur(AbstractBaseUser, PermissionsMixin):
     prenom = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
     sexe = models.CharField(max_length=10)
-    ethnie = models.IntegerField(null=True, blank=True)
+    ethnie_id = models.CharField(max_length=255, null=True, blank=True)
     premium = models.BooleanField(default=False)
     numero_momo = models.CharField(max_length=255, null=True, blank=True)
     num_carte_paiement = models.CharField(max_length=255, null=True, blank=True)
@@ -166,6 +174,20 @@ class ObjetExpose(models.Model):
     def __str__(self):
         return self.nom
 
+class ObjetVente(models.Model):
+    titre = models.CharField(max_length=64)
+    auteur = models.CharField(max_length=64)
+    prix = models.DecimalField(max_digits=10, decimal_places=2)
+    description = models.CharField(max_length=255)
+    media_url = models.ImageField(upload_to='photo_objetVente/', null=True, blank=True, default='photo_objetVente/default.jpg')
+
+class Actualites(models.Model):
+    titre = models.CharField(max_length=255)
+    contenue = models.TextField()
+    media_url = models.ImageField(upload_to='photo_actualites/', null=True, blank=True, default='photo_actualites/default.jpg')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
 class EspeceArbre(models.Model):
     nom_scientifique = models.CharField(max_length=255)
     nom_commun = models.CharField(max_length=255)
@@ -189,7 +211,9 @@ class Evenement(models.Model):
     date = models.DateField()
     lieu = models.CharField(max_length=255)
     statut = models.CharField(max_length=55)
+    prix_entree = models.DecimalField(max_digits=10, decimal_places=2)
     nbr_places_dispo = models.IntegerField()
+    media_profil_url = models.ImageField(upload_to='photo_evenement/', null=True, blank=True, default='default.jpg')
 
     def __str__(self):
         return self.nom
@@ -198,20 +222,11 @@ class Ticket(models.Model):
     evenement = models.ForeignKey(Evenement, on_delete=models.CASCADE)
     utilisateur = models.ForeignKey(Utilisateur, on_delete=models.CASCADE)
 
-class Royaume(models.Model):
-    nom = models.CharField(max_length=255)
-    description = models.TextField()
-    histoire = models.TextField(null=True)
-    ethnie = models.ForeignKey(Ethnie, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.nom
-
 class Tradition(models.Model):
     nom = models.CharField(max_length=255)
     description = models.TextField()
     histoire = models.TextField(null=True)
-    ethnie = models.ForeignKey(Ethnie, on_delete=models.CASCADE)
+    ethnie = models.ForeignKey(Ethnies, on_delete=models.DO_NOTHING)
 
     def __str__(self):
         return self.nom

@@ -11,14 +11,14 @@
         <div class="item-decouvrir" id="decouvr-eth" data-id="3">Ethnies</div>
         <div class="item-decouvrir" id="decouvr-lang" data-id="4">Langues</div>
         <div class="item-decouvrir" id="decouvr-gastr" data-id="5">Gastronomie</div>
-        <div class="item-decouvrir" id="decouvr-div" data-id="6">Divinites</div>
+        <div class="item-decouvrir" id="decouvr-divinites" data-id="6">Divinites</div>
         <div class="item-decouvrir" id="decouvr-rym" data-id="7">Royaumes</div>
         <div class="item-decouvrir" id="decouvr-ptr" data-id="8">Patrimoines</div>
-        <div class="item-decouvrir" id="decouvr-hist" data-id="9">Histoire</div>
+        <div class="item-decouvrir" id="decouvr-histoire" data-id="9">Histoire</div>
     </div>
 </div>
 <!--Bénin option-->
-<div class="decouvrir-benin" id="decouvrir-benin" style="display: none;">
+<div class="decouvrir-benin" id="decouvrir-benin" style="display: none;margin-top: 10%;">
     <button id="back-to-main1"><i class="fas fa-arrow-left"></i>Retour</button>
     <div class="grid-decouvrir-benin">
         <div class="item-decouvrir-benin" id="item-decouvrir-benin-histoire">Histoire</div>
@@ -31,7 +31,7 @@
         <button id="back-to-main2"><i class="fas fa-arrow-left"></i>Retour</button>
         <nav id="menu-decouvr">
             <ul>
-                <li class="menu-item uniq active" id="menu-item-decouvr" data-content="texte">Texte</li>
+                <li class="menu-item uniq active" id="menu-item-decouvr" data-content="texte">Articles</li>
                 <li class="menu-item uniq " data-content="podcast">Podcast</li>
                 <li class="menu-item uniq " data-content="image">Image</li>
                 <li class="menu-item uniq " data-content="videos">Vidéos</li>
@@ -39,14 +39,29 @@
         </nav>
         <main id="main-detail">
             <div id="texte" class="content content-uniq active" id="content-decouvr">
-                <div class="header-detail" onclick="toggleText()">
-                    Comment le Bénin a t-elle obtenu son indépendance ?
-                    <i class="fas fa-chevron-down" id="toggle-icon"></i>
-                </div>
-                <div class="content-detail" id="content-detail">
-                    <p>
-                        Le 1er août 1960 , lors de sa tournée africaine, le président français Charles de Gaulle proclame l'indépendance du Dahomey. Le 22 septembre , le pays obtient son siège à l'Organisation des Nations unies. Le 25 novembre 1960 , la première constitution du pays est approuvée par l'Assemblée constituante.
-                    </p>
+                <div class="" style="display: flex;flex-direction: column;gap: 20px;padding: 20px;">
+                    <!-- article 1 -->
+                    <div class="article" onclick="showDetails('article1')" >
+                        <img src="{%static 'img/11.jpg'%}" alt="Image 1" class="article-img">
+                        <div class="article-content">
+                            <h2 class="article-title">Arts & Cultures : A la découverte du patrimoine culturel au Bénin</h2>
+                            <p class="article-snippet">A l'exécution du PAG 2016-. 2021 au Bénin, le domaine des arts et de la culture s'est révélé comme un secteur à haute valeur ajoutée, créateur d'emplois, et ...</p>
+                            <span class="article-time">il y a 3 heures</span>
+                            <span class="article-source">Jean Paul Sartre</span>
+                        </div>
+                    </div>
+
+                    <!-- article 2 -->
+                    <div class="article" onclick="showDetails('article1')" >
+                        <img src="{%static 'img/11.jpg'%}" alt="Image 1" class="article-img">
+                        <div class="article-content">
+                            <h2 class="article-title">Le Bénin, un voyage authentique entre culture et histoire</h2>
+                            <p class="article-snippet"> Les habitants vivent principalement de la pêche, et de plus en plus du tourisme puisqu'il est possible de se balader en pirogue sur le lac, d'y ...</p>
+                            <span class="article-time">il y a 3 heures</span>
+                            <span class="article-source">César GABA</span>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div id="podcast" class="content content-uniq">
@@ -68,7 +83,7 @@
         <button id="back-to-main3"><i class="fas fa-arrow-left"></i>Retour</button>
         <nav id="menu-decouvr">
             <ul>
-                <li class="menu-item uniqq active" id="menu-item-decouvr" data-content="textee">Texte</li>
+                <li class="menu-item uniqq active" id="menu-item-decouvr" data-content="textee">Articles</li>
                 <li class="menu-item uniqq " data-content="podcastt">Podcast</li>
                 <li class="menu-item uniqq " data-content="imagee">Image</li>
                 <li class="menu-item uniqq " data-content="videoss">Vidéos</li>
@@ -76,14 +91,18 @@
         </nav>
         <main id="main-detail">
             <div id="textee" class="content content-uniqq active" id="content-decouvr">
-                <div class="header-detail" onclick="togggleText()">
-                    Comment le Bénin a t-elle obtenu son indépendance ?
-                    <i class="fas fa-chevron-down" id="toggle-iconn"></i>
-                </div>
-                <div class="content-detail" id="content-detaill">
-                    <p>
-                        Le 1er août 1960 , lors de sa tournée africaine, le président français Charles de Gaulle proclame l'indépendance du Dahomey. Le 22 septembre , le pays obtient son siège à l'Organisation des Nations unies. Le 25 novembre 1960 , la première constitution du pays est approuvée par l'Assemblée constituante.
-                    </p>
+                <div class="" style="display: flex;flex-direction: column;gap: 20px;padding: 20px;">
+                    <!-- article 1 -->
+                    <div class="article" onclick="showDetails('article1')" >
+                        <img src="{%static 'img/11.jpg'%}" alt="Image 1" class="article-img">
+                        <div class="article-content">
+                            <h2 class="article-title">Articles scientifiques : ces mots qui trahissent d'usage de ChatGPT</h2>
+                            <p class="article-snippet">Des chercheurs allemands ont découvert que, depuis l'apparition des modèles de langage, des mots peu utilisés jusque-là ne cessent de...</p>
+                            <span class="article-time">il y a 3 heures</span>
+                            <span class="article-source">Sciences et Avenir</span>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
             <div id="podcastt" class="content content-uniqq">
@@ -105,7 +124,7 @@
         <button id="back-to-main4"><i class="fas fa-arrow-left"></i>Retour</button>
         <nav id="menu-decouvr">
             <ul>
-                <li class="menu-item uniqqq active" id="menu-item-decouvr" data-content="texteee">Texte</li>
+                <li class="menu-item uniqqq active" id="menu-item-decouvr" data-content="texteee">Articles</li>
                 <li class="menu-item uniqqq " data-content="podcasttt">Podcast</li>
                 <li class="menu-item uniqqq " data-content="imageee">Image</li>
                 <li class="menu-item uniqqq " data-content="videosss">Vidéos</li>
@@ -113,24 +132,76 @@
         </nav>
         <main id="main-detail">
             <div id="texteee" class="content content-uniqqq active" id="content-decouvr">
-                <div class="header-detail" onclick="toggggleText()">
-                    Comment le Bénin a t-elle obtenu son indépendance ?
-                    <i class="fas fa-chevron-down" id="toggle-iconnn"></i>
-                </div>
-                <div class="content-detail" id="content-detailll">
-                    <p>
-                        Le 1er août 1960 , lors de sa tournée africaine, le président français Charles de Gaulle proclame l'indépendance du Dahomey. Le 22 septembre , le pays obtient son siège à l'Organisation des Nations unies. Le 25 novembre 1960 , la première constitution du pays est approuvée par l'Assemblée constituante.
-                    </p>
+                <div class="" style="display: flex;flex-direction: column;gap: 20px;padding: 20px;">
+                    <!-- article 1 -->
+                    <div class="article" onclick="showDetails('article1')" >
+                        <img src="{%static 'img/11.jpg'%}" alt="Image 1" class="article-img">
+                        <div class="article-content">
+                            <h2 class="article-title" style="color: blue;">Articles scientifiques : ces mots qui trahissent d'usage de ChatGPT</h2>
+                            <p class="article-snippet">Des chercheurs allemands ont découvert que, depuis l'apparition des modèles de langage, des mots peu utilisés jusque-là ne cessent de...</p>
+                            <span class="article-time">il y a 3 heures</span>
+                            <span class="article-source">Sciences et Avenir</span>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
             <div id="podcasttt" class="content content-uniqqq">
-                <h2>Podcast Content</h2>
-                <p>This is the content for Podcast.</p>
+                <section class="podcast article" style="display: flex;">
+                    <img src="{%static 'img/11.jpg'%}" alt="" class="article-img">
+                    <div class="article-content" style="padding: 0;margin-left: 2%;width:100%">
+                        <audio controls loop style="width:100%;">
+                            <source src="episode1.mp3" type="audio/mpeg">
+                            Votre navigateur ne supporte pas l'élément audio.
+                        </audio>
+                        <h3>Épisode 1 : La culture béninoise</h3>
+                        <p style="color: blue;">Plongée dans les traditions et coutumes du Bénin...<span>Voir plus<span></p>
+                    </div>
+                </section>
             </div>
             <div id="imageee" class="content content-uniqqq">
-                <h2>Image Content</h2>
-                <p>This is the content for Image.</p>
+                <section class="" style="display: flex; flex-wrap: wrap;">
+                    <div class="container-images-articles">
+                        <div class="item-images-articles">
+                            <img src="{%static 'img/11.jpg'%}" alt="Civilisations Noires : Le Royaume du Bénin" height="100">
+                            <div class="caption-images-articles">
+                                <p class="source">Par Teria News</p>
+                                <p style="color: blue;">Civilisations Noires : Le Royaume du Bénin</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-images-articles">
+                        <div class="item-images-articles">
+                            <img src="{%static 'img/11.jpg'%}" alt="Civilisations Noires : Le Royaume du Bénin" height="100">
+                            <div class="caption-images-articles">
+                                <p class="source">Par Teria News</p>
+                                <p style="color: blue;">Civilisations Noires : Le Royaume du Bénin</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="container-images-articles">
+                        <div class="item-images-articles">
+                            <img src="{%static 'img/11.jpg'%}" alt="Civilisations Noires : Le Royaume du Bénin" height="100">
+                            <div class="caption-images-articles">
+                                <p class="source">Par Teria News</p>
+                                <p style="color: blue;">Civilisations Noires : Le Royaume du Bénin</p>
+                            </div>
+                        </div>
+                    </div>
+               
+                    <div class="container-images-articles">
+                        <div class="item-images-articles">
+                            <img src="{%static 'img/11.jpg'%}" alt="Civilisations Noires : Le Royaume du Bénin" height="100">
+                            <div class="caption-images-articles">
+                                <p class="source">Par Teria News</p>
+                                <p style="color: blue;">Civilisations Noires : Le Royaume du Bénin</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
+
             <div id="videosss" class="content content-uniqqq">
                 <h2>Vidéos Content</h2>
                 <p>This is the content for Vidéos.</p>
@@ -142,7 +213,7 @@
         <button id="back-to-main5"><i class="fas fa-arrow-left"></i>Retour</button>
         <nav id="menu-decouvr">
             <ul>
-                <li class="menu-item uniqqqq active" id="menu-item-decouvr" data-content="texteeee">Texte</li>
+                <li class="menu-item uniqqqq active" id="menu-item-decouvr" data-content="texteeee">Articles</li>
                 <li class="menu-item uniqqqq " data-content="podcastttt">Podcast</li>
                 <li class="menu-item uniqqqq " data-content="imageeee">Image</li>
                 <li class="menu-item uniqqqq " data-content="videossss">Vidéos</li>
@@ -150,14 +221,18 @@
         </nav>
         <main id="main-detail">
             <div id="texteeee" class="content content-uniqqqq active" id="content-decouvr">
-                <div class="header-detail" onclick="togggggleText()">
-                    Comment le Bénin a t-elle obtenu son indépendance ?
-                    <i class="fas fa-chevron-down" id="toggle-iconnnn"></i>
-                </div>
-                <div class="content-detail" id="content-detaillll">
-                    <p>
-                        Le 1er août 1960 , lors de sa tournée africaine, le président français Charles de Gaulle proclame l'indépendance du Dahomey. Le 22 septembre , le pays obtient son siège à l'Organisation des Nations unies. Le 25 novembre 1960 , la première constitution du pays est approuvée par l'Assemblée constituante.
-                    </p>
+                <div class="" style="display: flex;flex-direction: column;gap: 20px;padding: 20px;">
+                    <!-- article 1 -->
+                    <div class="article" onclick="showDetails('article1')" >
+                        <img src="{%static 'img/11.jpg'%}" alt="Image 1" class="article-img">
+                        <div class="article-content">
+                            <h2 class="article-title">Articles scientifiques : ces mots qui trahissent d'usage de ChatGPT</h2>
+                            <p class="article-snippet">Des chercheurs allemands ont découvert que, depuis l'apparition des modèles de langage, des mots peu utilisés jusque-là ne cessent de...</p>
+                            <span class="article-time">il y a 3 heures</span>
+                            <span class="article-source">Sciences et Avenir</span>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
             <div id="podcastttt" class="content content-uniqqqq">
@@ -178,9 +253,63 @@
 
 <!-- Ethnies options -->
 <div id="ethnie-div">
-    {%for ethnie in ethnies%}
-
-    {%endfor%}
+    <button id="back-to-main6" style="display:none;"><i class="fas fa-arrow-left"></i>Retour</button>
+    <div id="ethnie-div-div" class="grid-container-ethnie" style="display:none;">
+        {%for ethnie in ethnies%}
+            <div class="grid-item-ethnie highlight">
+                {{ ethnie.nom }}
+            </div>
+        {%endfor%}
+    </div>
 </div>
+
+<!-- Langues Options -->
+<div id="langue-div">
+    <button id="back-to-main7" style="display:none;"><i class="fas fa-arrow-left"></i>Retour</button>
+    <div id="langue-div-div" class="grid-container-langue" style="display:none;">
+        {%for ethnie in ethnies%}
+            <div class="grid-item-langue highlight">
+                {{ ethnie.langue }}
+            </div>
+        {%endfor%}
+    </div>
+</div>
+
+<!-- Gastronomie -->
+<div id="gastro-div">
+    <button id="back-to-main8" style="display:none;"><i class="fas fa-arrow-left"></i>Retour</button>
+    <div id="gastro-div-div" class="grid-container-gastro" style="display:none;">
+        {%for ethnie in ethnies%}
+            <div class="grid-item-gastro highlight">
+                {{ ethnie.nom }}
+            </div>
+        {%endfor%}
+    </div>
+</div>
+
+<!-- Divinités -->
+<div id="divinites-div">
+    <button id="back-to-main9" style="display:none;"><i class="fas fa-arrow-left"></i>Retour</button>
+    <div id="divinites-div-div" class="grid-container-divinites" style="display:none;">
+        {%for ethnie in ethnies%}
+            <div class="grid-item-divinites highlight">
+                {{ ethnie.nom }}
+            </div>
+        {%endfor%}
+    </div>
+</div>
+
+<!-- Histoire -->
+<div id="histoire-div">
+    <button id="back-to-main10" style="display:none;"><i class="fas fa-arrow-left"></i>Retour</button>
+    <div id="histoire-div-div" class="grid-container-histoire" style="display:none;">
+        {%for ethnie in ethnies%}
+            <div class="grid-item-histoire highlight">
+                {{ ethnie.nom }}
+            </div>
+        {%endfor%}
+    </div>
+</div>
+
 <script src="{% static 'js/decouvrir.js' %}"></script>
 {% endblock %}

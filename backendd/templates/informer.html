@@ -1,3 +1,33 @@
 {% extends "base.html" %}
+{%load static%}
 {% block class5 %}active{%endblock%}
 {% block menu %}S'informer{%endblock%}
+
+{%block card%}
+<div>
+    <div class="" style="display: flex;flex-direction: column;gap: 20px;padding: 20px;">
+        {%for actualite in actualites%}
+            <div class="article" onclick="showActuDetails('{{actualite.id}}')" >
+                <img src="/media/{{actualite.media_url}}" alt="Image 1" class="article-img">
+                <div class="article-content">
+                    <h2 class="article-title">{{actualite.titre}}</h2>
+                    <p class="article-snippet">{{actualite.descritpion}}</p>
+                    <span class="article-time">{{actualite.created_at}}</span>
+                    {% comment %} <span class="article-source">{{actualite.auteur}}</span> {% endcomment %}
+                </div>
+            </div>
+            <div class="modal-achat-detail" id="{{objet.id}}" style="display:none;">
+                <div class="modal-content-achat-detail">
+                    <span class="close-button-achat-detail" onclick="closeAchatDetails('{{objet.id}}')">&times;</span>
+                    <div>
+                        <img src="/media/{{actualite.media_url}}" alt="{{actualite.titre}}"><clear/>
+                        <p>{{actualite.contenue}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+<script src="{% static 'js/informer.js' %}"></script>
+{%endblock%}

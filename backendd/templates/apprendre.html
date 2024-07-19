@@ -4,29 +4,334 @@
 {% block menu %}Apprendre{%endblock%}
 
 {% block card %}
-    <div class="div-apprendre">
-        <div class="div2-apprendre">
-            <img class="img-apprendre" src="{% static 'img/back.jpeg' %}" />
-        </div>
-        <div class="div3-apprendre">
-            <span>Fâ - COURS</span>
-            <h2>Initiez-vous au Fâ</h2>
-            <div>
-                <span>
-                    <span>
-                        <i class="fas fa-signal"></i>
-                        <span>Facile</span>
-                    </span>
-                </span>
+<div class="content-apprendre" id="content-apprendre">
+    <div class="grid-apprendre">
+        <div class="item-apprendre" id="apprend-benin" data-id="1">Bénin</div>
+        <div class="item-apprendre" id="apprend-cd" data-id="2">Chants & danses</div>
+        <div class="item-apprendre" id="apprend-eth" data-id="3">Ethnies</div>
+        <div class="item-apprendre" id="apprend-lang" data-id="4">Langues</div>
+        <div class="item-apprendre" id="apprend-gastr" data-id="5">Gastronomie</div>
+        <div class="item-apprendre" id="apprend-divinites" data-id="6">Divinites</div>
+        <div class="item-apprendre" id="apprend-rym" data-id="7">Royaumes</div>
+        <div class="item-apprendre" id="apprend-ptr" data-id="8">Patrimoines</div>
+        <div class="item-apprendre" id="apprend-histoire" data-id="9">Histoire</div>
+    </div>
+</div>
+<!--Bénin option-->
+<div class="apprendre-benin" id="apprendre-benin" style="display: none; margin-top:10%;">
+    <button id="appr-back-to-main1"><i class="fas fa-arrow-left"></i>Retour</button>
+    <div class="grid-apprendre-benin">
+        <div class="item-apprendre-benin" id="item-apprendre-benin-histoire">Histoire</div>
+        <div class="item-apprendre-benin" id="item-apprendre-benin-geographie">Géographie</div>
+        <div class="item-apprendre-benin" id="item-apprendre-benin-politique">Politique</div>
+        <div class="item-apprendre-benin" id="item-apprendre-benin-economie">Economie</div>
+    </div>
 
-                <span>
-                    <span>
-                        <i class="fas fa-clock"></i>
-                        <span>6 heures</span>
-                    </span>
-                </span>
+    <div class="apprendre-benin-histoire" id="apprendre-benin-histoire" style="display: none;">
+        <button id="appr-back-to-main2"><i class="fas fa-arrow-left"></i>Retour</button>
+        <nav id="menu-apprend">
+            <ul>
+                <li class="menu-item uniq active" id="menu-item-apprend" data-content="texte">Texte</li>
+                <li class="menu-item uniq " data-content="podcast">Podcast</li>
+                <li class="menu-item uniq " data-content="image">Image</li>
+                <li class="menu-item uniq " data-content="videos">Vidéos</li>
+            </ul>
+        </nav>
+        <main id="appr-main-detail">
+            <div id="texte" class="content appr-content-uniq active" id="content-apprend">
+                <div class="search-container">
+                    <div class="related-questions">
+                        <div class="question">
+                            <div class="question-summary">
+                                <span>Comment s'appelle le Bénin avant ?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="question-detail">
+                                <p>Le Dahomey était le nom de l'actuel Bénin avant son indépendance en 1960.</p>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="question-summary">
+                                <span>Quelles sont les étapes de la décolonisation au Dahomey ?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="question-detail">
+                                <p>Les étapes incluent des réformes administratives, la montée des mouvements nationalistes, et les négociations avec la France aboutissant à l'indépendance en 1960.</p>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="question-summary">
+                                <span>Quels sont les deux moyens pour obtenir l'indépendance ?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="question-detail">
+                                <p>Les deux moyens principaux sont la négociation pacifique et la lutte armée.</p>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="question-summary">
+                                <span>Bon bah on test voir ce que ça donne ...</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="question-detail">
+                                <p>T'inquiètre bg ça fonctionne ...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    <div>
+            <div id="podcast" class="content appr-content-uniq">
+                <h2>Podcast Content</h2>
+                <p>This is the content for Podcast.</p>
+            </div>
+            <div id="image" class="content appr-content-uniq">
+                <h2>Image Content</h2>
+                <p>This is the content for Image.</p>
+            </div>
+            <div id="videos" class="content appr-content-uniq">
+                <h2>Vidéos Content</h2>
+                <p>This is the content for Vidéos.</p>
+            </div>
+        </main>
+    </div>
 
+    <div class="apprendre-benin-geographie" id="apprendre-benin-geographie" style="display: none;">
+        <button id="appr-back-to-main3"><i class="fas fa-arrow-left"></i>Retour</button>
+        <nav id="menu-apprend">
+            <ul>
+                <li class="menu-item uniqq active" id="menu-item-apprend" data-content="textee">Texte</li>
+                <li class="menu-item uniqq " data-content="podcastt">Podcast</li>
+                <li class="menu-item uniqq " data-content="imagee">Image</li>
+                <li class="menu-item uniqq " data-content="videoss">Vidéos</li>
+            </ul>
+        </nav>
+        <main id="appr-main-detail">
+            <div id="textee" class="content appr-content-uniqq active" id="content-apprend">
+                <div class="search-container">
+                    <div class="related-questions">
+                        <div class="question">
+                            <div class="question-summary">
+                                <span>Comment s'appelle le Bénin avant ?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="question-detail">
+                                <p>Le Dahomey était le nom de l'actuel Bénin avant son indépendance en 1960.</p>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="question-summary">
+                                <span>Quelles sont les étapes de la décolonisation au Dahomey ?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="question-detail">
+                                <p>Les étapes incluent des réformes administratives, la montée des mouvements nationalistes, et les négociations avec la France aboutissant à l'indépendance en 1960.</p>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="question-summary">
+                                <span>Quels sont les deux moyens pour obtenir l'indépendance ?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="question-detail">
+                                <p>Les deux moyens principaux sont la négociation pacifique et la lutte armée.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="podcastt" class="content appr-content-uniqq">
+                <h2>Podcast Content</h2>
+                <p>This is the content for Podcast.</p>
+            </div>
+            <div id="imagee" class="content appr-content-uniqq">
+                <h2>Image Content</h2>
+                <p>This is the content for Image.</p>
+            </div>
+            <div id="videoss" class="content appr-content-uniqq">
+                <h2>Vidéos Content</h2>
+                <p>This is the content for Vidéos.</p>
+            </div>
+        </main>
+    </div>
+
+    <div class="apprendre-benin-politique" id="apprendre-benin-politique" style="display: none;">
+        <button id="appr-back-to-main4"><i class="fas fa-arrow-left"></i>Retour</button>
+        <nav id="menu-apprend">
+            <ul>
+                <li class="menu-item uniqqq active" id="menu-item-apprend" data-content="texteee">Texte</li>
+                <li class="menu-item uniqqq " data-content="podcasttt">Podcast</li>
+                <li class="menu-item uniqqq " data-content="imageee">Image</li>
+                <li class="menu-item uniqqq " data-content="videosss">Vidéos</li>
+            </ul>
+        </nav>
+        <main id="appr-main-detail">
+            <div id="texteee" class="content appr-content-uniqqq active" id="content-apprend">
+                <div class="search-container">
+                    <div class="related-questions">
+                        <div class="question">
+                            <div class="question-summary">
+                                <span>Comment s'appelle le Bénin avant ?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="question-detail">
+                                <p>Le Dahomey était le nom de l'actuel Bénin avant son indépendance en 1960.</p>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="question-summary">
+                                <span>Quelles sont les étapes de la décolonisation au Dahomey ?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="question-detail">
+                                <p>Les étapes incluent des réformes administratives, la montée des mouvements nationalistes, et les négociations avec la France aboutissant à l'indépendance en 1960.</p>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="question-summary">
+                                <span>Quels sont les deux moyens pour obtenir l'indépendance ?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="question-detail">
+                                <p>Les deux moyens principaux sont la négociation pacifique et la lutte armée.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="podcasttt" class="content appr-content-uniqqq">
+                <h2>Podcast Content</h2>
+                <p>This is the content for Podcast.</p>
+            </div>
+            <div id="imageee" class="content appr-content-uniqqq">
+                <h2>Image Content</h2>
+                <p>This is the content for Image.</p>
+            </div>
+            <div id="videosss" class="content appr-content-uniqqq">
+                <h2>Vidéos Content</h2>
+                <p>This is the content for Vidéos.</p>
+            </div>
+        </main>
+    </div>
+
+    <div class="apprendre-benin-economie" id="apprendre-benin-economie" style="display: none;">
+        <button id="appr-back-to-main5"><i class="fas fa-arrow-left"></i>Retour</button>
+        <nav id="menu-apprend">
+            <ul>
+                <li class="menu-item uniqqqq active" id="menu-item-apprend" data-content="texteeee">Texte</li>
+                <li class="menu-item uniqqqq " data-content="podcastttt">Podcast</li>
+                <li class="menu-item uniqqqq " data-content="imageeee">Image</li>
+                <li class="menu-item uniqqqq " data-content="videossss">Vidéos</li>
+            </ul>
+        </nav>
+        <main id="appr-main-detail">
+            <div id="texteeee" class="content appr-content-uniqqqq active" id="content-apprend">
+                <div class="search-container">
+                    <div class="related-questions">
+                        <div class="question">
+                            <div class="question-summary">
+                                <span>Comment s'appelle le Bénin avant ?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="question-detail">
+                                <p>Le Dahomey était le nom de l'actuel Bénin avant son indépendance en 1960.</p>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="question-summary">
+                                <span>Quelles sont les étapes de la décolonisation au Dahomey ?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="question-detail">
+                                <p>Les étapes incluent des réformes administratives, la montée des mouvements nationalistes, et les négociations avec la France aboutissant à l'indépendance en 1960.</p>
+                            </div>
+                        </div>
+                        <div class="question">
+                            <div class="question-summary">
+                                <span>Quels sont les deux moyens pour obtenir l'indépendance ?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="question-detail">
+                                <p>Les deux moyens principaux sont la négociation pacifique et la lutte armée.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="podcastttt" class="content appr-content-uniqqqq">
+                <h2>Podcast Content</h2>
+                <p>This is the content for Podcast.</p>
+            </div>
+            <div id="imageeee" class="content appr-content-uniqqqq">
+                <h2>Image Content</h2>
+                <p>This is the content for Image.</p>
+            </div>
+            <div id="videossss" class="content appr-content-uniqqqq">
+                <h2>Vidéos Content</h2>
+                <p>This is the content for Vidéos.</p>
+            </div>
+        </main>
+    </div>
+</div>
+
+<!-- Ethnies options -->
+<div id="appr-ethnie-div">
+    <button id="appr-back-to-main6" style="display:none;"><i class="fas fa-arrow-left"></i>Retour</button>
+    <div id="appr-ethnie-div-div" class="appr-grid-container-ethnie" style="display:none;">
+        {%for ethnie in ethnies%}
+            <div class="appr-grid-item-ethnie highlight">
+                {{ ethnie.nom }}
+            </div>
+        {%endfor%}
+    </div>
+</div>
+
+<!-- Langues Options -->
+<div id="appr-langue-div">
+    <button id="appr-back-to-main7" style="display:none;"><i class="fas fa-arrow-left"></i>Retour</button>
+    <div id="appr-langue-div-div" class="appr-grid-container-langue" style="display:none;">
+        {%for ethnie in ethnies%}
+            <div class="appr-grid-item-langue highlight">
+                {{ ethnie.langue }}
+            </div>
+        {%endfor%}
+    </div>
+</div>
+
+<!-- Gastronomie -->
+<div id="appr-gastro-div">
+    <button id="appr-back-to-main8" style="display:none;"><i class="fas fa-arrow-left"></i>Retour</button>
+    <div id="appr-gastro-div-div" class="appr-grid-container-gastro" style="display:none;">
+        {%for ethnie in ethnies%}
+            <div class="appr-grid-item-gastro highlight">
+                {{ ethnie.nom }}
+            </div>
+        {%endfor%}
+    </div>
+</div>
+
+<!-- Divinités -->
+<div id="appr-divinites-div">
+    <button id="appr-back-to-main9" style="display:none;"><i class="fas fa-arrow-left"></i>Retour</button>
+    <div id="appr-divinites-div-div" class="appr-grid-container-divinites" style="display:none;">
+        {%for ethnie in ethnies%}
+            <div class="appr-grid-item-divinites highlight">
+                {{ ethnie.nom }}
+            </div>
+        {%endfor%}
+    </div>
+</div>
+
+<!-- Histoire -->
+<div id="appr-histoire-div">
+    <button id="appr-back-to-main10" style="display:none;"><i class="fas fa-arrow-left"></i>Retour</button>
+    <div id="appr-histoire-div-div" class="appr-grid-container-histoire" style="display:none;">
+        {%for ethnie in ethnies%}
+            <div class="appr-grid-item-histoire highlight">
+                {{ ethnie.nom }}
+            </div>
+        {%endfor%}
+    </div>
+</div>
+
+<script src="{% static 'js/apprendre.js' %}"></script>
 {% endblock %}

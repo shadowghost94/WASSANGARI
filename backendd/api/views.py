@@ -13,6 +13,7 @@ from django.contrib.auth.hashers import check_password, make_password
 
 from django.core.mail import send_mail, EmailMessage
 from .token import generatorToken
+import re
 
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -28,13 +29,15 @@ def dashboard(request):
 
 @login_required
 def apprendre(request):
+    ethnies = Ethnies.objects.all()
     user = request.user
-    return render(request, 'apprendre.html', {'user':user})
+    return render(request, 'apprendre.html', {'user':user, 'ethnies':ethnies})
 
 @login_required
 def decouvrir(request):
+    ethnies = Ethnies.objects.all()
     user = request.user
-    return render(request, 'decouvrir.html', {'user':user})
+    return render(request, 'decouvrir.html', {'user':user, 'ethnies':ethnies})
 
 @login_required
 def visiter(request):
@@ -54,12 +57,19 @@ def informer(request):
 @login_required
 def acheter(request):
     user = request.user
-    return render(request, 'acheter.html', {'user':user})
+    objets = ObjetVente.objects.all()
+    return render(request, 'acheter.html', {'user':user, 'objets':objets})
 
 @login_required
 def evenement(request):
+    events = Evenement.objects.all()
     user = request.user
-    return render(request, 'evenements.html', {'user':user})
+    return render(request, 'evenements.html', {'user':user, 'events':events})
+
+@login_required
+def assistant(request):
+    user = request.user
+    return render(request, 'assistant.html', {'user':user})
 
 @csrf_exempt
 @login_required
@@ -117,27 +127,34 @@ def inscription(request, comment=None):
         prenom = request.POST['prenom']
         email = request.POST['email']
         sexe = request.POST['sexe']
-        ethnie_id = request.POST['ethnie']
+        ethnie = request.POST['ethnie']
         password = request.POST['password']
         password1 = request.POST['password-confirm']
         media_profil = request.FILES['photo_profil']
 
         if Utilisateur.objects.filter(email=email):
-            messages.error(request, "Veuillez utiliser une autre adresse e-mail")
-            return redirect('inscription')
+            comment = "Veuillez utiliser une autre adresse e-mail"
+            return render(request, 'inscription.html', {'comment': comment})
         
         if password != password1:
-            messages.error(request, "Vous avez entré deux mots de passes différents")
-
-        mon_utilisateur = Utilisateur(nom=nom, prenom=prenom, email=email, media_profil_url=media_profil, sexe=sexe, ethnie=ethnie_id, password=make_password(password))
+            comment = "Vous avez entré deux mots de passes différents"
+            return render(request, 'inscription.html', {'comment': comment})
+        
+        if (len(password)<8):
+            comment = "Votre mot de passe doit contenir au moins 8 caractère!"
+            return render(request, 'inscription.html', {'comment':comment})
+        
+        if not re.search(r'[!@#$%^&*(),.?":{}|<>]', password):
+            comment = "Votre mot de passe doit contenir au moins un caractère spécial!"
+            return render(request, 'inscription.html', {'comment':comment})
+        
+        mon_utilisateur = Utilisateur(nom=nom, prenom=prenom, email=email, media_profil_url=media_profil, sexe=sexe, ethnie_id=ethnie, password=make_password(password))
 
         try:
             mon_utilisateur.save()
         except:
-            messages.error(request, "Une erreur s'est produite. Veuillez réssayer !")
-            return redirect('connexion')
-
-        messages.success(request, "Votre compte a été crée avec succès, veuillez consulter votre adresse e-mail pour valider")
+            comment = "Une erreur s'est produite. Veuillez réssayer !"
+            return render(request, 'inscription.html', {'comment': comment})
         
         #Envoie du premier email de bienvenue
         subject = "E-mail de bienvenue"
@@ -186,10 +203,10 @@ def inscription(request, comment=None):
 
         email.fail_silently = False
         email.send()
-        comment ="Votre compte a été créer veuillez consulter vos mails pour valider !"
+        comment = "Votre compte a été crée avec succès, veuillez consulter votre adresse e-mail pour l'activer!"
         return inscription(request, comment)
     
-    ethnies = Ethnie.objects.all()
+    ethnies = Ethnies.objects.all()
     return render(request, 'inscription.html', {'ethnies': ethnies})
 
 #fonction d'activation d'email
@@ -203,8 +220,8 @@ def activate(request, uidb64, token):
     if user is not None and generatorToken.check_token(user, token):
         user.is_active = True
         user.save()
-        messages.success(request, "Félicitation, votre compte a bien été activé !")
-        return redirect('connexion')
+        comment = "Félicitation, votre compte a bien été activé !"
+        return render(request, 'connexion.html', {'comment': comment})
     else:
         messages.error(request, "La confirmation a échoué")
         return redirect('index')

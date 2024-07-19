@@ -1,3 +1,339 @@
 {% extends "base.html" %}
+{%load static%}
 {% block class3 %}active{%endblock%}
 {% block menu %}Visiter{%endblock%}
+
+{%block card%}
+<h3>Sites historique</h3>
+<div class="carousel-container-visiter ccv4">
+    <button class="carousel-button-visiter cbv4 left" onclick="scrollLeftt('cv4')">&#10094;</button>
+    <div class="carousel-wrapper-visiter cwv4">
+      <div class="carousel-visiter cv4">
+
+        <div class="card-visiter cav4">
+          <img src="{%static 'img/guerra.png'%}" alt="Monument Bio Guera">
+          <div class="content-visiter cnv4">
+            <h2>Monument Bio Guera</h2>
+            <p>Combattant de la liberté et de la dignité africaine</p>
+            <button>Découvrir</button>
+          </div>
+        </div>
+
+        <div class="card-visiter cav4">
+          <img src="{%static 'img/daeneris.png'%}" alt="Monument aux Dévoués">
+          <div class="content-visiter cnv4">
+            <h2>Monument aux Dévoués</h2>
+            <p>En mémoire des enfants du Bénin dévoués à la patrie</p>
+            <button>Découvrir</button>
+          </div>
+        </div>
+
+        <div class="card-visiter cav4">
+          <img src="{%static 'img/devoues.png'%}" alt="Monument Amazone">
+          <div class="content-visiter cnv4">
+            <h2>Monument Amazone</h2>
+            <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
+            <button>Découvrir</button>
+          </div>
+        </div>
+
+        <div class="card-visiter cav4">
+            <img src="{%static 'img/guerra.png'%}" alt="Monument Amazone">
+            <div class="content-visiter cnv4">
+              <h2>Monument Amazone</h2>
+              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
+              <button>Découvrir</button>
+            </div>
+        </div>
+
+        <div class="card-visiter cav4">
+            <img src="{%static 'img/devoues.png'%}" alt="Monument Amazone">
+            <div class="content-visiter cnv4">
+              <h2>Monument Amazone</h2>
+              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
+              <button>Découvrir</button>
+            </div>
+        </div>
+
+        <div class="card-visiter cav4">
+            <img src="{%static 'img/daeneris.png'%}" alt="Monument Amazone">
+            <div class="content-visiter cnv4">
+              <h2>Monument Amazone</h2>
+              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
+              <button>Visiter</button>
+            </div>
+        </div>
+
+        <!-- Ajoutez plus de cartes ici -->
+      </div>
+    </div>
+    <button class="carousel-button-visiter cbv4 right" onclick="scrollRight('cv4')">&#10095;</button>
+  </div>
+
+  <h3>Monuments</h3>
+  <div class="carousel-container-visiter ccv">
+    <button class="carousel-button-visiter cbv left" onclick="scrollLeftt('cv')">&#10094;</button>
+    <div class="carousel-wrapper-visiter cwv">
+      <div class="carousel-visiter cv">
+
+        <div class="card-visiter cav">
+          <img src="{%static 'img/guerra.png'%}" alt="Monument Bio Guera">
+          <div class="content-visiter cnv">
+            <h2>Monument Bio Guera</h2>
+            <p>Combattant de la liberté et de la dignité africaine</p>
+            <button>Découvrir</button>
+          </div>
+        </div>
+
+        <div class="card-visiter cav">
+          <img src="{%static 'img/daeneris.png'%}" alt="Monument aux Dévoués">
+          <div class="content-visiter cnv">
+            <h2>Monument aux Dévoués</h2>
+            <p>En mémoire des enfants du Bénin dévoués à la patrie</p>
+            <button>Découvrir</button>
+          </div>
+        </div>
+
+        <div class="card-visiter cav">
+          <img src="{%static 'img/devoues.png'%}" alt="Monument Amazone">
+          <div class="content-visiter cnv">
+            <h2>Monument Amazone</h2>
+            <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
+            <button>Découvrir</button>
+          </div>
+        </div>
+
+        <div class="card-visiter cav">
+            <img src="{%static 'img/guerra.png'%}" alt="Monument Amazone">
+            <div class="content-visiter cnv">
+              <h2>Monument Amazone</h2>
+              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
+              <button>Découvrir</button>
+            </div>
+        </div>
+
+        <div class="card-visiter cav">
+            <img src="{%static 'img/devoues.png'%}" alt="Monument Amazone">
+            <div class="content-visiter cnv">
+              <h2>Monument Amazone</h2>
+              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
+              <button>Découvrir</button>
+            </div>
+        </div>
+
+        <div class="card-visiter cav">
+            <img src="{%static 'img/daeneris.png'%}" alt="Monument Amazone">
+            <div class="content-visiter cnv">
+              <h2>Monument Amazone</h2>
+              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
+              <button>Visiter</button>
+            </div>
+        </div>
+
+        <!-- Ajoutez plus de cartes ici -->
+      </div>
+    </div>
+    <button class="carousel-button-visiter cbv right" onclick="scrollRight('cv')">&#10095;</button>
+  </div>
+
+
+  <h3>Musées</h3>
+  <div class="carousel-container-visiter ccv1">
+    <button class="carousel-button-visiter cbv1 left" onclick="scrollLeftt('cv1')">&#10094;</button>
+    <div class="carousel-wrapper-visiter cwv1">
+      <div class="carousel-visiter cv1">
+
+        <div class="card-visiter cav1">
+          <img src="{%static 'img/guerra.png'%}" alt="Monument Bio Guera">
+          <div class="content-visiter cnv1">
+            <h2>Monument Bio Guera</h2>
+            <p>Combattant de la liberté et de la dignité africaine</p>
+            <button>Découvrir</button>
+          </div>
+        </div>
+
+        <div class="card-visiter cav1">
+          <img src="{%static 'img/daeneris.png'%}" alt="Monument aux Dévoués">
+          <div class="content-visiter cnv1">
+            <h2>Monument aux Dévoués</h2>
+            <p>En mémoire des enfants du Bénin dévoués à la patrie</p>
+            <button>Découvrir</button>
+          </div>
+        </div>
+
+        <div class="card-visiter cav1">
+          <img src="{%static 'img/devoues.png'%}" alt="Monument Amazone">
+          <div class="content-visiter cnv1">
+            <h2>Monument Amazone</h2>
+            <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
+            <button>Découvrir</button>
+          </div>
+        </div>
+
+        <div class="card-visiter cav1">
+            <img src="{%static 'img/guerra.png'%}" alt="Monument Amazone">
+            <div class="content-visiter cnv1">
+              <h2>Monument Amazone</h2>
+              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
+              <button>Découvrir</button>
+            </div>
+        </div>
+
+        <div class="card-visiter cav1">
+            <img src="{%static 'img/devoues.png'%}" alt="Monument Amazone">
+            <div class="content-visiter cnv1">
+              <h2>Monument Amazone</h2>
+              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
+              <button>Découvrir</button>
+            </div>
+        </div>
+
+        <div class="card-visiter cav1">
+            <img src="{%static 'img/daeneris.png'%}" alt="Monument Amazone">
+            <div class="content-visiter cnv1">
+              <h2>Monument Amazone</h2>
+              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
+              <button>Visiter</button>
+            </div>
+        </div>
+
+        <!-- Ajoutez plus de cartes ici -->
+      </div>
+    </div>
+    <button class="carousel-button-visiter cbv1 right" onclick="scrollRight('cv1')">&#10095;</button>
+  </div>
+
+  <h3>Parc national</h3>
+  <div class="carousel-container-visiter ccv2">
+    <button class="carousel-button-visiter cbv2 left" onclick="scrollLeftt('cv2')">&#10094;</button>
+    <div class="carousel-wrapper-visiter cwv2">
+      <div class="carousel-visiter cv2">
+
+        <div class="card-visiter cav2">
+          <img src="{%static 'img/guerra.png'%}" alt="Monument Bio Guera">
+          <div class="content-visiter cnv2">
+            <h2>Monument Bio Guera</h2>
+            <p>Combattant de la liberté et de la dignité africaine</p>
+            <button>Découvrir</button>
+          </div>
+        </div>
+
+        <div class="card-visiter cav2">
+          <img src="{%static 'img/daeneris.png'%}" alt="Monument aux Dévoués">
+          <div class="content-visiter cnv2">
+            <h2>Monument aux Dévoués</h2>
+            <p>En mémoire des enfants du Bénin dévoués à la patrie</p>
+            <button>Découvrir</button>
+          </div>
+        </div>
+
+        <div class="card-visiter cav2">
+          <img src="{%static 'img/devoues.png'%}" alt="Monument Amazone">
+          <div class="content-visiter cnv2">
+            <h2>Monument Amazone</h2>
+            <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
+            <button>Découvrir</button>
+          </div>
+        </div>
+
+        <div class="card-visiter cav2">
+            <img src="{%static 'img/guerra.png'%}" alt="Monument Amazone">
+            <div class="content-visiter cnv2">
+              <h2>Monument Amazone</h2>
+              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
+              <button>Découvrir</button>
+            </div>
+        </div>
+
+        <div class="card-visiter cav2">
+            <img src="{%static 'img/devoues.png'%}" alt="Monument Amazone">
+            <div class="content-visiter cnv2">
+              <h2>Monument Amazone</h2>
+              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
+              <button>Découvrir</button>
+            </div>
+        </div>
+
+        <div class="card-visiter cav2">
+            <img src="{%static 'img/daeneris.png'%}" alt="Monument Amazone">
+            <div class="content-visiter cnv2">
+              <h2>Monument Amazone</h2>
+              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
+              <button>Visiter</button>
+            </div>
+        </div>
+
+        <!-- Ajoutez plus de cartes ici -->
+      </div>
+    </div>
+    <button class="carousel-button-visiter cbv2 right" onclick="scrollRight('cv2')">&#10095;</button>
+  </div>
+
+
+  <h3>Reserve</h3>
+  <div class="carousel-container-visiter ccv3">
+    <button class="carousel-button-visiter cbv3 left" onclick="scrollLeftt('cv3')">&#10094;</button>
+    <div class="carousel-wrapper-visiter cwv3">
+      <div class="carousel-visiter cv3">
+
+        <div class="card-visiter cav3">
+          <img src="{%static 'img/guerra.png'%}" alt="Monument Bio Guera">
+          <div class="content-visiter cnv3">
+            <h2>Monument Bio Guera</h2>
+            <p>Combattant de la liberté et de la dignité africaine</p>
+            <button>Découvrir</button>
+          </div>
+        </div>
+
+        <div class="card-visiter cav3">
+          <img src="{%static 'img/daeneris.png'%}" alt="Monument aux Dévoués">
+          <div class="content-visiter cnv3">
+            <h2>Monument aux Dévoués</h2>
+            <p>En mémoire des enfants du Bénin dévoués à la patrie</p>
+            <button>Découvrir</button>
+          </div>
+        </div>
+
+        <div class="card-visiter cav3">
+          <img src="{%static 'img/devoues.png'%}" alt="Monument Amazone">
+          <div class="content-visiter cnv3">
+            <h2>Monument Amazone</h2>
+            <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
+            <button>Découvrir</button>
+          </div>
+        </div>
+
+        <div class="card-visiter cav3">
+            <img src="{%static 'img/guerra.png'%}" alt="Monument Amazone">
+            <div class="content-visiter cnv3">
+              <h2>Monument Amazone</h2>
+              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
+              <button>Découvrir</button>
+            </div>
+        </div>
+
+        <div class="card-visiter cav3">
+            <img src="{%static 'img/devoues.png'%}" alt="Monument Amazone">
+            <div class="content-visiter cnv3">
+              <h2>Monument Amazone</h2>
+              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
+              <button>Découvrir</button>
+            </div>
+        </div>
+
+        <div class="card-visiter cav3">
+            <img src="{%static 'img/daeneris.png'%}" alt="Monument Amazone">
+            <div class="content-visiter cnv3">
+              <h2>Monument Amazone</h2>
+              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
+              <button>Visiter</button>
+            </div>
+        </div>
+
+        <!-- Ajoutez plus de cartes ici -->
+      </div>
+    </div>
+    <button class="carousel-button-visiter cbv3 right" onclick="scrollRight('cv3')">&#10095;</button>
+  </div>
+  <script src="{% static 'js/visiter.js' %}"></script>
+{%endblock%}

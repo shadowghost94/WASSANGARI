@@ -1,3 +1,28 @@
 {% extends "base.html" %}
+{%load static%}
 {% block class4 %}active{%endblock%}
 {% block menu %}Explorer{%endblock%}
+
+{%block card%}
+<div class="">
+    <header id="header-banque">
+        <h1>Banque d'Images</h1>
+    </header>
+    <main class="main-banque">
+        <div class="gallery-banque">
+            <div class="gallery-item-banque">
+                <img src="{%static 'img/11.jpg'%}" alt="Image 1">
+                <div class="gallery-item-title-banque">Titre de l'Image 1</div>
+            </div>
+            <div class="gallery-item-banque">
+                <img src="{%static 'img/11.jpg'%}" alt="Image 2">
+                <div class="gallery-item-title-banque">Titre de l'Image 2</div>
+            </div>
+            <div class="gallery-item-banque">
+                <img src="{%static 'img/11.jpg'%}" alt="Image 3">
+                <div class="gallery-item-title-banque">Titre de l'Image 3</div>
+            </div>
+        </div>
+    </main>
+</div>
+{%endblock%}

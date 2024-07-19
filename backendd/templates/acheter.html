@@ -1,3 +1,40 @@
 {% extends "base.html" %}
+{%load static%}
 {% block class6 %}active{%endblock%}
 {% block menu %}Acheter{%endblock%}
+
+{%block card%}
+<div class="gallery">
+    {% for objet in objets%}
+    <div>
+        <div class="art-item" onclick="showAchatDetails('{{objet.id}}')">
+            <img src="/media/{{objet.media_url}}" alt="Titre de l'œuvre" />
+            <h3>{{objet.titre}}</h3>
+            <p>Auteur : {{objet.auteur}}</p>
+            <p>Prix : {{objet.prix}} FCFA</p>
+            <button>Acheter</button>
+        </div>
+        <div class="modal-achat-detail" id="{{objet.id}}" style="display:none;">
+            <div class="modal-content-achat-detail">
+                <span class="close-button-achat-detail" onclick="closeAchatDetails('{{objet.id}}')">&times;</span>
+                <div id="achat-details-content">
+                    <img src="/media/{{objet.media_url}}" alt="" class="achat-image">
+                    <div>
+                        <h2 class="achat-title" id="achat-title-descript">{{objet.titre}}</h2>
+                        <p class="achat-organizer"><i class="fas fa-user"></i> Par, {{objet.auteur}} {{user.prenom}}</p>
+                        <p class="achat-price"><i class="fas fa-ticket-alt"></i> {{objet.prix}} FCFA</p>
+                        <button class="btn btn-primary">ACHETER</button>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="font-weight:bold;">Description:</h4>
+                    <p>{{objet.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+    <!-- Ajoutez d'autres objets d'art ici -->
+</div>
+<script src="{% static 'js/acheter.js' %}"></script>
+{%endblock%}

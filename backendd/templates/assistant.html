@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{%load static%}
+{% block class10 %}active{%endblock%}
+{% block menu %}Acheter{%endblock%}
+
+{%block card%}
+<h3>Oracle ! Oracle ! soumettez simplement votre requête</h3>
+<div class="chat-container">
+    <div class="chat-box" id="chat-box"></div>
+    <input type="text-chat" id="user-input-chat" placeholder="Posez votre question...">
+    <button id="send-button-chat">Envoyer</button>
+</div>
+<script src="{%static 'js/assistant.js'%}"></script>
+{%endblock%}

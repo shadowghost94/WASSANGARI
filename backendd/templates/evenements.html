@@ -4,121 +4,46 @@
 {% block menu %}Evénements{%endblock%}
 
 {%block card%}
-<div id="Events" class="Section-content">
-    <div id="card" class="card row">
-        <img src="{%static 'img/event.png'%}" alt="" />
-        <div class="desc">
-            <h2>Titre</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia numquam blanditiis debitis.</p>
-            <div>
-                <div class="date">
-                    <p>12/06/24 <span>Parakou</span></p> <button id="boutachat">Acheter</button>
-                </div>
+<div class="events-container">
+    {%for event in events%}
+    <div class="event-card" onclick="showEventDetails('{{event.id}}')">
+        <img src="/media/{{event.media_profil_url}}" alt="Événement 1" class="event-image">
+        <div class="event-content">
+            <div class="event-status">{{event.statut}}</div>
+            <div class="event-description">
+                <h2 class="event-title">{{event.nom}}</h2>
+                <p class="event-date">{{event.date}}</p>
+                <p class="event-location">{{event.lieu}}</p>
+                <p class="event-organizer">Par, {{user.nom}} {{user.prenom}}</p>
+                <p class="event-price">{{event.prix_entree}} FCFA</p>
             </div>
         </div>
-
-        
+        <div>
+            <button class="btn btn-primary col-lg-12">ACHETER</button>
+        </div>
     </div>
-
-
-    <!-- details des events -->
-
-    
-    <div id="detailsev">
-        <div class="Bret">
-            <div id="return" class="return">
-                <img  src='Back.png' alt="" />
-                <p>RETOUR</p>
-            </div>
-            <p>DETAILS EVENEMENTIELS</p>
-        </div>
-
-        <div class="big">
-            <img src='dcdcdcdcd 1.png' alt="" />
-            <div class="describe">
-                <h2>WENDIA IT</h2>
+    <div class="modal-event-detail" id="{{event.id}}">
+        <div class="modal-content-event-detail">
+            <span class="close-button-event-detail" onclick="closeEventDetails('{{event.id}}')">&times;</span>
+            <div id="event-details-content">
+                <img src="/media/{{event.media_profil_url}}" alt="" class="event-image">
                 <div>
-                <h4> DESCRIPTION</h4>
-                <p class="descritext">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque in iste eaque dolorum voluptatem suscipit voluptatum! Corporis tenetur magni illum necessitatibus? Aut, nam! Voluptatibus quia incidunt porro labore, quaerat odio hic iure sequi fugiat nesciunt eligendi ipsam omnis, commodi vero ex veniam praesentium a nobis facere impedit atque!
-
-                </p>
-                </div>
-                <div class="icon">
-                    <div> <img  id="iconn" src='Mask group.png' ></img> <p class="vert"> PRIX : FREE</p>
-                     <button>ACHETER</button>
-                    </div>
-                    <div> <img src='Calendar Plus.png' alt="" /> <p > 20/03/24</p></div>
-                    <div> <img src='Hourglass.png' alt="" /> <p>@H Estime</p></div>
-                    <div> <img src='Place Marker.png' alt="" /> <p class="vert">PARAKOU, CASSE</p></div>
-                     <p>PLACES DISPONIBLES</p>
-
-
+                    <h2 class="event-title" id="event-title-descript">{{event.nom}}</h2>
+                    <p class="event-date"><i class="fas fa-calendar-alt"></i> {{event.date}}</p>
+                    <p class="event-location"><i class="fas fa-map-marker-alt"></i> {{event.lieu}}</p>
+                    <p class="event-organizer"><i class="fas fa-user"></i> Par, {{user.nom}} {{user.prenom}}</p>
+                    <p class="event-price"><i class="fas fa-ticket-alt"></i> {{event.prix_entree}} FCFA</p>
+                    <button class="btn btn-primary">ACHETER</button>
                 </div>
             </div>
-
-           
-
+            <div>
+                <h4 style="font-weight:bold;">Description:</h4>
+                <p>{{event.description}}</p>
+            </div>
         </div>
-        <div class="organisateur">
-                <h4>ORGANISATEUR (ICE)</h4>
-                <div class="Orga">
-                    <img src='sv.jpg'alt="" />
-                    <div class="descr">
-                        <h2> RUKYA KUCHIKI</h2>
-                        <p>Lorem ipsum dolor sit amet con vgtgr  tretreg tegtdgth tdtheyg hyrhh h rhh hrhyhdhy yhyh sectetur adipisicing elit. Praesentium distinctio enim facere. Recusandae quia officiis natus molestiae dolore, voluptas doloremque?</p>
-                        <div class="contact"> 
-                        <img src="WhatsAppb.png" alt="" />
-                        <p>+229 54 50 93 83</p>
-                        </div>
-                    </div>
-                  
-                </div>
-
-            </div>
-            <div class ="invitees">
-                <h4>INVITE/E (S)</h4>
-                <div class="inv4">
-                    <div>  <div class="Invite">
-            <img src="sv.jpg" alt="" />
-            <div class="descri">
-                <h2> RUKYA KUCHIKI</h2>
-                <p>Loremadipisicing elit. Praesentium distinctio enim facere. Recusandae quia officiis natus molestiae dolore, voluptas doloremque?</p>
-                
-            </div>
-          
-        </div></div>
-                    <div> <div class="Invite">
-                        <img src="sv.jpg" alt="" />
-                        <div class="descri">
-                            <h2> RUKYA KUCHIKI</h2>
-                            <p>Loremadipisicing elit. Praesentium distinctio enim facere. Recusandae quia officiis natus molestiae dolore, voluptas doloremque?</p>
-                            
-                        </div>
-                      
-                    </div></div>
-                    <div>  <div class="Invite">
-                        <img src="sv.jpg" alt="" />
-                        <div class="descri">
-                            <h2> RUKYA KUCHIKI</h2>
-                            <p>Loremadipisicing elit. Praesentium distinctio enim facere. Recusandae quia officiis natus molestiae dolore, voluptas doloremque?</p>
-                            
-                        </div>
-                      
-                    </div></div>
-                    <div>  <div class="Invite">
-                        <img src="sv.jpg" alt="" />
-                        <div class="descri">
-                            <h2> RUKYA KUCHIKI</h2>
-                            <p>Loremadipisicing elit. Praesentium distinctio enim facere. Recusandae quia officiis natus molestiae dolore, voluptas doloremque?</p>
-                            
-                        </div>
-                      
-                    </div></div>
-                    
-                </div>
-
-            </div>
     </div>
+    {%endfor%}
 </div>
+
+<script src="{% static 'js/evenement.js'%}"></script>
 {%endblock%}
