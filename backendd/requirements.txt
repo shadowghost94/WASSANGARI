@@ -7,3 +7,6 @@ email_validator==2.2.0
 virtualenv==20.26.2
 gunicorn==22.0.0
 mysqlclient==1.4.6
+simple-rest-client==1.1.3
+six==1.16.0
+types-six==1.16
