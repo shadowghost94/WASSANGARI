@@ -26,10 +26,13 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = "django-insecure-5tkne!-vjoi7h0!#p-3m$kkmojev63p=$!3%r*o2tix=mcbnqw"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'wassangari.onrender.com']
-
+SECURE_HSTS_SECONDS = 3600  # Définit à 1 heure pour commencer, vous pouvez augmenter cette valeur
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+SECURE_SSL_REDIRECT = True
 
 # Application definition
 
@@ -138,6 +141,9 @@ STATIC_URL = "static/"
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/'),)
 
+# Répertoire où les fichiers statiques seront collectés
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -154,9 +160,10 @@ SESSION_COOKIE_NAME = 'sessionid'  # Nom du cookie de session
 SESSION_COOKIE_AGE = 1209600  # Durée de vie du cookie de session en secondes (2 semaines par défaut)
 SESSION_SAVE_EVERY_REQUEST = False  # Si True, la session sera sauvegardée à chaque requête
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Si True, la session expire lorsque le navigateur est fermé
+SESSION_COOKIE_SECURE = True
 
 CSRF_COOKIE_NAME = 'csrftoken'
 CSRF_COOKIE_AGE = 31449600  # Durée de vie du cookie en secondes (par défaut 1 an)
 CSRF_COOKIE_DOMAIN = None
-CSRF_COOKIE_SECURE = False  # Si True, le cookie CSRF sera transmis uniquement sur des connexions HTTPS
+CSRF_COOKIE_SECURE = True  # Si True, le cookie CSRF sera transmis uniquement sur des connexions HTTPS
 CSRF_COOKIE_HTTPONLY = False  # Si True, le cookie CSRF sera inaccessible par JavaScript
