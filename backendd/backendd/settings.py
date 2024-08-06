@@ -89,10 +89,10 @@ WSGI_APPLICATION = "backendd.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('DB_NAME'),  # Nom de la base de données
-        'USER': os.getenv('DB_USER'),  # Nom d'utilisateur
-        'PASSWORD': os.getenv('DB_PASSWORD'),  # Mot de passe
-        'HOST': os.getenv('DB_HOST'),  # Hôte de la base de données
+        'NAME': 'wassangari',  # Nom de la base de données
+        'USER': 'phpmyadmin',  # Nom d'utilisateur
+        'PASSWORD': 'admin',  # Mot de passe
+        'HOST': 'localhost',  # Hôte de la base de données
         'PORT': '3306',  # Port de la base de données MySQL
     }
 }
