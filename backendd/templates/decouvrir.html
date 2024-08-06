@@ -4,6 +4,15 @@
 {% block menu %}Découvrir{% endblock %}
 
 {% block card %}
+<div class="modal-pol" id="videoModal-pol">
+    <div class="modal-content-pol">
+        <span class="close-pol">&times;</span>
+        <video controls id="videoPlayer-pol" style="width: 100%;">
+            Your browser does not support the video tag.
+        </video>
+        <p id="modalVideoTitle-pol" class="modal-video-title-pol"></p>
+    </div>
+</div>
 <div class="content-decouvrir" id="content-decouvrir">
     <div class="grid-decouvrir">
         <div class="item-decouvrir" id="decouvr-benin" data-id="1">Bénin</div>
@@ -65,16 +74,66 @@
                 </div>
             </div>
             <div id="podcast" class="content content-uniq">
-                <h2>Podcast Content</h2>
-                <p>This is the content for Podcast.</p>
+                <section class="podcast article" style="display: flex;">
+                    <img src="{%static 'img/11.jpg'%}" alt="" class="article-img">
+                    <div class="article-content" style="padding: 0;margin-left: 2%;width:100%">
+                        <audio controls loop style="width:100%;">
+                            <source src="episode1.mp3" type="audio/mpeg">
+                            Votre navigateur ne supporte pas l'élément audio.
+                        </audio>
+                        <h3>Épisode 1 : La culture béninoise</h3>
+                        <p style="color: blue;">Plongée dans les traditions et coutumes du Bénin...<span>Voir plus<span></p>
+                    </div>
+                </section>
             </div>
             <div id="image" class="content content-uniq">
-                <h2>Image Content</h2>
-                <p>This is the content for Image.</p>
+                <section class="" style="display: flex; flex-wrap: wrap;">
+                    <div class="container-images-articles">
+                        <div class="item-images-articles">
+                            <img src="{%static 'img/11.jpg'%}" alt="Civilisations Noires : Le Royaume du Bénin" height="100">
+                            <div class="caption-images-articles">
+                                <p class="source">Par Teria News</p>
+                                <p style="color: blue;">Civilisations Noires : Le Royaume du Bénin</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-images-articles">
+                        <div class="item-images-articles">
+                            <img src="{%static 'img/11.jpg'%}" alt="Civilisations Noires : Le Royaume du Bénin" height="100">
+                            <div class="caption-images-articles">
+                                <p class="source">Par Teria News</p>
+                                <p style="color: blue;">Civilisations Noires : Le Royaume du Bénin</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="container-images-articles">
+                        <div class="item-images-articles">
+                            <img src="{%static 'img/11.jpg'%}" alt="Civilisations Noires : Le Royaume du Bénin" height="100">
+                            <div class="caption-images-articles">
+                                <p class="source">Par Teria News</p>
+                                <p style="color: blue;">Civilisations Noires : Le Royaume du Bénin</p>
+                            </div>
+                        </div>
+                    </div>
+               
+                    <div class="container-images-articles">
+                        <div class="item-images-articles">
+                            <img src="{%static 'img/11.jpg'%}" alt="Civilisations Noires : Le Royaume du Bénin" height="100">
+                            <div class="caption-images-articles">
+                                <p class="source">Par Teria News</p>
+                                <p style="color: blue;">Civilisations Noires : Le Royaume du Bénin</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
             <div id="videos" class="content content-uniq">
-                <h2>Vidéos Content</h2>
-                <p>This is the content for Vidéos.</p>
+                <div class="video-thumbnail-pol" data-video-url="videos/video1.mp4">
+                    <video class="video-preview-pol" src="/media/videos-decouvr/benin/histoire/HISTOIREGBEHANZIN.mp4" muted loop></video>
+                    <div class="play-button-pol"></div>
+                    <p class="video-title-pol">HISTOIRE DU ROI BEHANZIN</p>
+                </div>
             </div>
         </main>
     </div>
@@ -106,16 +165,76 @@
                 </div>
             </div>
             <div id="podcastt" class="content content-uniqq">
-                <h2>Podcast Content</h2>
-                <p>This is the content for Podcast.</p>
+                <section class="podcast article" style="display: flex;">
+                    <img src="{%static 'img/11.jpg'%}" alt="" class="article-img">
+                    <div class="article-content" style="padding: 0;margin-left: 2%;width:100%">
+                        <audio controls loop style="width:100%;">
+                            <source src="episode1.mp3" type="audio/mpeg">
+                            Votre navigateur ne supporte pas l'élément audio.
+                        </audio>
+                        <h3>Épisode 1 : La culture béninoise</h3>
+                        <p style="color: blue;">Plongée dans les traditions et coutumes du Bénin...<span>Voir plus<span></p>
+                    </div>
+                </section>
             </div>
             <div id="imagee" class="content content-uniqq">
-                <h2>Image Content</h2>
-                <p>This is the content for Image.</p>
+                <section class="" style="display: flex; flex-wrap: wrap;">
+                    <div class="container-images-articles">
+                        <div class="item-images-articles">
+                            <img src="{%static 'img/11.jpg'%}" alt="Civilisations Noires : Le Royaume du Bénin" height="100">
+                            <div class="caption-images-articles">
+                                <p class="source">Par Teria News</p>
+                                <p style="color: blue;">Civilisations Noires : Le Royaume du Bénin</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-images-articles">
+                        <div class="item-images-articles">
+                            <img src="{%static 'img/11.jpg'%}" alt="Civilisations Noires : Le Royaume du Bénin" height="100">
+                            <div class="caption-images-articles">
+                                <p class="source">Par Teria News</p>
+                                <p style="color: blue;">Civilisations Noires : Le Royaume du Bénin</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="container-images-articles">
+                        <div class="item-images-articles">
+                            <img src="{%static 'img/11.jpg'%}" alt="Civilisations Noires : Le Royaume du Bénin" height="100">
+                            <div class="caption-images-articles">
+                                <p class="source">Par Teria News</p>
+                                <p style="color: blue;">Civilisations Noires : Le Royaume du Bénin</p>
+                            </div>
+                        </div>
+                    </div>
+               
+                    <div class="container-images-articles">
+                        <div class="item-images-articles">
+                            <img src="{%static 'img/11.jpg'%}" alt="Civilisations Noires : Le Royaume du Bénin" height="100">
+                            <div class="caption-images-articles">
+                                <p class="source">Par Teria News</p>
+                                <p style="color: blue;">Civilisations Noires : Le Royaume du Bénin</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
             <div id="videoss" class="content content-uniqq">
-                <h2>Vidéos Content</h2>
-                <p>This is the content for Vidéos.</p>
+                <div class="video-thumbnail-pol" data-video-url="videos/video1.mp4">
+                    <video class="video-preview-pol" src="/media/videos-decouvr/benin/geographie/CARTEDUBÉNIN.mp4" muted loop></video>
+                    <div class="play-button-pol"></div>
+                    <p class="video-title-pol">CARTE DU BENIN</p>
+                </div>
+            
+                <div class="modal-pol" id="videoModal-pol">
+                    <div class="modal-content-pol">
+                        <span class="close-pol">&times;</span>
+                        <video controls id="videoPlayer-pol" style="width: 100%;">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p id="modalVideoTitle-pol" class="modal-video-title-pol"></p>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
@@ -133,7 +252,7 @@
         <main id="main-detail">
             <div id="texteee" class="content content-uniqqq active" id="content-decouvr">
                 <div class="" style="display: flex;flex-direction: column;gap: 20px;padding: 20px;">
-                    <!-- article 1 -->
+                    <!-- articles-decouvr -->
                     <div class="article" onclick="showDetails('article1')" >
                         <img src="{%static 'img/11.jpg'%}" alt="Image 1" class="article-img">
                         <div class="article-content">
@@ -146,6 +265,7 @@
                     
                 </div>
             </div>
+            <!-- podcast-decouvr -->
             <div id="podcasttt" class="content content-uniqqq">
                 <section class="podcast article" style="display: flex;">
                     <img src="{%static 'img/11.jpg'%}" alt="" class="article-img">
@@ -159,6 +279,7 @@
                     </div>
                 </section>
             </div>
+            <!-- images-decouvr -->
             <div id="imageee" class="content content-uniqqq">
                 <section class="" style="display: flex; flex-wrap: wrap;">
                     <div class="container-images-articles">
@@ -202,10 +323,25 @@
                 </section>
             </div>
 
+<!-- Videos decouvr -->
             <div id="videosss" class="content content-uniqqq">
-                <h2>Vidéos Content</h2>
-                <p>This is the content for Vidéos.</p>
+                <div class="video-thumbnail-pol" data-video-url="videos/video1.mp4">
+                    <video class="video-preview-pol" src="/media/videos-decouvr/benin/politique/talonfrance.mp4" muted loop></video>
+                    <div class="play-button-pol"></div>
+                    <p class="video-title-pol">Conférence Talon-Macron</p>
+                </div>
+            
+                <div class="modal-pol" id="videoModal-pol">
+                    <div class="modal-content-pol">
+                        <span class="close-pol">&times;</span>
+                        <video controls id="videoPlayer-pol" style="width: 100%;">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p id="modalVideoTitle-pol" class="modal-video-title-pol"></p>
+                    </div>
+                </div>
             </div>
+
         </main>
     </div>
 
@@ -235,17 +371,80 @@
                     
                 </div>
             </div>
+            <!-- podcast -->
             <div id="podcastttt" class="content content-uniqqqq">
-                <h2>Podcast Content</h2>
-                <p>This is the content for Podcast.</p>
+                <section class="podcast article" style="display: flex;">
+                    <img src="{%static 'img/11.jpg'%}" alt="" class="article-img">
+                    <div class="article-content" style="padding: 0;margin-left: 2%;width:100%">
+                        <audio controls loop style="width:100%;">
+                            <source src="episode1.mp3" type="audio/mpeg">
+                            Votre navigateur ne supporte pas l'élément audio.
+                        </audio>
+                        <h3>Épisode 1 : La culture béninoise</h3>
+                        <p style="color: blue;">Plongée dans les traditions et coutumes du Bénin...<span>Voir plus<span></p>
+                    </div>
+                </section>
             </div>
+
             <div id="imageeee" class="content content-uniqqqq">
-                <h2>Image Content</h2>
-                <p>This is the content for Image.</p>
+                <section class="" style="display: flex; flex-wrap: wrap;">
+                    <div class="container-images-articles">
+                        <div class="item-images-articles">
+                            <img src="{%static 'img/11.jpg'%}" alt="Civilisations Noires : Le Royaume du Bénin" height="100">
+                            <div class="caption-images-articles">
+                                <p class="source">Par Teria News</p>
+                                <p style="color: blue;">Civilisations Noires : Le Royaume du Bénin</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-images-articles">
+                        <div class="item-images-articles">
+                            <img src="{%static 'img/11.jpg'%}" alt="Civilisations Noires : Le Royaume du Bénin" height="100">
+                            <div class="caption-images-articles">
+                                <p class="source">Par Teria News</p>
+                                <p style="color: blue;">Civilisations Noires : Le Royaume du Bénin</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="container-images-articles">
+                        <div class="item-images-articles">
+                            <img src="{%static 'img/11.jpg'%}" alt="Civilisations Noires : Le Royaume du Bénin" height="100">
+                            <div class="caption-images-articles">
+                                <p class="source">Par Teria News</p>
+                                <p style="color: blue;">Civilisations Noires : Le Royaume du Bénin</p>
+                            </div>
+                        </div>
+                    </div>
+               
+                    <div class="container-images-articles">
+                        <div class="item-images-articles">
+                            <img src="{%static 'img/11.jpg'%}" alt="Civilisations Noires : Le Royaume du Bénin" height="100">
+                            <div class="caption-images-articles">
+                                <p class="source">Par Teria News</p>
+                                <p style="color: blue;">Civilisations Noires : Le Royaume du Bénin</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
+            <!-- videos -->
             <div id="videossss" class="content content-uniqqqq">
-                <h2>Vidéos Content</h2>
-                <p>This is the content for Vidéos.</p>
+                <div class="video-thumbnail-pol" data-video-url="videos/video1.mp4">
+                    <video class="video-preview-pol" src="/media/videos-decouvr/benin/economie/PERFORMANCESECONOMIQUES.mp4" muted loop></video>
+                    <div class="play-button-pol"></div>
+                    <p class="video-title-pol">PERFOMANCES ECONOMIQUES DU BENIN</p>
+                </div>
+            
+                <div class="modal-pol" id="videoModal-pol">
+                    <div class="modal-content-pol">
+                        <span class="close-pol">&times;</span>
+                        <video controls id="videoPlayer-pol" style="width: 100%;">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p id="modalVideoTitle-pol" class="modal-video-title-pol"></p>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
@@ -311,5 +510,69 @@
     </div>
 </div>
 
-<script src="{% static 'js/decouvrir.js' %}"></script>
+<!-- options chants et danses -->
+<div id="chants-danses-div">
+    <button id="back-to-main13" style="display:none;"><i class="fas fa-arrow-left"></i>Retour</button>
+    <div id="chants-danses-div-div" class="grid-container-chants-danses" style="display:none;">
+        <button id="back-to-main-danses-div" style="display:none;"><i class="fas fa-arrow-left"></i>Retour</button>
+        {% for ethnie in ethnies %}
+            <div class="grid-item-chants-danses highlight"  onclick="showRest('{{ ethnie.id }}')">
+                {{ ethnie.nom }}
+            </div>
+            <div class="containerCD" id="{{ethnie.id}}" style="display: none;">
+                <button id="chants-btn" class="tabCD-btn">Chants</button>
+                <button id="dances-btn" class="tabCD-btn">Danses</button>
+
+                <div id="chants" class="content active">
+                    <div style="display: flex;">
+                        <div class="video-thumbnail-pol" data-video-url="videos/video1.mp4">
+                            <video class="video-preview-pol" src="/media/videos-decouvr/chants_danses/Barasuno_ _BioGuera.mp4" muted loop></video>
+                            <div class="play-button-pol"></div>
+                            <p class="video-title-pol">Barasuno_ _Bio Guera</p>
+                        </div>
+
+                        <div class="video-thumbnail-pol" data-video-url="videos/video1.mp4">
+                            <video class="video-preview-pol" src="/media/videos-decouvr/chants_danses/AMYMAKO-Tourou.mp4" muted loop></video>
+                            <div class="play-button-pol"></div>
+                            <p class="video-title-pol">AMY MAKO Tourou</p>
+                        </div>
+
+                        <div class="video-thumbnail-pol" data-video-url="videos/video1.mp4">
+                            <video class="video-preview-pol" src="/media/videos-decouvr/chants_danses/BarasunoSeroToru.mp4" muted loop></video>
+                            <div class="play-button-pol"></div>
+                            <p class="video-title-pol">Barasuno Sero-Toru</p>
+                        </div>
+
+                        <div class="video-thumbnail-pol" data-video-url="videos/video1.mp4">
+                            <video class="video-preview-pol" src="/media/videos-decouvr/chants_danses/Barasuno-La mort.mp4" muted loop></video>
+                            <div class="play-button-pol"></div>
+                            <p class="video-title-pol">Barasuno -La mort</p>
+                        </div>
+
+                        <div class="video-thumbnail-pol" data-video-url="videos/video1.mp4">
+                            <video class="video-preview-pol" src="/media/videos-decouvr/chants_danses/gura-yerekou.mp4" muted loop></video>
+                            <div class="play-button-pol"></div>
+                            <p class="video-title-pol">GURA YEREKOU</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="dances" class="content">
+        
+                    <div style="display: flex;">
+                        <div class="video-thumbnail-pol" data-video-url="videos/video1.mp4">
+                            <video class="video-preview-pol" src="/media/videos-decouvr/chants_danses/teke1.mp4" muted loop></video>
+                            <div class="play-button-pol"></div>
+                            <p class="video-title-pol">Danses tèkè 1</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="{% static 'js/decouvrir.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/videos-decouvr.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/chants-danses.js' %}" type="text/javascript"></script>
 {% endblock %}

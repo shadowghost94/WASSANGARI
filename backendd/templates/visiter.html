@@ -5,64 +5,40 @@
 
 {%block card%}
 <h3>Sites historique</h3>
-<div class="carousel-container-visiter ccv4">
+<div id="PourTous" style="height:100%; width:1000px;background-color:white;"></div>
+<div class="carousel-container-visiter ccv4" id="carousel-container-visiter">
     <button class="carousel-button-visiter cbv4 left" onclick="scrollLeftt('cv4')">&#10094;</button>
     <div class="carousel-wrapper-visiter cwv4">
       <div class="carousel-visiter cv4">
 
+      {%for site in sitehistorique%}
         <div class="card-visiter cav4">
-          <img src="{%static 'img/guerra.png'%}" alt="Monument Bio Guera">
+          <img src="/media/{{site.media_profil_url}}" alt="Monument Bio Guera">
           <div class="content-visiter cnv4">
-            <h2>Monument Bio Guera</h2>
-            <p>Combattant de la liberté et de la dignité africaine</p>
-            <button>Découvrir</button>
+            <h2>{{site.nom}}</h2>
+            <p>{{site.description|slice:":52"}}</p>
+            <button onclick="showVisiterDetails('{{site.id}}')">Visiter</button>
           </div>
         </div>
 
-        <div class="card-visiter cav4">
-          <img src="{%static 'img/daeneris.png'%}" alt="Monument aux Dévoués">
-          <div class="content-visiter cnv4">
-            <h2>Monument aux Dévoués</h2>
-            <p>En mémoire des enfants du Bénin dévoués à la patrie</p>
-            <button>Découvrir</button>
+        <div class="modal-achat-detail" id="visterSite{{site.id}}" style="display:none; justify-content: space-between;height:100%;">
+          <div class="modal-content-achat-detail">
+              <span class="close-button-achat-detail" onclick="closeVisiterDetails('{{site.id}}')">&times;</span>
+              <div>
+                <div>
+                  <img src="/media/{{site.media_profil_url}}" alt="{{site.nom}}" style="margin-right:2%;float: left; height: 50%;width: 40%;">
+                </div> 
+                <div>
+                    <h1 class="article-title" style="font-size: 25px;">{{site.nom}}</h1><br/>
+                    <p style="font-size: 20px;text-align: justify;">{{site.description}}</p>
+                </div>
+              </div>
+              <div>
+x
+              </div>
           </div>
-        </div>
-
-        <div class="card-visiter cav4">
-          <img src="{%static 'img/devoues.png'%}" alt="Monument Amazone">
-          <div class="content-visiter cnv4">
-            <h2>Monument Amazone</h2>
-            <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
-            <button>Découvrir</button>
-          </div>
-        </div>
-
-        <div class="card-visiter cav4">
-            <img src="{%static 'img/guerra.png'%}" alt="Monument Amazone">
-            <div class="content-visiter cnv4">
-              <h2>Monument Amazone</h2>
-              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
-              <button>Découvrir</button>
-            </div>
-        </div>
-
-        <div class="card-visiter cav4">
-            <img src="{%static 'img/devoues.png'%}" alt="Monument Amazone">
-            <div class="content-visiter cnv4">
-              <h2>Monument Amazone</h2>
-              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
-              <button>Découvrir</button>
-            </div>
-        </div>
-
-        <div class="card-visiter cav4">
-            <img src="{%static 'img/daeneris.png'%}" alt="Monument Amazone">
-            <div class="content-visiter cnv4">
-              <h2>Monument Amazone</h2>
-              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
-              <button>Visiter</button>
-            </div>
-        </div>
+        </div> 
+      {%endfor%}
 
         <!-- Ajoutez plus de cartes ici -->
       </div>
@@ -75,61 +51,52 @@
     <button class="carousel-button-visiter cbv left" onclick="scrollLeftt('cv')">&#10094;</button>
     <div class="carousel-wrapper-visiter cwv">
       <div class="carousel-visiter cv">
-
+      {%for monument in monuments%}
         <div class="card-visiter cav">
-          <img src="{%static 'img/guerra.png'%}" alt="Monument Bio Guera">
+          <img src="/media/{{monument.media_profil_url}}" alt="Monument Bio Guera">
           <div class="content-visiter cnv">
-            <h2>Monument Bio Guera</h2>
-            <p>Combattant de la liberté et de la dignité africaine</p>
-            <button>Découvrir</button>
+            <h2>{{monument.nom}}</h2>
+            <p>{{monument.description|slice:":52"}}</p>
+            <button onclick="showMonumDetails('{{monument.id}}')">Visiter</button>
           </div>
         </div>
 
-        <div class="card-visiter cav">
-          <img src="{%static 'img/daeneris.png'%}" alt="Monument aux Dévoués">
-          <div class="content-visiter cnv">
-            <h2>Monument aux Dévoués</h2>
-            <p>En mémoire des enfants du Bénin dévoués à la patrie</p>
-            <button>Découvrir</button>
+        <div class="modal-achat-detail" id="visterMonument{{monument.id}}" style="display:none; justify-content: space-between;height:100%;">
+          <div class="modal-content-achat-detail">
+              <span class="close-button-achat-detail" onclick="closeMonumDetails('{{monument.id}}')">&times;</span>
+              <div>
+                <div>
+                  <img src="/media/{{monument.media_profil_url}}" alt="{{monument.nom}}" style="margin-right:2%;float: left; height: 50%;width: 40%;">
+                </div> 
+                <div>
+                    <h1 class="article-title" style="font-size: 25px;">{{monument.nom}}</h1><br/>
+                    <p style="font-size: 20px;text-align: justify;">{{monument.description}}</p>
+                </div>
+              </div>
+              {% if monument.id == 1 %}
+                <div class="visiting">
+                  {%for x in guerra%}
+                  <img src="/media/{{x.media_url}}" alt="" height="250px" width="250px" style="padding-top: 3px; border-radius:10px;" class="img-visiting">
+                  {%endfor%}
+                </div>
+
+                {% elif monument.id == 2 %}
+                <div class="visiting">
+                  {%for x in devoues%}
+                    <img src="/media/{{x.media_url}}" alt="" height="250px" width="250px" style="padding-top: 3px; border-radius:10px;" class="img-visiting">
+                  {%endfor%}
+                </div>
+
+                {%else%}
+                <div class="visiting">
+                  {%for x in amazone%}
+                    <img src="/media/{{x.media_url}}" alt="" height="250px" width="250px" style="padding-top: 3px; border-radius:10px;" class="img-visiting">
+                  {%endfor%}
+                </div>
+              {%endif%}
           </div>
-        </div>
-
-        <div class="card-visiter cav">
-          <img src="{%static 'img/devoues.png'%}" alt="Monument Amazone">
-          <div class="content-visiter cnv">
-            <h2>Monument Amazone</h2>
-            <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
-            <button>Découvrir</button>
-          </div>
-        </div>
-
-        <div class="card-visiter cav">
-            <img src="{%static 'img/guerra.png'%}" alt="Monument Amazone">
-            <div class="content-visiter cnv">
-              <h2>Monument Amazone</h2>
-              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
-              <button>Découvrir</button>
-            </div>
-        </div>
-
-        <div class="card-visiter cav">
-            <img src="{%static 'img/devoues.png'%}" alt="Monument Amazone">
-            <div class="content-visiter cnv">
-              <h2>Monument Amazone</h2>
-              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
-              <button>Découvrir</button>
-            </div>
-        </div>
-
-        <div class="card-visiter cav">
-            <img src="{%static 'img/daeneris.png'%}" alt="Monument Amazone">
-            <div class="content-visiter cnv">
-              <h2>Monument Amazone</h2>
-              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
-              <button>Visiter</button>
-            </div>
-        </div>
-
+        </div> 
+      {%endfor%}
         <!-- Ajoutez plus de cartes ici -->
       </div>
     </div>
@@ -142,61 +109,36 @@
     <button class="carousel-button-visiter cbv1 left" onclick="scrollLeftt('cv1')">&#10094;</button>
     <div class="carousel-wrapper-visiter cwv1">
       <div class="carousel-visiter cv1">
-
+      {%for musee in musees%}
         <div class="card-visiter cav1">
-          <img src="{%static 'img/guerra.png'%}" alt="Monument Bio Guera">
+          <img src="/media/{{musee.media_profil_url}}" alt="Monument Bio Guera">
           <div class="content-visiter cnv1">
-            <h2>Monument Bio Guera</h2>
-            <p>Combattant de la liberté et de la dignité africaine</p>
-            <button>Découvrir</button>
+            <h2>{{musee.nom}}</h2>
+            <p>{{musee.description|slice:"52"}}</p>
+            <button>Visiter</button>
           </div>
         </div>
 
-        <div class="card-visiter cav1">
-          <img src="{%static 'img/daeneris.png'%}" alt="Monument aux Dévoués">
-          <div class="content-visiter cnv1">
-            <h2>Monument aux Dévoués</h2>
-            <p>En mémoire des enfants du Bénin dévoués à la patrie</p>
-            <button>Découvrir</button>
+        <div class="modal-achat-detail" id="musee{{musee.id}}" style="display:none; justify-content: space-between;height:100%;">
+          <div class="modal-content-achat-detail">
+              <span class="close-button-achat-detail" onclick="closeVisiterDetails('{{musee.id}}')">&times;</span>
+              <div>
+                <div>
+                  <img src="/media/{{musee.media_profil_url}}" alt="{{musee.nom}}" style="margin-right:2%;float: left; height: 50%;width: 40%;">
+                </div> 
+                <div>
+                    <h1 class="article-title" style="font-size: 25px;">{{musee.nom}}</h1><br/>
+                    <p style="font-size: 20px;text-align: justify;">{{musee.description}}</p>
+                </div>
+              </div>
+              <div class="visiting">
+                {%for x in guerra%}
+                <img src="/media/{{x.media_url}}" alt="" height="250px" width="250px" style="padding-top: 3px; border-radius:10px;" class="img-visiting">
+                {%endfor%}
+            </div>
           </div>
-        </div>
-
-        <div class="card-visiter cav1">
-          <img src="{%static 'img/devoues.png'%}" alt="Monument Amazone">
-          <div class="content-visiter cnv1">
-            <h2>Monument Amazone</h2>
-            <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
-            <button>Découvrir</button>
-          </div>
-        </div>
-
-        <div class="card-visiter cav1">
-            <img src="{%static 'img/guerra.png'%}" alt="Monument Amazone">
-            <div class="content-visiter cnv1">
-              <h2>Monument Amazone</h2>
-              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
-              <button>Découvrir</button>
-            </div>
-        </div>
-
-        <div class="card-visiter cav1">
-            <img src="{%static 'img/devoues.png'%}" alt="Monument Amazone">
-            <div class="content-visiter cnv1">
-              <h2>Monument Amazone</h2>
-              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
-              <button>Découvrir</button>
-            </div>
-        </div>
-
-        <div class="card-visiter cav1">
-            <img src="{%static 'img/daeneris.png'%}" alt="Monument Amazone">
-            <div class="content-visiter cnv1">
-              <h2>Monument Amazone</h2>
-              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
-              <button>Visiter</button>
-            </div>
-        </div>
-
+        </div> 
+      {%endfor%}
         <!-- Ajoutez plus de cartes ici -->
       </div>
     </div>
@@ -208,61 +150,36 @@
     <button class="carousel-button-visiter cbv2 left" onclick="scrollLeftt('cv2')">&#10094;</button>
     <div class="carousel-wrapper-visiter cwv2">
       <div class="carousel-visiter cv2">
-
+      {%for parc in parcs%}
         <div class="card-visiter cav2">
-          <img src="{%static 'img/guerra.png'%}" alt="Monument Bio Guera">
+          <img src="/media/{{parc.media_profil_url}}" alt="Monument Bio Guera">
           <div class="content-visiter cnv2">
-            <h2>Monument Bio Guera</h2>
-            <p>Combattant de la liberté et de la dignité africaine</p>
-            <button>Découvrir</button>
+            <h2>{{parc.nom}}</h2>
+            <p>{{parc.description|slice:"52"}}</p>
+            <button>Visiter</button>
           </div>
         </div>
 
-        <div class="card-visiter cav2">
-          <img src="{%static 'img/daeneris.png'%}" alt="Monument aux Dévoués">
-          <div class="content-visiter cnv2">
-            <h2>Monument aux Dévoués</h2>
-            <p>En mémoire des enfants du Bénin dévoués à la patrie</p>
-            <button>Découvrir</button>
+        <div class="modal-achat-detail" id="parc{{parc.id}}" style="display:none; justify-content: space-between;height:100%;">
+          <div class="modal-content-achat-detail">
+              <span class="close-button-achat-detail" onclick="closeVisiterDetails('{{parc.id}}')">&times;</span>
+              <div>
+                <div>
+                  <img src="/media/{{parc.media_profil_url}}" alt="{{parc.nom}}" style="margin-right:2%;float: left; height: 50%;width: 40%;">
+                </div> 
+                <div>
+                    <h1 class="article-title" style="font-size: 25px;">{{parc.nom}}</h1><br/>
+                    <p style="font-size: 20px;text-align: justify;">{{parc.description}}</p>
+                </div>
+              </div>
+              <div class="visiting">
+                {%for x in guerra%}
+                <img src="/media/{{x.media_url}}" alt="" height="250px" width="250px" style="padding-top: 3px; border-radius:10px;" class="img-visiting">
+                {%endfor%}
+            </div>
           </div>
-        </div>
-
-        <div class="card-visiter cav2">
-          <img src="{%static 'img/devoues.png'%}" alt="Monument Amazone">
-          <div class="content-visiter cnv2">
-            <h2>Monument Amazone</h2>
-            <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
-            <button>Découvrir</button>
-          </div>
-        </div>
-
-        <div class="card-visiter cav2">
-            <img src="{%static 'img/guerra.png'%}" alt="Monument Amazone">
-            <div class="content-visiter cnv2">
-              <h2>Monument Amazone</h2>
-              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
-              <button>Découvrir</button>
-            </div>
-        </div>
-
-        <div class="card-visiter cav2">
-            <img src="{%static 'img/devoues.png'%}" alt="Monument Amazone">
-            <div class="content-visiter cnv2">
-              <h2>Monument Amazone</h2>
-              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
-              <button>Découvrir</button>
-            </div>
-        </div>
-
-        <div class="card-visiter cav2">
-            <img src="{%static 'img/daeneris.png'%}" alt="Monument Amazone">
-            <div class="content-visiter cnv2">
-              <h2>Monument Amazone</h2>
-              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
-              <button>Visiter</button>
-            </div>
-        </div>
-
+        </div> 
+      {%endfor%}
         <!-- Ajoutez plus de cartes ici -->
       </div>
     </div>
@@ -275,65 +192,39 @@
     <button class="carousel-button-visiter cbv3 left" onclick="scrollLeftt('cv3')">&#10094;</button>
     <div class="carousel-wrapper-visiter cwv3">
       <div class="carousel-visiter cv3">
-
+      {%for reserve in reserves%}
         <div class="card-visiter cav3">
-          <img src="{%static 'img/guerra.png'%}" alt="Monument Bio Guera">
+          <img src="/media/{{reserve.media_profil_url}}" alt="Monument Bio Guera">
           <div class="content-visiter cnv3">
-            <h2>Monument Bio Guera</h2>
-            <p>Combattant de la liberté et de la dignité africaine</p>
-            <button>Découvrir</button>
+            <h2>{{reserve.nom}}</h2>
+            <p>{{reserve.description|slice:"52"}}</p>
+            <button>Visiter</button>
           </div>
         </div>
 
-        <div class="card-visiter cav3">
-          <img src="{%static 'img/daeneris.png'%}" alt="Monument aux Dévoués">
-          <div class="content-visiter cnv3">
-            <h2>Monument aux Dévoués</h2>
-            <p>En mémoire des enfants du Bénin dévoués à la patrie</p>
-            <button>Découvrir</button>
+        <div class="modal-achat-detail" id="reserve{{reserve.id}}" style="display:none; justify-content: space-between;height:100%;">
+          <div class="modal-content-achat-detail">
+              <span class="close-button-achat-detail" onclick="closeVisiterDetails('{{reserve.id}}')">&times;</span>
+              <div>
+                <div>
+                  <img src="/media/{{reserve.media_profil_url}}" alt="{{reserve.nom}}" style="margin-right:2%;float: left; height: 50%;width: 40%;">
+                </div> 
+                <div>
+                    <h1 class="article-title" style="font-size: 25px;">{{reserve.nom}}</h1><br/>
+                    <p style="font-size: 20px;text-align: justify;">{{reserve.description}}</p>
+                </div>
+              </div>
+              <div>
+x
+              </div>
           </div>
-        </div>
-
-        <div class="card-visiter cav3">
-          <img src="{%static 'img/devoues.png'%}" alt="Monument Amazone">
-          <div class="content-visiter cnv3">
-            <h2>Monument Amazone</h2>
-            <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
-            <button>Découvrir</button>
-          </div>
-        </div>
-
-        <div class="card-visiter cav3">
-            <img src="{%static 'img/guerra.png'%}" alt="Monument Amazone">
-            <div class="content-visiter cnv3">
-              <h2>Monument Amazone</h2>
-              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
-              <button>Découvrir</button>
-            </div>
-        </div>
-
-        <div class="card-visiter cav3">
-            <img src="{%static 'img/devoues.png'%}" alt="Monument Amazone">
-            <div class="content-visiter cnv3">
-              <h2>Monument Amazone</h2>
-              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
-              <button>Découvrir</button>
-            </div>
-        </div>
-
-        <div class="card-visiter cav3">
-            <img src="{%static 'img/daeneris.png'%}" alt="Monument Amazone">
-            <div class="content-visiter cnv3">
-              <h2>Monument Amazone</h2>
-              <p>En l'honneur des guerrières du Bénin d'hier et d'aujourd'hui</p>
-              <button>Visiter</button>
-            </div>
-        </div>
-
+        </div> 
+      {%endfor%}
         <!-- Ajoutez plus de cartes ici -->
       </div>
     </div>
     <button class="carousel-button-visiter cbv3 right" onclick="scrollRight('cv3')">&#10095;</button>
   </div>
-  <script src="{% static 'js/visiter.js' %}"></script>
+  <script src="{% static 'js/detailsVisiter.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/visiter.js' %}" type="text/javascript"></script>
 {%endblock%}

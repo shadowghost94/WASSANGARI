@@ -17,4 +17,7 @@ urlpatterns = [
      path('inscription/', views.inscription, name ='inscription'),
      path('activate/<uidb64>/<token>', views.activate, name="activate"),
      path('modifierProfil/', views.modifierProfil, name="modifierProfil"),
+     path('addEvent/', views.addEvent, name="addEvent"),
+     path('addObjet/', views.addObjet, name='addObjet'),
+     path('addNews/', views.addNews, name="addNews"),
 ]

@@ -1,68 +1,65 @@
-const chatBox = document.getElementById('chat-box');
-const userInput = document.getElementById('user-input-chat');
-const sendButton = document.getElementById('send-button-chat');
 
-async function sendMessage() {
-    const userMessage = userInput.value.trim();
-    if (!userMessage) return;
+    const chatBox = document.getElementById('chat-box');
+    const userInputChat = document.getElementById('user-input-chat');
+    const sendButtonChat = document.getElementById('send-button-chat');
 
-    // Display user message
-    displayMessage(userMessage, 'user');
+    async function sendMessage() {
+        const inputText = userInputChat.value;
 
-    // Clear input
-    userInput.value = '';
+        // Construction de la requête JSON
+        const data = {
+            contents: [
+                {
+                    role: "user",
+                    parts: [{ text: inputText }]
+                }
+            ]
+        };
 
-    try {
-        // Send message to ChatGPT API
-        const response = await fetch('https://api.openai.com/v1/completions', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer sk-proj-sVO9I1158GhO1x9Mt7lCT3BlbkFJQMPimCkd2OWwuZP8RoOL'
-            },
-            body: JSON.stringify({
-                model: 'text-davinci-003',
-                prompt: userMessage,
-                max_tokens: 300,
-                temperature: 0.7
-            })
-        });
+        try {
+            const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyCgHDGBU-YzQeE0LSDi7grRP8lyH5rHzaU', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
 
-        console.log(response);
+            const responseData = await response.json();
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+            // Extraction du texte généré
+            const generatedText = responseData.candidates[0].content.parts[0].text;
+
+            // Affichage du texte généré dans le chat box
+            const userMessageDiv = document.createElement('div');
+            userMessageDiv.textContent = `Vous: ${inputText}`;
+            chatBox.appendChild(userMessageDiv);
+
+            const botMessageDiv = document.createElement('div');
+            botMessageDiv.textContent = `Bot: ${generatedText}`;
+            chatBox.appendChild(botMessageDiv);
+
+            chatBox.appendChild(document.createElement('br'));
+
+            // Réinitialiser l'input de l'utilisateur
+            userInputChat.value = '';
+
+        } catch (error) {
+            console.error('Erreur:', error);
+            const errorMessageDiv = document.createElement('div');
+            errorMessageDiv.textContent = 'Une erreur s\'est produite. Veuillez réessayer.';
+            chatBox.appendChild(errorMessageDiv);
         }
-
-        const data = await response.json();
-        const botMessage = data.choices[0].text.trim();
-
-        // Display bot message
-        displayMessage(botMessage, 'bot');
-    } catch (error) {
-        console.error('Error:', error);
-        displayMessage(`Désolé, une erreur s'est produite: ${error.message}`, 'bot');
     }
-}
 
-function displayMessage(message, sender) {
-    const messageElement = document.createElement('div');
-    messageElement.classList.add('chat-message', sender);
-
-    const messageContent = document.createElement('div');
-    messageContent.classList.add('message');
-    messageContent.textContent = message;
-
-    messageElement.appendChild(messageContent);
-    chatBox.appendChild(messageElement);
-
-    // Scroll to the bottom
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-sendButton.addEventListener('click', sendMessage);
-userInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
+    sendButtonChat.addEventListener('click', (event) => {
+        event.preventDefault();
         sendMessage();
-    }
-});
+    });
+
+    userInputChat.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            sendMessage();
+        }
+    });

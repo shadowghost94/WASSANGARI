@@ -79,6 +79,9 @@ body{
 }
 
 /* Dashboard */
+#ajoutEvent div h2{
+    text-align: center;
+}
 #div-dashboard-principale{
     display: flex;
     
@@ -160,6 +163,39 @@ div.profile-body p span{
 .btn-secondary {
     background-color: #6c757d;
 }
+/* affichage objet */
+nav#meenu-decouvr{
+    background-color: #f7b98c;
+    padding: 10px;
+    border-radius: 5px;
+    width: 96%;
+    margin-top: 2%;
+}
+nav#meenu-decouvr ul{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+}
+nav#meenu-decouvr li{
+    cursor: pointer;
+    padding: 10px 20px;
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
+nav#meenu-decouvr li:hover, nav#meenu-decouvr li.active{
+    background-color: hsl(7, 62%, 56%);
+    border-radius: 5px;
+}
+.content-affich-section {
+    display: none;
+}
+
+.content-affich-section.active {
+    display: block;
+}
+
 /* Modification profil dash */
 .form-container-das {
     max-width: 600px;
@@ -236,7 +272,7 @@ div.profile-body p span{
     border-radius: 10px;
     position: fixed;
     z-index: 10;
-    width: 80%;
+    width: 90%;
     margin-bottom: 10%;
 }
 
@@ -430,7 +466,7 @@ h2#h2-partager{
 .item-decouvrir-benin:hover{
     background-color: hsl(25, 55%, 54%);;
 }
-#back-to-main1, #back-to-main2, #back-to-main3, #back-to-main4, #back-to-main5, #back-to-main6, #back-to-main7, #back-to-main8, #back-to-main9, #back-to-main10 {
+#back-to-main-danses-div, #back-to-main1, #back-to-main2, #back-to-main3, #back-to-main4, #back-to-main5, #back-to-main6, #back-to-main7, #back-to-main8, #back-to-main9, #back-to-main10, #back-to-main13 {
     padding: 10px 20px; /* Espacement à l'intérieur du bouton */
     background-color: #f7b98c; /* Couleur de fond */
     color: white; /* Couleur du texte */
@@ -441,11 +477,11 @@ h2#h2-partager{
     /* position: fixed; */
 }
 
-#back-to-main1 i, #back-to-main2 i, #back-to-main3 i, #back-to-main4 i, #back-to-main5 i, #back-to-main6 i, #back-to-main7 i, #back-to-main8 i, #back-to-main9 i, #back-to-main10 i {
+#back-to-main-danses-div i, #back-to-main1 i, #back-to-main2 i, #back-to-main3 i, #back-to-main4 i, #back-to-main5 i, #back-to-main6 i, #back-to-main7 i, #back-to-main8 i, #back-to-main9 i, #back-to-main10 i, #back-to-main13 i {
     margin-right: 5px;
 }
 
-#back-to-main1:hover, #back-to-main2:hover, #back-to-main3:hover, #back-to-main4:hover, #back-to-main5:hover, #back-to-main6:hover, #back-to-main7:hover, #back-to-main8:hover, #back-to-main9:hover, #back-to-main10:hover {
+#back-to-main-danses-div:hover, #back-to-main1:hover, #back-to-main2:hover, #back-to-main3:hover, #back-to-main4:hover, #back-to-main5:hover, #back-to-main6:hover, #back-to-main7:hover, #back-to-main8:hover, #back-to-main9:hover, #back-to-main10:hover, #back-to-main13:hover {
     background-color: hsl(25, 55%, 54%); /* Changement de couleur de fond au survol */
 }
 
@@ -544,6 +580,98 @@ div#content-decouvr.active{
 #main-detail{
     width: 96%;
 }
+/* videoss */
+.video-thumbnail-pol {
+    position: relative;
+    cursor: pointer;
+    width: 20%;
+    display: inline-block;
+    overflow: hidden; /* Pour masquer le contrôle du lecteur vidéo */
+    margin-top: 2%;
+}
+
+.video-preview-pol {
+    width: 100%;
+    height: auto;
+}
+
+.play-button-pol {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+.play-button-pol::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 25px solid #fff;
+}
+
+.video-title-pol {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+    text-align: center; /* Centrer le titre */
+}
+
+.modal-pol {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content-pol {
+    position: relative;
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 700px;
+    text-align: center; /* Centrer le contenu */
+}
+
+
+.close-pol {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-pol:hover,
+.close-pol:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-video-title-pol {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
 
 /* grid ethnie */
 
@@ -563,7 +691,7 @@ div#content-decouvr.active{
     margin-left: 5%;
 }
 .grid-item-ethnie {
-    flex: 1 1 calc(100% / 6); /* Each cell takes up 1/6 of the container's width */
+    flex: 1 1 calc(100% / 7); /* Each cell takes up 1/6 of the container's width */
     box-sizing: border-box;
     padding: 10px;
     border: 1px solid #ccc; /* Optional, for visual clarity */
@@ -572,7 +700,7 @@ div#content-decouvr.active{
     align-items: center;
     justify-content: center;
     text-align: center;
-    max-width: calc(100% / 6); /* Ensure each cell does not exceed 1/6 of the container's width */
+    max-width: calc(100% / 7); /* Ensure each cell does not exceed 1/6 of the container's width */
     border-radius: 5px;
     background-color: #f7b98c;
     color: white;
@@ -734,6 +862,44 @@ div#content-decouvr.active{
 }
 
 .grid-item-histoire:hover{
+    background-color: hsl(25, 55%, 54%);
+}
+
+/* grid chants-danses */
+#chants-danses-div{
+    position: absolute;
+    top: 7%;
+    width: 98%;
+    max-height: 1000px;
+    
+}
+.grid-container-chants-danses {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 3%;
+    margin-left: 5%;
+}
+.grid-item-chants-danses {
+    flex: 1 1 calc(100% / 6); /* Each cell takes up 1/6 of the container's width */
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc; /* Optional, for visual clarity */
+    height: 100px; /* Optional, to make the cells rectangular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: calc(100% / 6); /* Ensure each cell does not exceed 1/6 of the container's width */
+    border-radius: 5px;
+    background-color: #f7b98c;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+}
+
+.grid-item-chants-danses:hover{
     background-color: hsl(25, 55%, 54%);
 }
 
@@ -927,7 +1093,11 @@ div#content-decouvr.active{
     background-color: rgba(0, 0, 0, 0.8);
     padding-top: 60px;
 }
-
+div.visiting .img-visiting:hover{
+    box-sizing: border-box;
+    border: 1px solid black;
+    cursor: pointer;
+}
 .modal-content-achat-detail {
     background-color: #fff;
     margin: 5% auto;
@@ -1147,20 +1317,21 @@ main.main-banque {
     padding: 10px;
     margin-bottom: 10px;
     background-color: #fafafa;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .message {
     margin: 10px 0;
 }
 
-.user-message {
-    text-align: right;
-}
-
-.bot-message {
-    text-align: left;
-    color: #007BFF;
-}
+.user-label, .bot-label {
+    font-size: 20px;
+    font-weight: bold;
+    }
+.user-message, .bot-message {
+    font-size: 20px;
+    }
 
 #user-input-chat {
     width: calc(100% - 100px);
@@ -1187,4 +1358,51 @@ main.main-banque {
 
 #send-button-chat:hover {
     background-color: #0056b3;
+}
+/* proprétés du message qui s'affiche */
+#alerte{
+    position: absolute;
+    top: 20px;
+    right: 5px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+
+/* Chants & Danses */
+.containerCD {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+
+}
+
+.tabCD-btn {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #f7b98c;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.tabCD-btn:hover {
+    background-color: hsl(25, 55%, 54%);
+}
+
+.content {
+    display: none;
+    margin-top: 20px;
+}
+
+#chants.active,
+#dances.active {
+    display: block;
 }

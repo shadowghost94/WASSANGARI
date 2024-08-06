@@ -7,27 +7,28 @@
 <div>
     <div class="" style="display: flex;flex-direction: column;gap: 20px;padding: 20px;">
         {%for actualite in actualites%}
-            <div class="article" onclick="showActuDetails('{{actualite.id}}')" >
-                <img src="/media/{{actualite.media_url}}" alt="Image 1" class="article-img">
-                <div class="article-content">
-                    <h2 class="article-title">{{actualite.titre}}</h2>
-                    <p class="article-snippet">{{actualite.descritpion}}</p>
-                    <span class="article-time">{{actualite.created_at}}</span>
-                    {% comment %} <span class="article-source">{{actualite.auteur}}</span> {% endcomment %}
-                </div>
-            </div>
-            <div class="modal-achat-detail" id="{{objet.id}}" style="display:none;">
-                <div class="modal-content-achat-detail">
-                    <span class="close-button-achat-detail" onclick="closeAchatDetails('{{objet.id}}')">&times;</span>
-                    <div>
-                        <img src="/media/{{actualite.media_url}}" alt="{{actualite.titre}}"><clear/>
-                        <p>{{actualite.contenue}}</p>
-                    </div>
-                </div>
+        <div class="article" onclick="showActuDetails('{{actualite.id}}')" style="display: flex;">
+            <img src="/media/{{actualite.media_url}}" alt="Image 1" class="article-img">
+            <div class="article-content">
+                <h2 class="article-title">{{actualite.titre}}</h2>
+                <p class="article-snippet">{{ actualite.contenue|slice:":300" }} ...<span style="color: blue;">Voir plus</span></p>
+                <span class="article-time">{{actualite.created_at}}</span>
             </div>
         </div>
+        <div class="modal-achat-detail" id="informer{{actualite.id}}" style="display:none; justify-content: space-between;">
+            <div class="modal-content-achat-detail">
+                <span class="close-button-achat-detail" onclick="closeActuDetails('{{actualite.id}}')">&times;</span>
+                <div>
+                    <img src="/media/{{actualite.media_url}}" alt="{{actualite.titre}}" style="margin-right:2%;float: left; height: 50%;width: 40%;">
+                   <div>
+                        <h1 class="article-title" style="font-size: 25px;">{{actualite.titre}}</h1><br/>
+                        <p style="font-size: 20px;text-align: justify;">{{actualite.contenue}}</p>
+                   </div>
+                </div>
+            </div>
+        </div>        
         {%endfor%}
     </div>
 </div>
-<script src="{% static 'js/informer.js' %}"></script>
+<script src="{% static 'js/informer.js' %}" type="text/javascript"></script>
 {%endblock%}

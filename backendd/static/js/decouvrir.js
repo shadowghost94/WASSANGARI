@@ -305,3 +305,54 @@ document.getElementById('back-to-main10').addEventListener('click', function() {
     document.getElementById('histoire-div-div').style.display = 'none';
     document.getElementById('back-to-main10').style.display = 'none';
 });
+
+
+/* DECOUVRIR CHANTS ET DANSES */
+document.getElementById('decouvr-cd').addEventListener('click', function() {
+    // Masquer toutes les sections grid-item
+    document.querySelectorAll('.item-decouvrir').forEach(function(item) {
+        item.style.display = 'none';
+    });
+    document.getElementById('chants-danses-div-div').style.display = 'flex';
+    document.getElementById('back-to-main13').style.display='block';
+});
+
+document.getElementById('back-to-main13').addEventListener('click', function() {
+    // Afficher toutes les sections grid-item
+    document.querySelectorAll('.item-decouvrir').forEach(function(item) {
+        item.style.display = 'flex';
+        item.style.alignItems = 'center';      // Alignement vertical au centre
+        item.style.justifyContent = 'center';  // Alignement horizontal au centre
+    });
+    document.getElementById('chants-danses-div-div').style.display = 'none';
+    document.getElementById('back-to-main13').style.display = 'none';
+});
+
+// chants danses
+function showRest(ethnieId) {
+    
+    const grids = document.querySelectorAll('.grid-item-chants-danses');
+    const detail = document.getElementById(ethnieId);
+
+    grids.forEach( contain => {
+        contain.style.display = 'none';
+    });
+    document.getElementById('back-to-main13').style.display = 'none';
+    document.getElementById('back-to-main-danses-div').style.display = 'block';
+    detail.style.display = 'block';
+}
+document.getElementById('back-to-main-danses-div').addEventListener('click', function() {
+    document.getElementById('back-to-main-danses-div').style.display = 'none';
+    const containers = document.getElementsByClassName('containerCD');
+    
+    // Convertir la collection HTML en un tableau pour pouvoir utiliser forEach
+    Array.from(containers).forEach(container => {
+        container.style.display = 'none';
+    });
+
+    const grids = document.querySelectorAll('.grid-item-chants-danses');
+    grids.forEach( contain => {
+        contain.style.display = 'flex';
+    });
+    document.getElementById('back-to-main13').style.display = 'block';
+});

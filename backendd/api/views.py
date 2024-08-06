@@ -17,15 +17,16 @@ import re
 
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from datetime import date
 
 
 def index(request):
     return render(request, 'index.html')
 
 @login_required
-def dashboard(request):
+def dashboard(request, comment=None):
     user = request.user
-    return render(request, 'dashboard.html', {'user':user})
+    return render(request, 'dashboard.html', {'user':user, 'comment':comment})
 
 @login_required
 def apprendre(request):
@@ -41,8 +42,16 @@ def decouvrir(request):
 
 @login_required
 def visiter(request):
+    musee = Musee.objects.all()
+    monument = Monument.objects.all()
+    parc = ParcNational.objects.all()
+    reserve = Reserve.objects.all()
+    sitehistorique = SiteHistorique.objects.all()
     user = request.user
-    return render(request, 'visiter.html', {'user':user})
+    guerra = ContenuMultimedia.objects.filter(monument_id=1)
+    devoues = ContenuMultimedia.objects.filter(monument_id=2)
+    amazone = ContenuMultimedia.objects.filter(monument_id=3)
+    return render(request, 'visiter.html', {'user':user, 'musees':musee, 'monuments':monument, 'parcs':parc, 'reserves':reserve, 'sitehistorique':sitehistorique, 'guerra':guerra, 'devoues':devoues, 'amazone':amazone})
 
 @login_required
 def explorer(request):
@@ -51,8 +60,9 @@ def explorer(request):
 
 @login_required
 def informer(request):
+    news = Actualites.objects.all()
     user = request.user
-    return render(request, 'informer.html', {'user':user})
+    return render(request, 'informer.html', {'user':user, 'actualites': news})
 
 @login_required
 def acheter(request):
@@ -230,3 +240,73 @@ def deconnexion(request):
     logout(request)
     messages.success(request, 'Vous avez bien été déconecté')
     return redirect('index')
+
+# Vues Event-Objet-News
+def addEvent(request):
+    if request.method == 'POST':
+        nom_event = request.POST['nom']
+        description = request.POST['description']
+        lieu = request.POST['lieu']
+        prix = request.POST['prix']
+        place = request.POST['place']
+        image_ban = request.FILES['image-ban']
+
+        dateEvent = request.POST['dateEvent']
+        date_saisi = date.fromisoformat(dateEvent)
+        date_actu = date.today()
+        diff = (date_saisi - date_actu).days
+
+        event = Evenement(
+            nom=nom_event,
+            description=description,
+            date= dateEvent,
+            lieu=lieu,
+            statut = diff,
+            prix_entree=prix,
+            nbr_places_dispo=place,
+            media_profil_url=image_ban
+        )
+        event.save()
+
+        return JsonResponse({'message': 'Événement enregistré avec succès'})
+    else:
+        return render(request, 'dashboard.html')
+
+def addObjet(request):
+    if request.method == 'POST':
+        titre_objet = request.POST['nomObjet']
+        auteur = request.POST['auteur']
+        description = request.POST['descriptionObjet']
+        prix = request.POST['prixObjet']
+        image_ban = request.FILES['image-Objet']
+
+        objet = ObjetVente(
+            titre = titre_objet,
+            auteur = auteur,
+            prix = prix,
+            description = description,
+            media_url = image_ban
+        )
+        objet.save()
+
+        return JsonResponse({'message': 'Événement enregistré avec succès'})
+    else:
+        return render(request, 'dashboard.html')
+    
+def addNews(request):
+    if request.method == 'POST':
+        title = request.POST['title']
+        contenue = request.POST['contenue']
+        image_ban = request.FILES['image-News']
+
+        news = Actualites(
+            titre = title,
+            contenue = contenue,
+            media_url = image_ban
+        )
+
+        news.save()
+
+        return JsonResponse({'message': 'Actualité ajouté avec succès'})
+    else:
+        return render(request, 'dashboard.html')
