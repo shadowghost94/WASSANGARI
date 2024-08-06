@@ -7,3 +7,4 @@
 backendd/api/migrations
 __init__.py
 .idea*
+node_modules
