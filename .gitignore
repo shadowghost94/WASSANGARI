@@ -2,7 +2,6 @@
 **/db.sqlite3
 **/DB backup
 **/log.txt
-**/staticfiles
 **/media
 backendd/api/migrations
 __init__.py
