@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+import dj_database_url
 from datetime import timedelta
 from .info import *
 
@@ -87,12 +88,13 @@ WSGI_APPLICATION = "backendd.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "wassangari",
-        "USER": "phpmyadmin",
-        "PASSWORD": "admin",
-        "HOST": "localhost"
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv('DB_NAME'),  # Nom de la base de données
+        'USER': os.getenv('DB_USER'),  # Nom d'utilisateur
+        'PASSWORD': os.getenv('DB_PASSWORD'),  # Mot de passe
+        'HOST': os.getenv('DB_HOST'),  # Hôte de la base de données
+        'PORT': '3306',  # Port de la base de données MySQL
     }
 }
 
