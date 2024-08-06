@@ -15,7 +15,7 @@ Prérequis
 
 Assurez-vous que vous avez les outils suivants installés :
 
-    Python 3.x
+    Python 4.2.13
     pip (pour installer les dépendances Python)
     virtualenv (optionnel mais recommandé pour les environnements virtuels)
 
@@ -136,11 +136,4 @@ Créer un super utilisateur (optionnel) :
 bash
 
     heroku run python manage.py createsuperuser
-
-## Propriété Intellectuelle
-
-Ce projet est la propriété intellectuelle de Waxangari L@bs. Toute copie, distribution, ou utilisation de ce projet sans autorisation écrite explicite de Waxangari l@bs est interdite.
-
-Pour toute demande d'autorisation ou de renseignements supplémentaires, veuillez contacter waxangarilabs@gmail.com.
-
 
