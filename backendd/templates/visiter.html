@@ -13,7 +13,7 @@
 
       {%for site in sitehistorique%}
         <div class="card-visiter cav4">
-          <img src="/media/{{site.media_profil_url}}" alt="Monument Bio Guera">
+          <img src="{{site.media_profil_url}}" alt="Monument Bio Guera">
           <div class="content-visiter cnv4">
             <h2>{{site.nom}}</h2>
             <p>{{site.description|slice:":52"}}</p>
@@ -26,7 +26,7 @@
               <span class="close-button-achat-detail" onclick="closeVisiterDetails('{{site.id}}')">&times;</span>
               <div>
                 <div>
-                  <img src="/media/{{site.media_profil_url}}" alt="{{site.nom}}" style="margin-right:2%;float: left; height: 50%;width: 40%;">
+                  <img src="{{site.media_profil_url}}" alt="{{site.nom}}" style="margin-right:2%;float: left; height: 50%;width: 40%;">
                 </div> 
                 <div>
                     <h1 class="article-title" style="font-size: 25px;">{{site.nom}}</h1><br/>
@@ -53,7 +53,7 @@ x
       <div class="carousel-visiter cv">
       {%for monument in monuments%}
         <div class="card-visiter cav">
-          <img src="/media/{{monument.media_profil_url}}" alt="Monument Bio Guera">
+          <img src="{{monument.media_profil_url}}" alt="Monument Bio Guera">
           <div class="content-visiter cnv">
             <h2>{{monument.nom}}</h2>
             <p>{{monument.description|slice:":52"}}</p>
@@ -66,7 +66,7 @@ x
               <span class="close-button-achat-detail" onclick="closeMonumDetails('{{monument.id}}')">&times;</span>
               <div>
                 <div>
-                  <img src="/media/{{monument.media_profil_url}}" alt="{{monument.nom}}" style="margin-right:2%;float: left; height: 50%;width: 40%;">
+                  <img src="{{monument.media_profil_url}}" alt="{{monument.nom}}" style="margin-right:2%;float: left; height: 50%;width: 40%;">
                 </div> 
                 <div>
                     <h1 class="article-title" style="font-size: 25px;">{{monument.nom}}</h1><br/>
@@ -76,21 +76,21 @@ x
               {% if monument.id == 1 %}
                 <div class="visiting">
                   {%for x in guerra%}
-                  <img src="/media/{{x.media_url}}" alt="" height="250px" width="250px" style="padding-top: 3px; border-radius:10px;" class="img-visiting">
+                  <img src="{{x.media_url}}" alt="" height="250px" width="250px" style="padding-top: 3px; border-radius:10px;" class="img-visiting">
                   {%endfor%}
                 </div>
 
                 {% elif monument.id == 2 %}
                 <div class="visiting">
                   {%for x in devoues%}
-                    <img src="/media/{{x.media_url}}" alt="" height="250px" width="250px" style="padding-top: 3px; border-radius:10px;" class="img-visiting">
+                    <img src="{{x.media_url}}" alt="" height="250px" width="250px" style="padding-top: 3px; border-radius:10px;" class="img-visiting">
                   {%endfor%}
                 </div>
 
                 {%else%}
                 <div class="visiting">
                   {%for x in amazone%}
-                    <img src="/media/{{x.media_url}}" alt="" height="250px" width="250px" style="padding-top: 3px; border-radius:10px;" class="img-visiting">
+                    <img src="{{x.media_url}}" alt="" height="250px" width="250px" style="padding-top: 3px; border-radius:10px;" class="img-visiting">
                   {%endfor%}
                 </div>
               {%endif%}
@@ -111,7 +111,7 @@ x
       <div class="carousel-visiter cv1">
       {%for musee in musees%}
         <div class="card-visiter cav1">
-          <img src="/media/{{musee.media_profil_url}}" alt="Monument Bio Guera">
+          <img src="{{musee.media_profil_url}}" alt="Monument Bio Guera">
           <div class="content-visiter cnv1">
             <h2>{{musee.nom}}</h2>
             <p>{{musee.description|slice:"52"}}</p>
@@ -124,7 +124,7 @@ x
               <span class="close-button-achat-detail" onclick="closeVisiterDetails('{{musee.id}}')">&times;</span>
               <div>
                 <div>
-                  <img src="/media/{{musee.media_profil_url}}" alt="{{musee.nom}}" style="margin-right:2%;float: left; height: 50%;width: 40%;">
+                  <img src="{{musee.media_profil_url}}" alt="{{musee.nom}}" style="margin-right:2%;float: left; height: 50%;width: 40%;">
                 </div> 
                 <div>
                     <h1 class="article-title" style="font-size: 25px;">{{musee.nom}}</h1><br/>
@@ -133,7 +133,7 @@ x
               </div>
               <div class="visiting">
                 {%for x in guerra%}
-                <img src="/media/{{x.media_url}}" alt="" height="250px" width="250px" style="padding-top: 3px; border-radius:10px;" class="img-visiting">
+                <img src="{{x.media_url}}" alt="" height="250px" width="250px" style="padding-top: 3px; border-radius:10px;" class="img-visiting">
                 {%endfor%}
             </div>
           </div>
@@ -152,7 +152,7 @@ x
       <div class="carousel-visiter cv2">
       {%for parc in parcs%}
         <div class="card-visiter cav2">
-          <img src="/media/{{parc.media_profil_url}}" alt="Monument Bio Guera">
+          <img src="{{parc.media_profil_url}}" alt="Monument Bio Guera">
           <div class="content-visiter cnv2">
             <h2>{{parc.nom}}</h2>
             <p>{{parc.description|slice:"52"}}</p>
