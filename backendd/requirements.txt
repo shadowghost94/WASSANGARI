@@ -12,3 +12,4 @@ six==1.16.0
 types-six==1.16
 psycopg2==2.9.9
 dj-database-url==2.2.0
+whitenoise==6.7.0

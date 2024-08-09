@@ -1,0 +1,426 @@
+#content-apprendre{ 
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.grid-apprendre{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 150px 150px 150px;
+    gap: 10px;
+    width: 90%;
+    height: 90%;
+
+}
+
+.item-apprendre{
+    background-color: #f7b98c;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.item-apprendre:hover{
+    background-color: hsl(25, 55%, 54%);
+}
+/* Bénin */
+#apprendre-benin{ 
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -5%;
+}
+
+.grid-apprendre-benin{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 110px;
+    gap: 10px;
+    width: 90%;
+    height: 100%;
+    padding-top: 10%;
+    padding-left: 5%;
+}
+
+.item-apprendre-benin{
+    background-color: #f7b98c;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 180px;
+}
+
+.item-apprendre-benin:hover{
+    background-color: hsl(25, 55%, 54%);;
+}
+#appr-back-to-main1, #appr-back-to-main2, #appr-back-to-main3, #appr-back-to-main4, #appr-back-to-main5, #appr-back-to-main6, #appr-back-to-main7, #appr-back-to-main8, #appr-back-to-main9, #appr-back-to-main10 {
+    padding: 10px 20px; /* Espacement à l'intérieur du bouton */
+    background-color: #f7b98c; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    border: none; /* Suppression de la bordure */
+    border-radius: 5px; /* Arrondi des coins */
+    cursor: pointer; /* Curseur pointeur */
+    font-size: 16px; /* Taille de la police */
+    /* position: fixed; */
+}
+
+#appr-back-to-main1 i, #appr-back-to-main2 i, #appr-back-to-main3 i, #appr-back-to-main4 i, #appr-back-to-main5 i, #appr-back-to-main6 i, #appr-back-to-main7 i, #appr-back-to-main8 i, #appr-back-to-main9 i, #appr-back-to-main10 i {
+    margin-right: 5px;
+}
+
+#appr-back-to-main1:hover, #appr-back-to-main2:hover, #appr-back-to-main3:hover, #appr-back-to-main4:hover, #appr-back-to-main5:hover, #appr-back-to-main6:hover, #appr-back-to-main7:hover, #appr-back-to-main8:hover, #appr-back-to-main9:hover, #appr-back-to-main10:hover {
+    background-color: hsl(25, 55%, 54%); /* Changement de couleur de fond au survol */
+}
+
+/* Scrollbar apprendre text-poscast-video-image */
+nav#menu-apprend{
+    background-color: #f7b98c;
+    padding: 10px;
+    border-radius: 5px;
+    width: 96%;
+    margin-top: 2%;
+}
+nav#menu-apprend ul{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+}
+nav#menu-apprend li{
+    cursor: pointer;
+    padding: 10px 20px;
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
+nav#menu-apprend li:hover, nav#menu-apprend li.active{
+    background-color: hsl(25, 55%, 54%);
+    border-radius: 5px;
+}
+div#content-apprend{
+    display: none;
+    flex-grow: 1;
+    padding: 20px;
+}
+div#content-apprend.active{
+    display: block;
+}
+
+.appr-content-uniq {
+    display: none; /* Cacher tous les contenus par défaut */
+}
+.appr-content-uniq.active {
+    display: block; /* Afficher le contenu actif */
+}
+
+.appr-content-uniqq{
+    display: none; /* Cacher tous les contenus par défaut */
+}
+.appr-content-uniqq.active{
+    display: block; /* Afficher le contenu actif */
+}
+.appr-content-uniqqq{
+    display: none; /* Cacher tous les contenus par défaut */
+}
+.appr-content-uniqqq.active{
+    display: block; /* Afficher le contenu actif */
+}
+.appr-content-uniqqqq{
+    display: none; /* Cacher tous les contenus par défaut */
+}
+.appr-content-uniqqqq.active{
+    display: block; /* Afficher le contenu actif */
+}
+
+/* .appr-header-detail {
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-top: 2%;
+    text-decoration: underline;
+}
+
+.appr-header-detail i {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.appr-content-detail {
+    margin-top: 10px;
+    transition: max-height 0.3s ease-out;
+}
+.appr-content-detail p{
+    font-size: 20px;
+    text-align: justify;
+}
+.hidden {
+    max-height: 0;
+    overflow: hidden;
+}
+
+.hidden ~ .appr-header-detail i {
+    transform: rotate(-180deg);
+} */
+
+/* Style qui permet de dans le menu apprendre d'ouvrir et fermer au click */
+.search-container {
+    margin-top: 12%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: auto;
+}
+.related-questions h3 {
+    font-size: 18px;
+    color: #202124;
+}
+
+.related-questions a {
+    color: #1a0dab;
+    text-decoration: none;
+}
+
+.question {
+    margin-top: 10px;
+}
+
+.question-summary {
+    font-size: 16px;
+    color: #1a0dab;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f1f3f4;
+    border-radius: 4px;
+}
+
+.question-summary:hover {
+    background-color: #e8eaed;
+}
+
+.question-detail {
+    display: none;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #4d5156;
+    padding: 10px;
+    background-color: #f1f3f4;
+    border-radius: 4px;
+}
+
+#appr-main-detail{
+    width: 96%;
+}
+
+/* grid ethnie */
+#appr-ethnie-div{
+    position: absolute;
+    top: 10%;
+    width: 98%;
+    max-height: 1000px;
+    
+}
+.appr-grid-container-ethnie {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 3%;
+    margin-left: 5%;
+}
+.appr-grid-item-ethnie {
+    flex: 1 1 calc(100% / 6); /* Each cell takes up 1/6 of the container's width */
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc; /* Optional, for visual clarity */
+    height: 100px; /* Optional, to make the cells rectangular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: calc(100% / 6); /* Ensure each cell does not exceed 1/6 of the container's width */
+    border-radius: 5px;
+    background-color: #f7b98c;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+}
+
+.appr-grid-item-ethnie:hover{
+    background-color: hsl(25, 55%, 54%);
+}
+
+
+/* grid langues */
+#appr-langue-div{
+    position: absolute;
+    top: 10%;
+    width: 98%;
+    max-height: 1000px;
+    
+}
+.appr-grid-container-langue {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 3%;
+    margin-left: 5%;
+}
+.appr-grid-item-langue {
+    flex: 1 1 calc(100% / 6); /* Each cell takes up 1/6 of the container's width */
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc; /* Optional, for visual clarity */
+    height: 100px; /* Optional, to make the cells rectangular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: calc(100% / 6); /* Ensure each cell does not exceed 1/6 of the container's width */
+    border-radius: 5px;
+    background-color: #f7b98c;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+}
+
+.appr-grid-item-langue:hover{
+    background-color: hsl(25, 55%, 54%);
+}
+
+/* grid gastro */
+#appr-gastro-div{
+    position: absolute;
+    top: 10%;
+    width: 98%;
+    max-height: 1000px;
+    
+}
+.appr-grid-container-gastro {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 3%;
+    margin-left: 5%;
+}
+.appr-grid-item-gastro {
+    flex: 1 1 calc(100% / 6); /* Each cell takes up 1/6 of the container's width */
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc; /* Optional, for visual clarity */
+    height: 100px; /* Optional, to make the cells rectangular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: calc(100% / 6); /* Ensure each cell does not exceed 1/6 of the container's width */
+    border-radius: 5px;
+    background-color: #f7b98c;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+}
+
+.appr-grid-item-gastro:hover{
+    background-color: hsl(25, 55%, 54%);
+}
+
+/* grid divinites */
+#appr-divinites-div{
+    position: absolute;
+    top: 10%;
+    width: 98%;
+    max-height: 1000px;
+    
+}
+.appr-grid-container-divinites {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 3%;
+    margin-left: 5%;
+}
+.appr-grid-item-divinites {
+    flex: 1 1 calc(100% / 6); /* Each cell takes up 1/6 of the container's width */
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc; /* Optional, for visual clarity */
+    height: 100px; /* Optional, to make the cells rectangular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: calc(100% / 6); /* Ensure each cell does not exceed 1/6 of the container's width */
+    border-radius: 5px;
+    background-color: #f7b98c;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+}
+
+.appr-grid-item-divinites:hover{
+    background-color: hsl(25, 55%, 54%);
+}
+
+/* grid histoire */
+#appr-histoire-div{
+    position: absolute;
+    top: 10%;
+    width: 98%;
+    max-height: 1000px;
+    
+}
+.appr-grid-container-histoire {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 3%;
+    margin-left: 5%;
+}
+.appr-grid-item-histoire {
+    flex: 1 1 calc(100% / 6); /* Each cell takes up 1/6 of the container's width */
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc; /* Optional, for visual clarity */
+    height: 100px; /* Optional, to make the cells rectangular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: calc(100% / 6); /* Ensure each cell does not exceed 1/6 of the container's width */
+    border-radius: 5px;
+    background-color: #f7b98c;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+}
+
+.appr-grid-item-histoire:hover{
+    background-color: hsl(25, 55%, 54%);
+}
