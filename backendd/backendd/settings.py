@@ -29,7 +29,7 @@ SECRET_KEY = "django-insecure-5tkne!-vjoi7h0!#p-3m$kkmojev63p=$!3%r*o2tix=mcbnqw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['wassangari.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['wassangari.onrender.com', 'localhost', '127.0.0.1', 'plateforme.waxangari.org']
 
 
 # Application definition
