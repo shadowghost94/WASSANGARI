@@ -7,7 +7,7 @@
 <div class="events-container">
     {%for event in events%}
     <div class="event-card" onclick="showEventDetails('{{event.id}}')">
-        <img src="/media/{{event.media_profil_url}}" alt="Événement 1" class="event-image">
+        <img src="{{event.media_profil_url}}" alt="Événement 1" class="event-image">
         <div class="event-content">
             <div class="event-status">{{event.statut}}</div>
             <div class="event-description">
@@ -26,7 +26,7 @@
         <div class="modal-content-event-detail">
             <span class="close-button-event-detail" onclick="closeEventDetails('{{event.id}}')">&times;</span>
             <div id="event-details-content">
-                <img src="/media/{{event.media_profil_url}}" alt="" class="event-image">
+                <img src="{{event.media_profil_url}}" alt="" class="event-image">
                 <div>
                     <h2 class="event-title" id="event-title-descript">{{event.nom}}</h2>
                     <p class="event-date"><i class="fas fa-calendar-alt"></i> {{event.date}}</p>

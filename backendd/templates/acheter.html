@@ -8,7 +8,7 @@
     {% for objet in objets%}
     <div>
         <div class="art-item" onclick="showAchatDetails('{{objet.id}}')">
-            <img src="/media/{{objet.media_url}}" alt="Titre de l'œuvre" />
+            <img src="{{objet.media_url}}" alt="Titre de l'œuvre" />
             <h3>{{objet.titre}}</h3>
             <p>Auteur : {{objet.auteur}}</p>
             <p>Prix : {{objet.prix}} FCFA</p>
@@ -18,7 +18,7 @@
             <div class="modal-content-achat-detail">
                 <span class="close-button-achat-detail" onclick="closeAchatDetails('{{objet.id}}')">&times;</span>
                 <div id="achat-details-content">
-                    <img src="/media/{{objet.media_url}}" alt="" class="achat-image">
+                    <img src="{{objet.media_url}}" alt="" class="achat-image">
                     <div>
                         <h2 class="achat-title" id="achat-title-descript">{{objet.titre}}</h2>
                         <p class="achat-organizer"><i class="fas fa-user"></i> Par, {{objet.auteur}} {{user.prenom}}</p>

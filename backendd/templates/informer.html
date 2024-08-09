@@ -8,7 +8,7 @@
     <div class="" style="display: flex;flex-direction: column;gap: 20px;padding: 20px;">
         {%for actualite in actualites%}
         <div class="article" onclick="showActuDetails('{{actualite.id}}')" style="display: flex;">
-            <img src="/media/{{actualite.media_url}}" alt="Image 1" class="article-img">
+            <img src="{{actualite.media_url}}" alt="Image 1" class="article-img">
             <div class="article-content">
                 <h2 class="article-title">{{actualite.titre}}</h2>
                 <p class="article-snippet">{{ actualite.contenue|slice:":300" }} ...<span style="color: blue;">Voir plus</span></p>
@@ -19,7 +19,7 @@
             <div class="modal-content-achat-detail">
                 <span class="close-button-achat-detail" onclick="closeActuDetails('{{actualite.id}}')">&times;</span>
                 <div>
-                    <img src="/media/{{actualite.media_url}}" alt="{{actualite.titre}}" style="margin-right:2%;float: left; height: 50%;width: 40%;">
+                    <img src="{{actualite.media_url}}" alt="{{actualite.titre}}" style="margin-right:2%;float: left; height: 50%;width: 40%;">
                    <div>
                         <h1 class="article-title" style="font-size: 25px;">{{actualite.titre}}</h1><br/>
                         <p style="font-size: 20px;text-align: justify;">{{actualite.contenue}}</p>
